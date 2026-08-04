@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/gh/genizy/assets@main/backrooms/js/main.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Backrooms</title>
+    <link rel="icon" href="./_vendor/icon.png" />
+    <link rel="stylesheet" href="./_vendor/style.css" />
+    <script src="../_shared/genizy-assets-backrooms_templatedata/UnityProgress.js"></script>
+    <script src="../_shared/genizy-assets-backrooms_build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "./_vendor/WebGL.json", { onProgress: UnityProgress });
+    </script>
+  <style>
+
+
+
+
+.sidebar-frame {
+  width: 160px;
+  height: 600px;
+  border: none;
+  display: block;
+}
+</style>
+</head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px;"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Backrooms</div>
+      </div>
+    </div>
+  </body>
+</html>
