@@ -107,8 +107,8 @@
   }
 })();
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script>
-<script>window.SURD_GAME={"id":"ovo-3-dimensions","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/ovo-3-dimensions/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v04f495185f/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v04f495185f/runtime.js"></script>
+<script>window.SURD_GAME={"id":"ovo-3-dimensions","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/ovo-3-dimensions/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/runtime.js"></script>
 
   
   
@@ -117,7 +117,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</
   <title>OvO Dimensions</title>
   <meta name="robots" content="noindex,nofollow" />
   <!-- Standardised web app manifest -->
-  <link rel="manifest" href="https://cdn.jsdelivr.net/gh/genizy/ovo-3-dimension@102179bf4242fd237c46c555ba154c2f325d351c/appmanifest.json" />
+  
   <!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -215,7 +215,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</
     window.C2_RegisterSW = function C2_RegisterSW() {
       if (!navigator.serviceWorker) return; // no SW support, ignore call
       try {
-        navigator.serviceWorker.register("https://cdn.jsdelivr.net/gh/genizy/ovo-3-dimension@102179bf4242fd237c46c555ba154c2f325d351c/sw.js", {
+        navigator.serviceWorker.register("", {
           scope: "./"
         }).then(function(reg) {
           console.log("Registered service worker on " + reg.scope);
