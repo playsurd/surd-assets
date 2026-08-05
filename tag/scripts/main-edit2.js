@@ -400,7 +400,7 @@ window.RuntimeInterface = class a {
                 type: "application/javascript"
             }),
             new Worker(URL.createObjectURL(b),d);
-        b = new URL(b,"https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/tag/scripts/");
+        b = new URL(b,"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/tag/");
         if (location.origin !== b.origin) {
             b = await fetch("./dispatchworker.js");
             if (!b.ok)

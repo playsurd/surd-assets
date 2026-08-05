@@ -1259,7 +1259,7 @@
                 d(t.buffer, e);
             } else {
                 var _ = new XMLHttpRequest();
-                _.open(e._xhr.method, String(n).startsWith("http") ? n : "https://cdn.jsdelivr.net/gh/genizy/ovo-3-dimension/"+n, !0),
+                _.open(e._xhr.method, String(n).startsWith("http") ? n : "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/ovo-3-dimensions/"+n, !0),
                     (_.withCredentials = e._xhr.withCredentials),
                     (_.responseType = "arraybuffer"),
                     e._xhr.headers &&

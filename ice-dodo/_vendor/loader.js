@@ -22,7 +22,7 @@ var loader = {
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = url.startsWith("http") ? url : "https://cdn.jsdelivr.net/gh/genizy/ice-dodo/"+url;
+        script.src = url.startsWith("http") ? url : "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/ice-dodo/"+url;
         script.onreadystatechange = callback;
         script.onload = callback;
         head.appendChild(script);

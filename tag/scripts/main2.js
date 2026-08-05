@@ -467,7 +467,7 @@
       }
      if (opts.runtimeBaseUrl) this._runtimeBaseUrl = opts.runtimeBaseUrl;
 else {
-    this._runtimeBaseUrl = "https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/tag/";
+    this._runtimeBaseUrl = "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/tag/";
 }
       if (opts.workerScripts) this._workerScriptURLs = opts.workerScripts;
       const messageChannel = new MessageChannel;
@@ -506,7 +506,7 @@ async CreateWorker(b, c, d) {
             type: "application/javascript"
         }),
         new Worker(URL.createObjectURL(b), d);
-    b = new URL(b, "https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/tag/scripts/");
+    b = new URL(b, "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/tag/");
     if (location.origin !== b.origin) {
         const response = await fetch(b);
         if (!response.ok) throw new Error("failed to fetch worker script");
@@ -2007,7 +2007,7 @@ async CreateWorker(b, c, d) {
 window["c3_runtimeInterface"] = new self.RuntimeInterface({
     useWorker: !1,
     workerMainUrl: "workermain.js",
-    runtimeBaseUrl: "https://cdn.jsdelivr.net/gh/bubbls/UGS-Assets@main/tag/",
+    runtimeBaseUrl: "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/tag/",
     engineScripts: ["./c3runtime.js"],
     projectScripts: [],
     mainProjectScript: "",

@@ -21,7 +21,7 @@ freebuisness/assetsvar PokiPlugin = {
         document.head.appendChild(style);
         
         var script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/gh/gn-math/assets@main/poki-sdk.js';
+        script.src = 'https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/shipo-io/';
         script.onload = function(){
             PokiPlugin.onLoad();
         };
