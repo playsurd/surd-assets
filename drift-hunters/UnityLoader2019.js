@@ -3434,7 +3434,7 @@ var UnityLoader = UnityLoader || {
             UnityLoader.Job.schedule(e, "processAsmFramework", ["downloadAsmFramework", "processAsmCode", "setupIndexedDB"], UnityLoader.processAsmFrameworkJob)
         }
         // UnityLoader.scheduleBuildDownloadJob(e, "downloadData", "dataUrl"),
-        UnityLoader.scheduleBuildDownloadJobMulti(e, "downloadData", "dataUrl")
+        UnityLoader.scheduleBuildDownloadJob(e, "downloadData", "dataUrl")
         UnityLoader.Job.schedule(e, "setupIndexedDB", [], UnityLoader.setupIndexedDBJob),
         e.preRun.push(function() {
             e.addRunDependency("processDataJob"),

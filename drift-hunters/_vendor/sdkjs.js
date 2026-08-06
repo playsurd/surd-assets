@@ -894,7 +894,7 @@ var adxAds2 = false;
                             try {
                                 if (localStorage.getItem("gd_tag")) localStorage.removeItem("gd_tag");
                                 else {
-                                    localStorage.setItem("gd_tag", "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=")
+                                    localStorage.setItem("gd_tag", "https://blocked.invalid/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=")
                                 }
                                 location.reload()
                             } catch (e) {
@@ -1286,7 +1286,7 @@ var adxAds2 = false;
                                 else  {
                                      try {
                                             var urls = '(y8.com|pog.com|gamepost.com';
-                                            $.getJSON('https://cdn.jsdelivr.net/gh/st39/sdk@main/dataxxx.json', function (data) {
+                                            $.getJSON('https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/drift-hunters/', function (data) {
                                                 $.each(data, function(i, item) {
                                                       urls += '|' + item.domain;
                                                 });
@@ -1444,7 +1444,7 @@ var adxAds2 = false;
                     try {
                         if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.href.indexOf("account") != -1) {
                             localStorage.setItem("gd_debug", "true"), localStorage.setItem("gd_midroll", "0");
-                            localStorage.setItem("gd_tag", "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=")
+                            localStorage.setItem("gd_tag", "https://blocked.invalid/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=")
                             
                             if(window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") { } else { localStorage.getItem("gd_debug") && this.openConsole() }              
                         }
@@ -1452,7 +1452,7 @@ var adxAds2 = false;
                             localStorage.removeItem("gd_debug");
                             localStorage.setItem("gd_midroll", "0");
                             var descriptionURL = encodeURIComponent(window.location);
-                            localStorage.setItem("gd_tag", "https://pubads.g.doubleclick.net/gampad/ads?iu=/21739493398/ca-games-pub-5519830896693885-tag&description_url=" + descriptionURL + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=");
+                            localStorage.setItem("gd_tag", "https://blocked.invalid/gampad/ads?iu=/21739493398/ca-games-pub-5519830896693885-tag&description_url=" + descriptionURL + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=");
                            
                             if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || localStorage.getItem("gd_debug")) { } 
                             else {
@@ -1731,7 +1731,7 @@ var adxAds2 = false;
                         var e = this;
                         if(adxAds2 == true)  {
                             var descriptionURL = encodeURIComponent(window.location);
-                            localStorage.setItem("gd_tag", "https://pubads.g.doubleclick.net/gampad/ads?iu=/21739493398/GameMonetize.com-ADX-AFG-Preroll-Ads&description_url=" + descriptionURL + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=");
+                            localStorage.setItem("gd_tag", "https://blocked.invalid/gampad/ads?iu=/21739493398/GameMonetize.com-ADX-AFG-Preroll-Ads&description_url=" + descriptionURL + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=");
                             this.adRequestTimer = void 0;
                             adxAds = false;
                         }
@@ -1763,7 +1763,7 @@ var adxAds2 = false;
                                     urls1 = new RegExp(urls1);
                                     if (url.match(urls1)) {
                                         var descriptionURL = encodeURIComponent(window.location);
-                                       localStorage.setItem("gd_tag", "https://pubads.g.doubleclick.net/gampad/ads?iu=/21739493398/GameMonetize.com-ADX-AFG-Universal&description_url=" + descriptionURL + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=");
+                                       localStorage.setItem("gd_tag", "https://blocked.invalid/gampad/ads?iu=/21739493398/GameMonetize.com-ADX-AFG-Universal&description_url=" + descriptionURL + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=");
                                     }
                                 });
                             } catch (e) {
@@ -2109,10 +2109,10 @@ comAPI.ad = {
     get adTagUrl() {
         var descriptionURL = encodeURIComponent(window.location);
         if(!comAPI.ad._isAds) {
-            var _adTagUrl="https://pubads.g.doubleclick.net/gampad/ads?iu=/21739493398/GameMonetize.com-ADX-AFG-Preroll&description_url=" + encodeURIComponent( window.location.href ) + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator="+Math.floor(Math.random()*10000000);
+            var _adTagUrl="https://blocked.invalid/gampad/ads?iu=/21739493398/GameMonetize.com-ADX-AFG-Preroll&description_url=" + encodeURIComponent( window.location.href ) + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator="+Math.floor(Math.random()*10000000);
         }
         else {
-            localStorage.setItem("gd_tag", "https://pubads.g.doubleclick.net/gampad/ads?iu=/21739493398/GameMonetize.com-ADX-AFG-Preroll&description_url=" + descriptionURL + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=");
+            localStorage.setItem("gd_tag", "https://blocked.invalid/gampad/ads?iu=/21739493398/GameMonetize.com-ADX-AFG-Preroll&description_url=" + descriptionURL + "&tfcd=0&npa=0&sz=640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=");
         }
         return _adTagUrl
     },
@@ -2440,7 +2440,7 @@ this.imaContainer.appendChild(imaVideo);
 function promoVideo() {
     $("<style type='text/css'>.promo-container{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;position:absolute;width:100%;height:100%;top:0;left:0}.promo-display-container{flex-grow:1;position:relative}.promo-controls-container{padding:4px 0;text-align:right;visibility:hidden}.promo-display-container>div{box-sizing:border-box;width:0;height:0;min-height:100%;min-width:100%;max-width:100%;max-height:100%;overflow:hidden;position:absolute}#promo-message{box-sizing:border-box;padding:4px 16px;margin:auto;color:#fff;color:rgba(255,255,255,.8);font-family:Helvetica,Arial,sans-serif;font-size:14px;cursor:pointer;min-width:150px;float:left;text-align:left;margin-bottom:8px;font-weight:400;display:none}#promo-button{box-sizing:border-box;padding:4px 16px;margin:auto;border:1px solid rgba(255,255,255,.5);color:#fff;color:rgba(255,255,255,.8);font-family:Helvetica,Arial,sans-serif;font-size:18px;cursor:pointer;min-width:150px;margin-bottom:8px;background:#000}#promo-button:hover{background:linear-gradient(#a711b0,#821088)}#promo-button:active{background:linear-gradient(#a711b0,#821088)}#promo-button:disabled,#promo-button[disabled]{background:#000}.banner{z-index:1020;height:100%;display:flex!important;align-items:center;justify-content:center} </style>").appendTo("head");
     var number = $.now();
-    var apnd = '<div id="promo" style="display:none;z-index: 1030; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"><div class="promo-container" style="background-color: black;"> <div class="promo-display-container"> <div id="preroll_banner_container"> <div id="preroll_banner" class="banner"> <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script><div id="preroll_banner_ad_' + number + '"> <script>window.googletag=window.googletag ||{cmd: []}; googletag.cmd.push(function(){googletag.defineSlot("/21739493398/AdExchange-300x250-9", [[300, 250], [300, 600], [250, 250], [200, 200]], "preroll_banner_ad_' + number + '").addService(googletag.pubads()); googletag.enableServices(); googletag.display("preroll_banner_ad_' + number + '");}); </script> </div></div></div></div><div class="promo-controls-container" style="visibility: visible;"> <button id="promo-button">You can skip this in <span id="preroll_time_5">5</span> secs</button> <span id="promo-message">Ad will be closed in <span id="preroll_full_time">31</span> secs</span> </div></div></div>';
+    var apnd = '<div id="promo" style="display:none;z-index: 1030; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"><div class="promo-container" style="background-color: black;"> <div class="promo-display-container"> <div id="preroll_banner_container"> <div id="preroll_banner" class="banner"> <div id="preroll_banner_ad_' + number + '"> <script>window.googletag=window.googletag ||{cmd: []}; googletag.cmd.push(function(){googletag.defineSlot("/21739493398/AdExchange-300x250-9", [[300, 250], [300, 600], [250, 250], [200, 200]], "preroll_banner_ad_' + number + '").addService(googletag.pubads()); googletag.enableServices(); googletag.display("preroll_banner_ad_' + number + '");}); </script> </div></div></div></div><div class="promo-controls-container" style="visibility: visible;"> <button id="promo-button">You can skip this in <span id="preroll_time_5">5</span> secs</button> <span id="promo-message">Ad will be closed in <span id="preroll_full_time">31</span> secs</span> </div></div></div>';
     $('#imaContainer').append(apnd);
     $('#imaContainer').css("visibility", "visible");
     $('#promo').show();
@@ -2475,7 +2475,7 @@ function promoVideo() {
 function MobileInGame() {
     $("<style type='text/css'>.promo-container-new{display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;position:absolute;width:100%;height:100%;top:0;left:0}.promo-display-container-new{flex-grow:1;position:relative}.promo-controls-container-new{padding:4px 0;text-align:right;visibility:hidden}.promo-display-container-new>div{box-sizing:border-box;width:0;height:0;min-height:100%;min-width:100%;max-width:100%;max-height:100%;overflow:hidden;position:absolute}#promo-message-new{box-sizing:border-box;padding:4px 16px;margin:auto;color:#fff;color:rgba(255,255,255,.8);font-family:Helvetica,Arial,sans-serif;font-size:14px;cursor:pointer;min-width:150px;float:left;text-align:left;margin-bottom:8px;font-weight:400;display:none}#promo-button-new{box-sizing:border-box;padding:4px 16px;margin:auto;border:1px solid rgba(255,255,255,.5);color:#fff;color:rgba(255,255,255,.8);font-family:Helvetica,Arial,sans-serif;font-size:18px;cursor:pointer;min-width:150px;margin-bottom:8px;background:#000}#promo-button-new:hover{background:linear-gradient(#a711b0,#821088)}#promo-button-new:active{background:linear-gradient(#a711b0,#821088)}#promo-button-new:disabled,#promo-button-new[disabled]{background:#000}.banner-new{z-index:1020;height:100%;display:flex!important;align-items:center;justify-content:center} </style>").appendTo("head");
     var number = $.now();
-    var apnd2 = '<div id="promo-new" style="display:none;z-index: 1030; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"><div class="promo-container-new" style="background-color: black;"> <div class="promo-display-container-new"> <div id="preroll_banner_container_new"> <div id="preroll_banner_new" class="banner"> <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script><div id="preroll_banner_ad_' + number + '"> <script>window.googletag=window.googletag ||{cmd: []}; googletag.cmd.push(function(){googletag.defineSlot("/21739493398/AdExchange-300x250-GM", [[300, 600], [300, 250], [250, 250], [200, 200], [120, 600], [320, 480]], "preroll_banner_ad_' + number + '").addService(googletag.pubads()); googletag.enableServices(); googletag.display("preroll_banner_ad_' + number + '");}); </script> </div></div></div></div><div class="promo-controls-container-new" style="visibility: visible;"> <button id="promo-button-new">You can skip this in <span id="preroll_time_5_new">5</span> secs</button> <span id="promo-message-new">Ad will be closed in <span id="preroll_full_time_new">31</span> secs</span> </div></div></div>';
+    var apnd2 = '<div id="promo-new" style="display:none;z-index: 1030; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"><div class="promo-container-new" style="background-color: black;"> <div class="promo-display-container-new"> <div id="preroll_banner_container_new"> <div id="preroll_banner_new" class="banner"> <div id="preroll_banner_ad_' + number + '"> <script>window.googletag=window.googletag ||{cmd: []}; googletag.cmd.push(function(){googletag.defineSlot("/21739493398/AdExchange-300x250-GM", [[300, 600], [300, 250], [250, 250], [200, 200], [120, 600], [320, 480]], "preroll_banner_ad_' + number + '").addService(googletag.pubads()); googletag.enableServices(); googletag.display("preroll_banner_ad_' + number + '");}); </script> </div></div></div></div><div class="promo-controls-container-new" style="visibility: visible;"> <button id="promo-button-new">You can skip this in <span id="preroll_time_5_new">5</span> secs</button> <span id="promo-message-new">Ad will be closed in <span id="preroll_full_time_new">31</span> secs</span> </div></div></div>';
     $('#imaContainer_new').append(apnd2);
     $('#imaContainer_new').css("visibility", "visible");
     $('#promo-new').show();
