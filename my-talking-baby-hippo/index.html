@@ -1,315 +1,114 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <base href="./">
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Talking Hippo</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <style>
-      html, body {
-  padding: 0;
-  margin: 0;
-  background-color: black;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#unity-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100vw;
-  max-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#unity-canvas {
-  background: black;
-  display: block;
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-  max-width: 100vw;
-  max-height: 100vh;
-}
-
-#unity-loading-bar {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
-  text-align: center;
-  color: white;
-  background-color: black;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-}
-
-#unity-logo {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 10px auto;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-}
-
-#unity-logo img#unity-logo-img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-#unity-game-name {
-  font-size: 22px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-top: 10px;
-  text-align: center;
-}
-
-#unity-company-name {
-  font-size: 14px;
-  color: #ccc;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-#unity-progress-bar-empty {
-  margin: 0 auto;
-  width: 141px;
-  height: 18px;
-  margin-top: 10px;
-  background: url('progress-bar-empty-dark.png') no-repeat center;
-}
-
-#unity-progress-bar-full {
-  width: 0%;
-  height: 18px;
-  margin-top: 10px;
-  background: url('progress-bar-full-dark.png') no-repeat center;
-}
-
-#unity-warning {
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  transform: translate(-50%);
-  background: white;
-  padding: 10px;
-  display: none;
-  z-index: 9999;
-  color: black;
-}
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <style>
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
+<!doctype html><html><head><meta charset="utf-8"><title>my-talking-baby-hippo</title><base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/my-talking-baby-hippo/">
+<script>(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
     }
-
-    #unity-canvas {
-      width: 100%;
-      height: 100%;
-      background: #000000;
-      display: block;
-    }
-    #loading-text {
-  font-weight: bold;
-  background: linear-gradient(
-    270deg,
-    #ff0000,
-    #ff7f00,
-    #ffff00,
-    #00ff00,
-    #0000ff,
-    #4b0082,
-    #8f00ff
-  );
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: rainbow 3s ease infinite;
-}
-
-@keyframes rainbow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-    </style>
-  </head>
-  <body>
-    <div id="unity-container">
-      <canvas id="unity-canvas"tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-      <div id="unity-warning"> </div>
-    </div>
-    <script>
-  function resizeUnityCanvas() {
-    const canvas = document.getElementById('unity-canvas');
-    if (!canvas) return;
-
-    const targetAspect = 10 / 16;
-
-    const reducedHeight = window.innerHeight;
-    const calculatedWidth = reducedHeight * targetAspect;
-
-    canvas.style.height = reducedHeight + 'px';
-    canvas.style.width = calculatedWidth + 'px';
-
-    canvas.style.display = 'block';
-    canvas.style.margin = 'auto';
-    canvas.height = ""+reducedHeight+"";
-    canvas.width = ""+calculatedWidth+"";
-
   }
-      setInterval(() => {
-        resizeUnityCanvas();
-      }, 500);
-      window.addEventListener('resize', resizeUnityCanvas);
-      window.addEventListener('orientationchange', resizeUnityCanvas);
-  window.addEventListener('load', resizeUnityCanvas);
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
+<div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var warningBanner = document.querySelector("#unity-warning");
 
-      function unityShowBanner(msg, type) {
-      }
-
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/TalkingHippo.loader.js";
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-      }
-
-      loadingBar.style.display = "block";
-
-      async function fetchWithProgress(url, onProgress) {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Fetch failed: ' + url + ' (' + response.status + ')');
-        const contentLength = response.headers.get('content-length');
-        const total = contentLength ? parseInt(contentLength, 10) : 0;
-        const reader = response.body.getReader();
-        const chunks = [];
-        let loaded = 0;
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          chunks.push(value);
-          loaded += value.length;
-          if (total > 0 && onProgress) onProgress(loaded / total);
-        }
-        const combined = new Uint8Array(loaded);
-        let offset = 0;
-        for (const chunk of chunks) {
-          combined.set(chunk, offset);
-          offset += chunk.length;
-        }
-        return combined.buffer;
-      }
-
-      async function decompressZip(zipBuffer, mimeType) {
-        const zip = await JSZip.loadAsync(zipBuffer);
-        const entry = Object.values(zip.files).find(f => !f.dir);
-        if (!entry) throw new Error('Empty zip file');
-        const arrayBuffer = await entry.async('arraybuffer');
-        return URL.createObjectURL(new Blob([arrayBuffer], { type: mimeType }));
-      }
-
-      async function fetchAndDecompress(zipUrl, mimeType, slot, onProgress) {
-        const buffer = await fetchWithProgress(zipUrl, (p) => {
-          slot.progress = p;
-          onProgress();
-        });
-        slot.progress = 1;
-        onProgress();
-        return decompressZip(buffer, mimeType);
-      }
-
-      const zipFiles = [
-        { url: buildUrl + "/TalkingHippo.data.zip",        mime: 'application/octet-stream' },
-        { url: buildUrl + "/TalkingHippo.wasm.zip",         mime: 'application/wasm' },
-        { url: buildUrl + "/TalkingHippo.framework.js.zip", mime: 'text/javascript' },
-      ];
-
-      (async () => {
-        try {
-          const slots = zipFiles.map(() => ({ progress: 0 }));
-
-          function onProgress() {
-            const avg = slots.reduce((sum, s) => sum + s.progress, 0) / slots.length;
-            progressBarFull.style.width = (avg * 100) + '%';
-          }
-
-          const blobUrls = await Promise.all(
-            zipFiles.map((f, i) => fetchAndDecompress(f.url, f.mime, slots[i], onProgress))
-          );
-
-          const [dataBlobUrl, wasmBlobUrl, frameworkBlobUrl] = blobUrls;
-
-          var script = document.createElement("script");
-          script.src = loaderUrl;
-          script.onload = () => {
-            createUnityInstance(canvas, {
-              arguments: [],
-              dataUrl: dataBlobUrl,
-              frameworkUrl: frameworkBlobUrl,
-              codeUrl: wasmBlobUrl,
-              streamingAssetsUrl: "StreamingAssets",
-              companyName: "DefaultCompany",
-              productName: "Talking Hippo",
-              productVersion: "1.0",
-              showBanner: unityShowBanner,
-            }, (progress) => {
-              progressBarFull.style.width = 100 * progress + "%";
-            }).then((unityInstance) => {
-              loadingBar.style.display = "none";
-              blobUrls.forEach(url => URL.revokeObjectURL(url));
-              resizeUnityCanvas();
-            }).catch((message) => {
-              alert(message);
-            });
-          };
-          document.body.appendChild(script);
-
-        } catch (err) {
-          alert('Failed to load game: ' + err.message);
-        }
-      })();
-    </script>
-  </body>
-</html>
+<script>window.SURD_GAME = {"id":"my-talking-baby-hippo","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/my-talking-baby-hippo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/","files":{"data":{"path":"Build/TalkingHippo.data","parts":[".sp0",".sp1"],"bytes":21474204,"mime":"application/octet-stream"},"framework":{"path":"Build/TalkingHippo.framework.js","bytes":425189,"mime":"text/javascript"},"code":{"path":"Build/TalkingHippo.wasm","parts":[".sp0",".sp1"],"bytes":30089847,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/TalkingHippo.loader.js","companyName":"DefaultCompany","productName":"Talking Hippo","productVersion":"1.0"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/runtime.js"></script>
+</body></html>
