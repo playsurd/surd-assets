@@ -8107,7 +8107,7 @@
                                             var t, n, r, i, A, o, a, s, u, c, l;
                                             t = e.http || (e.http = {}), n = e.state.GAState, r = e.logging.GALogger, i = e.utilities.GAUtilities, A = e.validators.GAValidator, o = e.tasks.SdkErrorTask, a = e.events.EGASdkErrorCategory, s = e.events.EGASdkErrorArea, u = e.events.EGASdkErrorAction, c = e.events.EGASdkErrorParameter, l = function() {
                                                 function e() {
-                                                    this.protocol = "https", this.hostName = "api.gameanalytics.com", this.version = "v2", this.remoteConfigsVersion = "v1", this.baseUrl = this.protocol + "://" + this.hostName + "/" + this.version, this.remoteConfigsBaseUrl = this.protocol + "://" + this.hostName + "/remote_configs/" + this.remoteConfigsVersion, this.initializeUrlPath = "init", this.eventsUrlPath = "events", this.useGzip = !1
+                                                    this.protocol = "https", this.hostName = "removed.invalid", this.version = "v2", this.remoteConfigsVersion = "v1", this.baseUrl = this.protocol + "://" + this.hostName + "/" + this.version, this.remoteConfigsBaseUrl = this.protocol + "://" + this.hostName + "/remote_configs/" + this.remoteConfigsVersion, this.initializeUrlPath = "init", this.eventsUrlPath = "events", this.useGzip = !1
                                                 }
                                                 return e.prototype.requestInit = function(r, i) {
                                                     var A = n.getGameKey(),

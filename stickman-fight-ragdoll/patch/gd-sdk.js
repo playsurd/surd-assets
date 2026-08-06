@@ -25,7 +25,7 @@
 
 {
     "name": "SDK_ERROR",
-    "message": "Blocked:1: patch/js/null.js?https://www.google-analytics.com/analytics.js",
+    "message": "Blocked:1: patch/js/null.js?https://blocked.invalid/analytics.js",
     "status": "error"
 }
 

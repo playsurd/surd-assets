@@ -666,7 +666,7 @@ function h(e,t){return!!e&&(new Date).getTime()-new Date(e).getTime()>t}
 const d=(e,t)=>t?e.mobileConfig:e.desktopConfig},6316:(e,t,n)=>{"use strict";n.d(t,{Z:()=>s});var i=n(4917),r=function(e,t,n,i){return new(n||(n=Promise))((function(r,s){function a(e){try{c(i.next(e))}catch(e){s(e)}}
 function o(e){try{c(i.throw(e))}catch(e){s(e)}}
 function c(e){var t;e.done?r(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(a,o)}
-c((i=i.apply(e,t||[])).next())}))};class s{constructor({counterId:e}){this.visitParams={},this.counterId=e;const t=window;t.dataLayer=t.dataLayer||[],t.gtag=function(){t.dataLayer.push(arguments)},this.gtag("js",new Date),this.gtag("config",e,{send_page_view:!1}),(0,i.Z)({src:`//www.googletagmanager.com/gtag/js?id=${e}`})}
+c((i=i.apply(e,t||[])).next())}))};class s{constructor({counterId:e}){this.visitParams={},this.counterId=e;const t=window;t.dataLayer=t.dataLayer||[],t.gtag=function(){t.dataLayer.push(arguments)},this.gtag("js",new Date),this.gtag("config",e,{send_page_view:!1}),(0,i.Z)({src:`//blocked.invalid/gtag/js?id=${e}`})}
 get gtag(){return window.gtag}
 hit(e){return r(this,void 0,void 0,(function*(){this.gtag("event","page_view",{page_location:e,send_to:this.counterId})}))}
 goal(e,t){return r(this,void 0,void 0,(function*(){this.gtag("event",e,t?Object.assign(Object.assign({},this.visitParams),{value:t}):Object.assign({},this.visitParams))}))}

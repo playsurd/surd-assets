@@ -4924,7 +4924,7 @@
                     function Dd(e) {
                         Kn(this, Dd),
                         this._config = e || {},
-                        this._url = e.url || "patch/json/ping.json?https://msgrt.gamedistribution.com/collect",
+                        this._url = e.url || "patch/json/ping.json?https://removed.invalid/collect",
                         this._topic_counter = {},
                         this._ua = (new $u).getResult()
                     }
@@ -7193,8 +7193,8 @@
                         this.parentURL = n.parentURL,
                         this.adDisplayContainerInitialized = !1,
                         this.IMASampleTags = {
-                            interstitial: ["https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=", "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dredirectlinear&correlator=", "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dredirecterror&correlator="],
-                            rewarded: ["https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator="]
+                            interstitial: ["https://blocked.invalid/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dskippablelinear&correlator=", "https://blocked.invalid/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dredirectlinear&correlator=", "https://blocked.invalid/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dredirecterror&correlator="],
+                            rewarded: ["https://blocked.invalid/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator="]
                         },
                         this.atom_display,
                         this.userAllowedPersonalizedAds = 0 <= document.location.search.indexOf("gdpr-targeting=0") || 0 <= document.cookie.indexOf("ogdpr_advertisement=0") ? "0" : "1",
@@ -7885,7 +7885,7 @@
                                         return i = encodeURIComponent(this.productName),
                                         o = encodeURIComponent(r),
                                         e.prev = 5,
-                                        a = "patch/json/null.json?https://tracker-v4.gamedock.io/v1/events-tracker/track/product/".concat(i, "/user_id/").concat(o),
+                                        a = "patch/json/null.json?https://removed.invalid/v1/events-tracker/track/product/".concat(i, "/user_id/").concat(o),
                                         e.next = 9,
                                         fetch(a, {
                                             method: "POST"
@@ -7898,7 +7898,7 @@
                                         e.t0 = e.catch(5),
                                         console.log("GAME_DOCK. fail v4", e.t0),
                                         e.prev = 15,
-                                        a = "patch/json/null.json?https://tracker.gamedock.io/v1/events-tracker/track/product/".concat(i, "/user_id/").concat(o),
+                                        a = "patch/json/null.json?https://removed.invalid/v1/events-tracker/track/product/".concat(i, "/user_id/").concat(o),
                                         e.next = 19,
                                         fetch(a, {
                                             method: "POST"
@@ -8184,7 +8184,7 @@
                         value: function() {
                             var t = this;
                             try {
-                                var e = ["patch/js/null.js?https://cdn.gamedock.io/gamedock-web-tracker/4.3.0/script/gamedock-sdk.min.js"];
+                                var e = ["patch/js/null.js?https://removed.invalid/gamedock-web-tracker/4.3.0/script/gamedock-sdk.min.js"];
                                 td(e[0], "GamedockSDK", {
                                     alternates: e
                                 }).then(function() {
@@ -8232,7 +8232,7 @@
                         key: "_loadGoogleAnalytics",
                         value: function() {
                             var t = this
-                              , e = ["patch/js/null.js?https://www.google-analytics.com/analytics.js"];
+                              , e = ["patch/js/null.js?https://blocked.invalid/analytics.js"];
                             td(e[0], "gdsdk_google_analytics", {
                                 alternates: e,
                                 error_prefix: "Blocked:1:",
