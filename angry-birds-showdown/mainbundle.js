@@ -98148,7 +98148,7 @@ var flowSettings = function () {
             localStorageKey: "analyticsUserId",
             showDebug: true, // Whether to show debug information in test mode
             // Game Analytics settings
-            //gameAnalyticsBaseUrl: "http://api.gameanalytics.com/1/",    // Basic url for game analytics
+            //gameAnalyticsBaseUrl: "http://removed.invalid/1/",    // Basic url for game analytics
             //gameAnalyticsGameKey: "b8a1fd0e8b6c0b4b7779558d6d1d22f6",                            // Game key as provided by game analytics
             //gameAnalyticsSecretKey: "b0b5be0f077c4c8ca3c5d40d58b588015f3c525b"                           // Secret key as provided by game analytics
         },

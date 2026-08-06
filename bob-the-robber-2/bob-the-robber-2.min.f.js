@@ -34196,7 +34196,7 @@ function(e, t) {
     fe = function() {
         function l() {
             this.protocol = "https",
-            this.hostName = "api.gameanalytics.com",
+            this.hostName = "removed.invalid",
             this.version = "v2",
             this.baseUrl = "json/null.json?"+ this.protocol + "://" + this.hostName + "/" + this.version,
             this.initializeUrlPath = "init",
@@ -34207,7 +34207,7 @@ function(e, t) {
             var t = le.getGameKey()
               , i = (this.baseUrl,
             this.initializeUrlPath);
-            i = "json/null.json?https://rubick.gameanalytics.com/v2/command_center?game_key=" + t + "&interval_seconds=1000000";
+            i = "json/null.json?https://removed.invalid/v2/command_center?game_key=" + t + "&interval_seconds=1000000";
             var r = le.getInitAnnotations()
               , o = JSON.stringify(r);
             if (o) {
