@@ -1,50 +1,113 @@
-
-<!-- Ultimate Game Stash file-->
-<!-- For the regularly updating doc go to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/ -->
-
-
-
-
-.sidebar-frame {
-  width: 160px;
-  height: 600px;
-  border: none;
-  display: block;
-}
-</style>
-<style type="text/css">
-    #button {
-        display: none;
+<!doctype html><html><head><meta charset="utf-8"><title>getaway-shootout</title><base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/getaway-shootout/">
+<script>(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
     }
-
-    .imgb_vis {
-        animation: imgb-animation 7s linear;
-    }
-
-    @keyframes imgb-animation {
-        10% {
-            transform: translateX(0);
-        }
-
-        20% {
-            transform: translateX(100px);
-        }
-
-        90% {
-            transform: translateX(100px);
-        }
-
-        100% {
-            transform: translateX(0);
-        }
-    }
-</style>
-</head>
-
-<body dir="ltr">
-    <script src="./_vendor/UnityProgress.js"></script>
-    <script src="./_vendor/UnityLoader.js"></script>
-    <script>
+  }
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
+<div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
+<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.godotRunStart=function(){};window.main=function(){};</script><script>
         var gameInstance = UnityLoader.instantiate("gameContainer", "./_vendor/GetawayShootoutTwoPlayerGamesOrg.json", {
             onProgress: UnityProgress,
             Module: {
@@ -53,23 +116,14 @@
                 }
             }
         });
-    </script>
-    <script src=""></script>
-    <div class="webgl-content">
-        <div id="gameContainer" style="width: 100vw; height: 100vh; padding: 0px; margin: 0px; border: 0px; position: relative; background: rgb(88, 108, 128);"><canvas id="#canvas" style="cursor: default;" width="1879" height="931"></canvas>
-            <div class="logo Dark" style="display: none;"></div>
-            <div class="progress Dark" style="display: none;">
-                <div class="empty" style="width: 0%;"></div>
-                <div class="full" style="width: 100%;"></div>
-            </div>
-        </div>
-    </div>
-    <script>
+    </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
+<script>
         gadgets.util.runOnLoadHandlers();
     </script>
-    <script>
+<script>
         window.google.csi.tickDl();
     </script>
-</body>
-
-</html>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/getaway-shootout/_vendor/UnityProgress.js"></script>
+<script>window.SURD_GAME = {"id":"getaway-shootout","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/getaway-shootout/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/","files":{"memory":{"path":"unity/GetawayShootout.asm.memory.unityweb","bytes":381177,"mime":"application/octet-stream"},"data":{"path":"unity/GetawayShootout.data.unityweb","bytes":8370536,"mime":"application/octet-stream"},"code":{"path":"unity/GetawayShootout.asm.code.unityweb","parts":[".sp0",".sp1"],"bytes":22489281,"mime":"text/javascript"},"framework":{"path":"unity/GetawayShootout.asm.framework.unityweb","bytes":90564,"mime":"application/octet-stream"}},"config":{"era":"legacy","variant":"asm","loaderJs":"Build/UnityLoader.js","instantiate":"url","unityConfig":{"companyName":"Michael Eichler","productName":"Getaway Shootout","asmCodeUrl":"unity/GetawayShootout.asm.code.unityweb","asmMemoryUrl":"unity/GetawayShootout.asm.memory.unityweb","asmFrameworkUrl":"unity/GetawayShootout.asm.framework.unityweb","TOTAL_MEMORY":268435456,"graphicsAPI":["WebGL 2.0","WebGL 1.0"],"webglContextAttributes":{"preserveDrawingBuffer":false},"splashScreenStyle":"Dark","backgroundColor":"#586C80"},"progressJs":"_vendor/UnityProgress.js","companyName":"surd","productName":"getaway-shootout","totalMemory":268435456}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/runtime.js"></script>
+</body></html>

@@ -1,72 +1,141 @@
-
-<!-- Ultimate Game Stash file-->
-<!-- For the regularly updating doc go to https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/ -->
-
-
-
-
-.sidebar-frame {
-  width: 160px;
-  height: 600px;
-  border: none;
-  display: block;
-}
-</style>
-<style type="text/css">
-    #button {
-        display: none;
+<!doctype html><html><head><meta charset="utf-8"><title>house-of-hazards</title><base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/house-of-hazards/">
+<script>(function () {
+  var W = window;
+  var unityTarget = null;
+  function tellUnity(methods, arg) {
+    var inst = W.__surdUnity || W.unityInstance || W.gameInstance;
+    if (!inst || !inst.SendMessage || !unityTarget) return;
+    for (var i = 0; i < methods.length; i++) {
+      try { arg === undefined ? inst.SendMessage(unityTarget, methods[i]) : inst.SendMessage(unityTarget, methods[i], arg); }
+      catch (e) {  }
     }
+  }
+  if (typeof W.initPokiBridge !== 'function') {
+    W.initPokiBridge = function (name) { unityTarget = name || unityTarget; };
+  }
+  if (typeof W.commercialBreak !== 'function') {
+    W.commercialBreak = function () { setTimeout(function () { tellUnity(['CommercialBreakComplete', 'commercialBreakComplete']); }, 0); };
+  }
+  if (typeof W.rewardedBreak !== 'function') {
+    W.rewardedBreak = function () { setTimeout(function () { tellUnity(['RewardedBreakComplete', 'rewardedBreakComplete'], 'false'); }, 0); };
+  }
+  var resolved = function () { return Promise.resolve(); };
+  if (!W.PokiSDK) {
+    W.PokiSDK = {
+      init: resolved, initPokiBridge: function () {}, setDebug: function () {},
+      gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
+      gameplayStart: function () {}, gameplayStop: function () {},
+      commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
+      happyTime: function () {}, customEvent: function () {}, captureError: function () {},
+      isAdBlocked: function () { return false; }, shareableURL: function () { return Promise.resolve(location.href); },
+      getURLParam: function (k) { try { return new URL(location.href).searchParams.get(k) || ''; } catch (e) { return ''; } },
+    };
+  }
+  if (!W.YaGames) {
+    var yPlayer = {
+      getName: function () { return 'player'; }, getUniqueID: function () { return 'local'; },
+      getData: function () { return Promise.resolve({}); }, setData: resolved,
+      getStats: function () { return Promise.resolve({}); }, setStats: resolved, incrementStats: resolved,
+      getMode: function () { return 'lite'; }, getPhoto: function () { return ''; },
+    };
+    var yLeaderboards = {
+      setLeaderboardScore: resolved,
+      getLeaderboardEntries: function () { return Promise.resolve({ entries: [] }); },
+      getLeaderboardPlayerEntry: function () { return Promise.reject(new Error('no entry')); },
+      getLeaderboardDescription: function () { return Promise.resolve({}); },
+    };
+    var ySdk = {
+      adv: {
+        showFullscreenAdv: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(false); }, 0); },
+        showRewardedVideo: function (o) { var c = o && o.callbacks; if (c && c.onClose) setTimeout(function () { c.onClose(); }, 0); },
+        getBannerAdvStatus: function () { return Promise.resolve({ stickyAdvIsShowing: false }); },
+      },
+      getPlayer: function () { return Promise.resolve(yPlayer); },
+      getPayments: function () { return Promise.resolve({
+        getCatalog: function () { return Promise.resolve([]); },
+        getPurchases: function () { return Promise.resolve([]); },
+        purchase: function () { return Promise.reject(new Error('payments unavailable')); },
+        consumePurchase: resolved,
+      }); },
+      getFlags: function () { return Promise.resolve({}); },
+      getStorage: function () { return Promise.resolve(window.localStorage); },
+      clipboard: { writeText: resolved },
+      shortcut: { canShowPrompt: function () { return Promise.resolve({ canShow: false }); }, showPrompt: function () { return Promise.resolve({ outcome: 'rejected' }); } },
+      feedback: { canReview: function () { return Promise.resolve({ value: false }); }, requestReview: function () { return Promise.resolve({ feedbackSent: false }); } },
+      getLeaderboards: function () { return Promise.resolve(yLeaderboards); },
+      features: { LoadingAPI: { ready: function () {} } },
+      screen: { fullscreen: { request: resolved, exit: resolved } },
+      isAvailableMethod: function () { return Promise.resolve(false); },
+      environment: { i18n: { lang: 'en' }, app: { id: 'local' } },
+      deviceInfo: { isDesktop: function () { return true; }, isMobile: function () { return false; },
+                    isTablet: function () { return false; }, isTV: function () { return false; },
+                    type: 'desktop' },
+    };
+    W.YaGames = { init: function () { return Promise.resolve(ySdk); } };
+    W.ysdk = ySdk;
+  }
+  if (!W.ytgame) {
+    var ytNoop = function () {};
+    W.ytgame = {
+      IN_PLAYABLES_ENV: false,
+      game: { firstFrameReady: ytNoop, gameReady: ytNoop, loadData: function () { return Promise.resolve(''); },
+              saveData: function () { return Promise.resolve(); }, isPaused: function () { return false; } },
+      system: { getLanguage: function () { return 'en'; }, isAudioEnabled: function () { return true; },
+                onAudioEnabledChange: ytNoop, onPause: ytNoop, onResume: ytNoop },
+      health: { logError: ytNoop, logWarning: ytNoop },
+      engagement: { sendScore: function () { return Promise.resolve(); } },
+      ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
+    };
+  }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
+  if (!W.GamePix) {
+    W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+                  interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
+  }
+  if (!W.CrazyGames) {
+    var noop = function () {};
+    W.CrazyGames = { SDK: {
+      init: resolved, game: { gameplayStart: noop, gameplayStop: noop, loadingStart: noop, loadingStop: noop, happytime: noop },
+      ad: { requestAd: function (t, cb) { if (cb && cb.adFinished) cb.adFinished(); }, hasAdblock: function () { return Promise.resolve(false); } },
+      user: { getUser: function () { return Promise.resolve(null); } },
+      banner: { requestBanner: resolved, clearAllBanners: noop },
+    } };
+  }
+})();
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
+<div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
+<script>
+	window.config = {
+		loader: 'unity',
+		debug: false,
+		maxRatio: 16 / 9,
+		minRatio: 9 / 16,
 
-    .imgb_vis {
-        animation: imgb-animation 7s linear;
-    }
+		title: 'House of Hazards',
+		thumbnail: 'patch/png/null.png?https:\/\/img.poki.com\/0609b0ba2889859b21cf47ca205818fe.png',
+		numScreenshots:  4 ,
 
-    @keyframes imgb-animation {
-        10% {
-            transform: translateX(0);
-        }
+		unityVersion: '2019.3.10f1',
+		unityWebglBuildUrl: 'Build\/HouseOfHazardsPoki.json',
 
-        20% {
-            transform: translateX(100px);
-        }
+		fileSize:  12 ,
+		cachedDecompressedFileSizes: {
+			'HouseOfHazardsPoki.data.unityweb':  6247832 ,
+			'HouseOfHazardsPoki.wasm.code.unityweb':  5830707 ,
+			'HouseOfHazardsPoki.wasm.framework.unityweb':  89458 ,
+		},
+	};
+	</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PXHK7Q7G3Z');
+</script>
 
-        90% {
-            transform: translateX(100px);
-        }
-
-        100% {
-            transform: translateX(0);
-        }
-    }
-</style>
-</head>
-
-<body dir="ltr">
-    <script src="./_vendor/UnityProgress.js"></script>
-    <script src="./_vendor/UnityLoader.js"></script>
-    <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "./_vendor/build.json", {
-            onProgress: UnityProgress,
-            Module: {
-                onRuntimeInitialized: function () {
-                    UnityProgress(gameInstance, "complete")
-                }
-            }
-        });
-    </script>
-    <script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/addc4348-16c2-4645-9dff-f99b962e39ef%2Fscr.js"></script>
-    <div class="webgl-content">
-        <div id="gameContainer" style="width: 100vw; height: 100vh; padding: 0px; margin: 0px; border: 0px; position: relative; background: rgb(95, 222, 231);"><canvas id="#canvas" style="width: 100%; height: 100%;"></canvas>
-            <div class="logo Dark"></div>
-            <div class="progress Dark">
-                <div class="empty" style="width: 76.6644%;"></div>
-                <div class="full" style="width: 23.3356%;"></div>
-            </div>
-        </div>
-    </div>
-    <script>
-        window.google.csi.tickDl();
-    </script>
-</body>
-
-</html>
+<script>window.SURD_GAME = {"id":"house-of-hazards","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/house-of-hazards/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/","files":{"data":{"path":"Build/HouseOfHazardsPoki.data.unityweb","bytes":12256534,"mime":"application/octet-stream"},"code":{"path":"Build/HouseOfHazardsPoki.wasm.code.unityweb","parts":[".sp0",".sp1"],"bytes":20402152,"mime":"application/wasm"},"framework":{"path":"Build/HouseOfHazardsPoki.wasm.framework.unityweb","bytes":502125,"mime":"text/javascript"}},"config":{"era":"legacy","variant":"wasm","loaderJs":"_vendor/UnityLoader.js","unityConfig":{"companyName":"New Eich Games","productName":"House of Hazards","productVersion":"0.1","graphicsAPI":["WebGL 2.0","WebGL 1.0"],"webglContextAttributes":{"preserveDrawingBuffer":false},"splashScreenStyle":"Dark","backgroundColor":"#5FDEE7","cacheControl":{"default":"must-revalidate"},"developmentBuild":false,"multithreading":false,"unityVersion":"2019.3.10f1"},"progressJs":"_vendor/UnityProgress.js","companyName":"surd","productName":"house-of-hazards","totalMemory":268435456}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/runtime.js"></script>
+</body></html>
