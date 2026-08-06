@@ -24,6 +24,7 @@
     W.PokiSDK = {
       init: resolved, initPokiBridge: function () {}, setDebug: function () {},
       gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
       gameplayStart: function () {}, gameplayStop: function () {},
       commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
       happyTime: function () {}, customEvent: function () {}, captureError: function () {},
@@ -103,7 +104,7 @@
 })();
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
 
-<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.godotRunStart=function(){};</script><script>
+<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.godotRunStart=function(){};window.main=function(){};</script><script>
     const container = document.getElementById("flash-container");
     const boxTop = document.getElementById("box-top");
     const boxBottom = document.getElementById("box-bottom");
@@ -155,6 +156,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</
     });
   </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
 
-<script>window.SURD_GAME = {"id":"meatboy","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/meatboy/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/","files":{"swf":{"path":"_vendor/463241_MeatBoyEasier.swf","bytes":5546206}},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"meatboy","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/meatboy/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/","files":{"swf":{"path":"_vendor/463241_MeatBoyEasier.swf","bytes":5546206,"mime":"application/octet-stream"}},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/runtime.js"></script>
 </body></html>
