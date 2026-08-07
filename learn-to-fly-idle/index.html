@@ -24,6 +24,7 @@
     W.PokiSDK = {
       init: resolved, initPokiBridge: function () {}, setDebug: function () {},
       gameLoadingStart: function () {}, gameLoadingFinished: function () {},
+      gameLoadingProgress: function () {},
       gameplayStart: function () {}, gameplayStop: function () {},
       commercialBreak: resolved, rewardedBreak: function () { return Promise.resolve(false); },
       happyTime: function () {}, customEvent: function () {}, captureError: function () {},
@@ -87,6 +88,9 @@
       ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
     };
   }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -101,10 +105,10 @@
     } };
   }
 })();
-if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 
 
 
-<script>window.SURD_GAME = {"id":"learn-to-fly-idle","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/learn-to-fly-idle/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/","files":{"swf":{"path":"_vendor/secure_LearnToFlyIdle.swf","bytes":3114891}},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vac4f82b81e/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"learn-to-fly-idle","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/learn-to-fly-idle/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"swf":{"path":"_vendor/secure_LearnToFlyIdle.swf","bytes":3114891,"mime":"application/octet-stream"}},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
 </body></html>
