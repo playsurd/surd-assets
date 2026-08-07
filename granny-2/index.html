@@ -105,8 +105,9 @@
     } };
   }
 })();
-if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
+
 <script>
         window.SDK_OPTIONS = {
             gameId: "jp112o3o4hzgrnc7zaewjkrfk282pul8",
@@ -185,7 +186,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</
                 console.warn("SDK veya showBanner tanımlı değil.");
             }
         }</script>
-
-<script>window.SURD_GAME = {"id":"granny-2","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/granny-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/","files":{"data":{"path":"Granny 2.data","parts":[".sp0",".sp1",".sp2"],"bytes":47643567,"mime":"application/octet-stream"},"framework":{"path":"Granny 2.frameworkx.js","bytes":249933,"mime":"text/javascript"},"code":{"path":"Granny 2.wasm","parts":[".sp0",".sp1"],"bytes":30709535,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Granny 2.loader.js","companyName":"Awesome","productName":"Granny 2","productVersion":"1.0"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"granny-2","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/granny-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"data":{"path":"Granny 2.data","parts":[".sp0",".sp1",".sp2"],"bytes":47643567,"mime":"application/octet-stream"},"framework":{"path":"Granny 2.frameworkx.js","bytes":249933,"mime":"text/javascript"},"code":{"path":"Granny 2.wasm","parts":[".sp0",".sp1"],"bytes":30709535,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Granny 2.loader.js","companyName":"Awesome","productName":"Granny 2","productVersion":"1.0"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
 </body></html>
