@@ -88,6 +88,9 @@
       ads: { requestInterstitialAd: function () { return Promise.resolve(); } },
     };
   }
+  if (typeof document !== 'undefined' && document.xURL === undefined) {
+    try { document.xURL = 'https://poki.com/'; } catch (e) {  }
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -102,10 +105,10 @@
     } };
   }
 })();
-if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){};</script></head><body>
+if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
 
-<script>window.SURD_GAME = {"id":"rooftop-snipers","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/rooftop-snipers/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/","files":{"memory":{"path":"Build/rooftop-snipers.asm.memory.unityweb","bytes":349865,"mime":"application/octet-stream"},"data":{"path":"Build/rooftop-snipers.data.unityweb","bytes":2883506,"mime":"application/octet-stream"},"code":{"path":"Build/rooftop-snipers.asm.code.unityweb","bytes":5013861,"mime":"application/octet-stream"},"framework":{"path":"Build/rooftop-snipers.asm.framework.unityweb","bytes":89396,"mime":"application/octet-stream"}},"config":{"era":"legacy","variant":"asm","loaderJs":"TemplateData/UnityLoader.js","instantiate":"url","unityConfig":{"TOTAL_MEMORY":268435456,"asmCodeUrl":"rooftop-snipers.asm.code.unityweb","asmMemoryUrl":"rooftop-snipers.asm.memory.unityweb","asmFrameworkUrl":"rooftop-snipers.asm.framework.unityweb","splashScreenStyle":"Dark","backgroundColor":"#BF6757"},"progressJs":"TemplateData/UnityProgress.js","companyName":"surd","productName":"rooftop-snipers","totalMemory":268435456}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v45ac261d67/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"rooftop-snipers","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/rooftop-snipers/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"memory":{"path":"Build/rooftop-snipers.asm.memory.unityweb","bytes":349865,"mime":"application/octet-stream"},"data":{"path":"Build/rooftop-snipers.data.unityweb","bytes":2883506,"mime":"application/octet-stream"},"code":{"path":"Build/rooftop-snipers.asm.code.unityweb","parts":[".sp0",".sp1"],"bytes":22600486,"mime":"text/javascript"},"framework":{"path":"Build/rooftop-snipers.asm.framework.unityweb","bytes":89396,"mime":"application/octet-stream"}},"config":{"era":"legacy","variant":"asm","loaderJs":"TemplateData/UnityLoader.js","instantiate":"url","unityConfig":{"TOTAL_MEMORY":268435456,"asmCodeUrl":"rooftop-snipers.asm.code.unityweb","asmMemoryUrl":"rooftop-snipers.asm.memory.unityweb","asmFrameworkUrl":"rooftop-snipers.asm.framework.unityweb","splashScreenStyle":"Dark","backgroundColor":"#BF6757"},"progressJs":"TemplateData/UnityProgress.js","companyName":"surd","productName":"rooftop-snipers","totalMemory":268435456}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
 </body></html>
