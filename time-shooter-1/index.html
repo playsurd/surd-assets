@@ -105,10 +105,20 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
 
-<script>window.SURD_GAME = {"id":"time-shooter-1","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/time-shooter-1/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"data":{"path":"Build/TimeGD.data.unityweb","bytes":15682303,"mime":"application/octet-stream"},"framework":{"path":"Build/TimeGD.framework.js.unityweb","bytes":502293,"mime":"text/javascript"},"code":{"path":"Build/TimeGD.wasm.unityweb","bytes":3751409,"mime":"application/octet-stream"}},"config":{"era":"modern","loaderJs":"Build/TimeGD.loader.js","companyName":"g80g","productName":"Time Shooter","productVersion":"1.0"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"time-shooter-1","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/time-shooter-1/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/","files":{"data":{"path":"Build/TimeGD.data.unityweb","parts":[".sp0",".sp1"],"bytes":26506799,"mime":"application/octet-stream"},"framework":{"path":"Build/TimeGD.framework.js.unityweb","bytes":502293,"mime":"text/javascript"},"code":{"path":"Build/TimeGD.wasm.unityweb","bytes":17644556,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/TimeGD.loader.js","companyName":"g80g","productName":"Time Shooter","productVersion":"1.0"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/runtime.js"></script>
 </body></html>
