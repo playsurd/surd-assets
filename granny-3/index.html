@@ -105,6 +105,16 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
@@ -151,6 +161,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         function updateBannerVisibility() {
           warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
         }</script>
-<script>window.SURD_GAME = {"id":"granny-3","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/granny-3/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"data":{"path":"Build/fef8fdd7cfc9e5a5001034b01fa3647b.data","parts":[".sp0",".sp1"],"bytes":29549521,"mime":"application/octet-stream"},"framework":{"path":"Build/e12dac5a3f5e3f677b009118afef20b7.framework.js","bytes":391106,"mime":"text/javascript"},"code":{"path":"Build/bd8d511ba06d09159c93b032551b04fb.wasm","parts":[".sp0",".sp1"],"bytes":34582240,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/bb0d9ecdb05db3e84da20bd14a4f84dc.loader.js","companyName":"Games Place","productName":"Granny 3","productVersion":"0.1"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"granny-3","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/granny-3/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/","files":{"data":{"path":"Build/fef8fdd7cfc9e5a5001034b01fa3647b.data","parts":[".sp0",".sp1"],"bytes":29549521,"mime":"application/octet-stream"},"framework":{"path":"Build/e12dac5a3f5e3f677b009118afef20b7.framework.js","bytes":391106,"mime":"text/javascript"},"code":{"path":"Build/bd8d511ba06d09159c93b032551b04fb.wasm","parts":[".sp0",".sp1"],"bytes":34582240,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/bb0d9ecdb05db3e84da20bd14a4f84dc.loader.js","companyName":"Games Place","productName":"Granny 3","productVersion":"0.1"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/runtime.js"></script>
 </body></html>
