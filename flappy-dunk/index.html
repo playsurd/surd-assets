@@ -109,6 +109,12 @@ if (typeof window !== 'undefined') {
   if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
   if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
 }
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/flappy-dunk/_vendor/ytgame.js"></script>
@@ -128,9 +134,9 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
       var loaderUrl = buildUrl + "/flappydunk_unity6_V1.0.1.loader.js";  
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/flappydunk_unity6_V1.0.1.data.zip",
+        dataUrl: buildUrl + "/flappydunk_unity6_V1.0.1.data",
         frameworkUrl: buildUrl + "/flappydunk_unity6_V1.0.1.framework.js",
-        codeUrl: buildUrl + "/flappydunk_unity6_V1.0.1.wasm.zip",
+        codeUrl: buildUrl + "/flappydunk_unity6_V1.0.1.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Voodoo",
         productName: "Flappy Dunk",
@@ -251,6 +257,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
       window.addEventListener("load", onPageLoaded);
 
   </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"flappy-dunk","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/flappy-dunk/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v82b730af12/","files":{"data":{"path":"Build/flappydunk_unity6_V1.0.1.data","bytes":7932875,"mime":"application/octet-stream"},"framework":{"path":"Build/flappydunk_unity6_V1.0.1.framework.js","bytes":412700,"mime":"text/javascript"},"code":{"path":"Build/flappydunk_unity6_V1.0.1.wasm","bytes":17236214,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/flappydunk_unity6_V1.0.1.loader.js","companyName":"Voodoo","productName":"Flappy Dunk","productVersion":"1.0.1"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v82b730af12/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"flappy-dunk","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/flappy-dunk/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/","files":{"data":{"path":"Build/flappydunk_unity6_V1.0.1.data","bytes":7932875,"mime":"application/octet-stream"},"framework":{"path":"Build/flappydunk_unity6_V1.0.1.framework.js","bytes":412700,"mime":"text/javascript"},"code":{"path":"Build/flappydunk_unity6_V1.0.1.wasm","bytes":17236214,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/flappydunk_unity6_V1.0.1.loader.js","companyName":"Voodoo","productName":"Flappy Dunk","productVersion":"1.0.1"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/runtime.js"></script>
 </body></html>
