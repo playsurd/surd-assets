@@ -109,6 +109,12 @@ if (typeof window !== 'undefined') {
   if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
   if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
 }
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/hide-n-seek/_vendor/ytgame.js"></script>
@@ -152,7 +158,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     var config = {
       dataUrl: buildUrl + "/HidNSeek.data",
       frameworkUrl: buildUrl + "/HidNSeek.framework.js",
-        codeUrl: buildUrl + "/HidNSeek.wasm.zip",
+        codeUrl: buildUrl + "/HidNSeek.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "Seenax",
       productName: "Hide 'N Seek!",
@@ -289,6 +295,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     // Load resources
     loadResources(InitUnitySection);  
   </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"hide-n-seek","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/hide-n-seek/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v82b730af12/","files":{"data":{"path":"Build/HidNSeek.data","bytes":14603429,"mime":"application/octet-stream"},"framework":{"path":"Build/HidNSeek.framework.js","bytes":506272,"mime":"text/javascript"},"code":{"path":"Build/HidNSeek.wasm","parts":[".sp0",".sp1"],"bytes":23570827,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/HidNSeek.loader.js","companyName":"Seenax","productName":"Hide ","productVersion":"1.9.25"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v82b730af12/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"hide-n-seek","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/hide-n-seek/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/","files":{"data":{"path":"Build/HidNSeek.data","bytes":14603429,"mime":"application/octet-stream"},"framework":{"path":"Build/HidNSeek.framework.js","bytes":506272,"mime":"text/javascript"},"code":{"path":"Build/HidNSeek.wasm","parts":[".sp0",".sp1"],"bytes":23570827,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/HidNSeek.loader.js","companyName":"Seenax","productName":"Hide ","productVersion":"1.9.25"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v73b6add486/runtime.js"></script>
 </body></html>
