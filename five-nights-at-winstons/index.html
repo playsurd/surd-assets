@@ -116,9 +116,19 @@ This is an REDISTRIBUTED version of FNAW
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"five-nights-at-winstons","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/five-nights-at-winstons/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"five-nights-at-winstons","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/five-nights-at-winstons/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
         <title>Five Nights at Winston's</title>
         <meta charset="UTF-8" />
@@ -138,9 +148,9 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         <link type="text/css" href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
         <style type="text/css">@font-face { font-family: 'font'; src: url('font.woff2') format('woff2'), url('font.woff') format('woff'); font-weight: normal; font-style: normal; }</style>
 		<script type="text/javascript">window.tag=["fnaw1_"];</script>
-		<script type="text/javascript" src="/FNAW/runtime.js"></script>
-        <script type="text/javascript" src="untar.js"></script>
-        <script type="text/javascript" src="fnaw.js"></script>
+		<script crossorigin="anonymous" type="text/javascript" src="/FNAW/runtime.js"></script>
+        <script crossorigin="anonymous" type="text/javascript" src="untar.js"></script>
+        <script crossorigin="anonymous" type="text/javascript" src="fnaw.js"></script>
     </head>
     <body style="background-color:black;margin:0px;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;overflow:hidden;">
         <p style="font-family: 'VT323';z-index:-10;">.</p>
