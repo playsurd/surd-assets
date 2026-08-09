@@ -110,9 +110,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"stickman-hook","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-hook/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"stickman-hook","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-hook/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
   
   
@@ -146,11 +156,11 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
   display: block;
 }
 </style>
-  <script src="poki3.js"></script>
+  <script crossorigin="anonymous" src="poki3.js"></script>
 </head>
 
 <body>
-  <script src="bundle.js"></script>
+  <script crossorigin="anonymous" src="bundle.js"></script>
   
 </body>
 
