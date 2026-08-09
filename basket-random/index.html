@@ -113,9 +113,15 @@ if (typeof window !== 'undefined') {
   if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
   if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
 }
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"basket-random","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/basket-random/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v82b730af12/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v82b730af12/runtime.js"></script>
+<script>window.SURD_GAME={"id":"basket-random","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/basket-random/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
 	
     
@@ -147,7 +153,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 
 <body>
 	<div id="fb-root"></div>
-	<script
+	<script crossorigin="anonymous"
 		src="./_vendor/box2d.js">
 	</script> <noscript>
 		<div id="notSupportedWrap">
@@ -155,19 +161,19 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
 		</div>
 	</noscript>
-	<script
+	<script crossorigin="anonymous"
 		src="./_vendor/suppoortcheck.js">
 	</script>
-	<script
+	<script crossorigin="anonymous"
 		src="./_vendor/offclient.js"
 		type="module"></script>
-	<script
+	<script crossorigin="anonymous"
 		src="./_vendor/main.js"
 		type="module"></script>
-	<script
+	<script crossorigin="anonymous"
 		src="./_vendor/registersw.js"
 		type="module"></script>
-	<script src="./_vendor/api.js"></script>
+	<script crossorigin="anonymous" src="./_vendor/api.js"></script>
 </body>
 
 </html>
