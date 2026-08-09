@@ -108,18 +108,28 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"stickman-golf","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-golf/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"stickman-golf","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-golf/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Super Stickman Golf</title>
     <meta name="viewport" content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no, minimal-ui" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="stylesheet" type="text/css" href="game.css" />
-    <script type="text/javascript" src="game.js"></script>
-    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="game.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="/js/main.js"></script>
   </head>
   <div class="gamecenter-activator"></div>
   <body onload="setTimeout(function(){window.scrollTo(0,1)},1);">
