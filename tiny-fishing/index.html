@@ -110,14 +110,24 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"tiny-fishing","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/tiny-fishing/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"tiny-fishing","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/tiny-fishing/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
     
     
-    <script type="text/javascript" src="https://361820596-851580422716946014.preview.editmysite.com/uploads/b/139890129-473108247243760926/files/gamesnacks.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="https://361820596-851580422716946014.preview.editmysite.com/uploads/b/139890129-473108247243760926/files/gamesnacks.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="pragma" content="no-cache" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -245,7 +255,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
             <p>Your browser doesn't support HTML5 canvas.</p>
         </canvas>
     </div>
-    <script type="text/javascript" src="https://361820596-851580422716946014.preview.editmysite.com/uploads/b/139890129-473108247243760926/files/html5game/TinyFishing.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="https://361820596-851580422716946014.preview.editmysite.com/uploads/b/139890129-473108247243760926/files/html5game/TinyFishing.js"></script>
     <script>
         //window.onload = GameMaker_Init;
         //if(!Number.isNaN && window.isNaN) Number.isNaN = isNaN;
