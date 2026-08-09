@@ -109,9 +109,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"mob-control-html5","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/mob-control-html5/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"mob-control-html5","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/mob-control-html5/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
     <title>Mob control</title>
@@ -126,11 +136,11 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 
     <link rel="stylesheet" type="text/css" href="style/index.css" nonce="-aHhUqwMte4nFjjog56n9A"/>
 
-    <!-- <script src="https://html5.api.gamedistribution.com/libs/gd/api.js"></script>
-    <script src="./VOODOO-H5SDK.gd.js"></script> -->
-    <script src="https://rawcdn.githack.com/bubbls/youtube-playables/main/ytgame.js" nonce="-aHhUqwMte4nFjjog56n9A"></script>
-    <script src="./VOODOO-H5SDK.youtube.js" nonce="-aHhUqwMte4nFjjog56n9A"></script>
-    <script src="game.js" nonce="-aHhUqwMte4nFjjog56n9A"></script>
+    <!-- <script crossorigin="anonymous" src="https://html5.api.gamedistribution.com/libs/gd/api.js"></script>
+    <script crossorigin="anonymous" src="./VOODOO-H5SDK.gd.js"></script> -->
+    <script crossorigin="anonymous" src="https://rawcdn.githack.com/bubbls/youtube-playables/main/ytgame.js" nonce="-aHhUqwMte4nFjjog56n9A"></script>
+    <script crossorigin="anonymous" src="./VOODOO-H5SDK.youtube.js" nonce="-aHhUqwMte4nFjjog56n9A"></script>
+    <script crossorigin="anonymous" src="game.js" nonce="-aHhUqwMte4nFjjog56n9A"></script>
 
 </head>
 
