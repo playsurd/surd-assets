@@ -109,9 +109,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"dont-you-lecture-me","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/dont-you-lecture-me/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"dont-you-lecture-me","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/dont-you-lecture-me/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
         
         <title>DON'T YOU LECTURE ME WITH YOUR THIRTY DOLLAR WEBSITE</title>
@@ -126,8 +136,8 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 
         
         
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script crossorigin="anonymous" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script crossorigin="anonymous" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         
     <style>
 
@@ -523,7 +533,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 
     </body>
     
-    <script type="text/javascript" src="🗿.js?v=8a" charset="UTF-8"></script>
-    <script type="text/javascript" src="▶.js?v=8a" charset="UTF-8"></script>
-    <script type="text/javascript" src="💾.js?v=8a" charset="UTF-8"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="🗿.js?v=8a" charset="UTF-8"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="▶.js?v=8a" charset="UTF-8"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="💾.js?v=8a" charset="UTF-8"></script>
 </html>
