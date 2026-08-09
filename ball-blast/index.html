@@ -110,9 +110,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"ball-blast","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/ball-blast/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"ball-blast","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/ball-blast/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
   
   
@@ -126,8 +136,8 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 
   <title>Ball Blast HTML5</title>
 
-  <script src="./_vendor/ytgame.js" nonce="4I4lJWEKCRSZNSqpZwI5kQ"></script>
-  <script src="./VOODOO-H5SDK.youtube.js" nonce="4I4lJWEKCRSZNSqpZwI5kQ"></script>
+  <script crossorigin="anonymous" src="./_vendor/ytgame.js" nonce="4I4lJWEKCRSZNSqpZwI5kQ"></script>
+  <script crossorigin="anonymous" src="./VOODOO-H5SDK.youtube.js" nonce="4I4lJWEKCRSZNSqpZwI5kQ"></script>
   <style>
     html {
       height: 100%;
@@ -164,7 +174,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
   display: block;
 }
 </style>
-  <script defer src="main.js" nonce="4I4lJWEKCRSZNSqpZwI5kQ"></script>
+  <script crossorigin="anonymous" defer src="main.js" nonce="4I4lJWEKCRSZNSqpZwI5kQ"></script>
 </head>
 
 <body>
