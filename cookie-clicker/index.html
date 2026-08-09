@@ -108,9 +108,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"cookie-clicker","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cookie-clicker/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"cookie-clicker","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cookie-clicker/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
 
 <script>
@@ -154,14 +164,14 @@ Feel free to alter this code to your liking, but please do not re-host it, do no
 
 <meta name="viewport" content="width=900, initial-scale=1">
 <link rel="shortcut icon" href="img/favicon.ico" />
-<script src="base64.js"></script>
+<script crossorigin="anonymous" src="base64.js"></script>
 
 <link href="style.css?v=10c" rel="stylesheet" type="text/css">
-<script src="main2.js?v=13g"></script>
+<script crossorigin="anonymous" src="main2.js?v=13g"></script>
 
 <!-- ad -->
 
-<script src="showads.js"></script><!-- this just detects adblockers so we can adjust the layout and play nice -->
+<script crossorigin="anonymous" src="showads.js"></script><!-- this just detects adblockers so we can adjust the layout and play nice -->
 
 
 <!-- /ad -->
@@ -172,7 +182,7 @@ Feel free to alter this code to your liking, but please do not re-host it, do no
 </style>
 <![endif]-->
 
-<!--[if lt IE9]><script src="excanvas.compiled.js"></script><![endif]-->
+<!--[if lt IE9]><script crossorigin="anonymous" src="excanvas.compiled.js"></script><![endif]-->
 </head>
 <body>
 
