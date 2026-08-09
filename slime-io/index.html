@@ -109,9 +109,15 @@ if (typeof window !== 'undefined') {
   if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
   if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
 }
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"slime-io","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/slime-io/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v82b730af12/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v82b730af12/runtime.js"></script>
+<script>window.SURD_GAME={"id":"slime-io","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/slime-io/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
 <!DOCTYPE html>
 
@@ -632,7 +638,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         })();
     }).call(this);
 </script>
-<script src="./_vendor/gamesnacks.js" data-target-origin="https://gamesnacks.com" data-user-activity-metrics data-run-slotcar-ads-in-game-center data-rewarded-monetizable data-interstitial-monetizable data-game-over-monetizable nonce="CA2QrendWiTeO_qSXS8GQQ"></script>
+<script crossorigin="anonymous" src="./_vendor/gamesnacks.js" data-target-origin="https://gamesnacks.com" data-user-activity-metrics data-run-slotcar-ads-in-game-center data-rewarded-monetizable data-interstitial-monetizable data-game-over-monetizable nonce="CA2QrendWiTeO_qSXS8GQQ"></script>
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <title>Cocos Creator | Slimes mobile main</title>
@@ -672,13 +678,13 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         </div>
     </div>
     <!-- GS 2.0 API doesn't need to be loaded by the html -->
-    <!-- <script async src="https://embed.gamesnacks.com/assets/js/gamesnacks.js" data-environment="test"></script> -->
+    <!-- <script crossorigin="anonymous" async src="https://embed.gamesnacks.com/assets/js/gamesnacks.js" data-environment="test"></script> -->
     <!-- Polyfills bundle. -->
-    <script src="src/polyfills.bundle.js" charset="utf-8"> </script>
+    <script crossorigin="anonymous" src="src/polyfills.bundle.js" charset="utf-8"> </script>
     <!-- SystemJS support. -->
-    <script src="src/system.bundle.js" charset="utf-8"> </script>
+    <script crossorigin="anonymous" src="src/system.bundle.js" charset="utf-8"> </script>
     <!-- Import map -->
-    <script src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
+    <script crossorigin="anonymous" src="src/import-map.json" type="systemjs-importmap" charset="utf-8"> </script>
     <script>
         System.import('./index.js').catch(function (err) {
             console.error(err);
