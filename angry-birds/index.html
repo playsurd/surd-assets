@@ -105,6 +105,16 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/angry-birds/_vendor/UnityProgress.js"></script>
@@ -118,6 +128,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         }
     });
 </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"angry-birds","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/angry-birds/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"data":{"path":"birds.data","bytes":12412673,"mime":"application/octet-stream"},"code":{"path":"birds.wasm.code.unityweb","bytes":12387566,"mime":"application/wasm"},"framework":{"path":"birds.wasm.framework.unityweb","bytes":449520,"mime":"text/javascript"}},"config":{"era":"legacy","variant":"wasm","loaderJs":null,"instantiate":"url","unityConfig":{"TOTAL_MEMORY":268435456,"graphicsAPI":["WebGL 2.0","WebGL 1.0"],"webglContextAttributes":{"preserveDrawingBuffer":false},"splashScreenStyle":"Dark","backgroundColor":"#231F20","cacheControl":{"default":"must-revalidate"}},"progressJs":"_vendor/UnityProgress.js","companyName":"surd","productName":"angry-birds","totalMemory":268435456,"loaderUrl":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/vendor-js/UnityLoader.js"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"angry-birds","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/angry-birds/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{"data":{"path":"birds.data","bytes":12412673,"mime":"application/octet-stream"},"code":{"path":"birds.wasm.code.unityweb","bytes":12387566,"mime":"application/wasm"},"framework":{"path":"birds.wasm.framework.unityweb","bytes":449520,"mime":"text/javascript"}},"config":{"era":"legacy","variant":"wasm","loaderJs":null,"instantiate":"url","unityConfig":{"TOTAL_MEMORY":268435456,"graphicsAPI":["WebGL 2.0","WebGL 1.0"],"webglContextAttributes":{"preserveDrawingBuffer":false},"splashScreenStyle":"Dark","backgroundColor":"#231F20","cacheControl":{"default":"must-revalidate"}},"progressJs":"_vendor/UnityProgress.js","companyName":"surd","productName":"angry-birds","totalMemory":268435456,"loaderUrl":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/vendor-js/UnityLoader.js"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 </body></html>
