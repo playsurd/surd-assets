@@ -108,9 +108,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"stickman-kombat-2d","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-kombat-2d/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"stickman-kombat-2d","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-kombat-2d/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
     <meta charset="UTF-8">
@@ -153,11 +163,11 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 </script>
 
 	
-	<script src="spine-webgl.js"></script>
-	<script src="spine-draw.js"></script>
-	<script src="spine-gl-cache.js"></script>
-	<script src="spine-bone-control.js"></script>
-	<script src="spine-palette.js"></script>
+	<script crossorigin="anonymous" src="spine-webgl.js"></script>
+	<script crossorigin="anonymous" src="spine-draw.js"></script>
+	<script crossorigin="anonymous" src="spine-gl-cache.js"></script>
+	<script crossorigin="anonymous" src="spine-bone-control.js"></script>
+	<script crossorigin="anonymous" src="spine-palette.js"></script>
 	
 	<noscript>
 		<div id="notSupportedWrap">
@@ -165,9 +175,9 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
 		</div>
 	</noscript>
-	<script src="scripts/modernjscheck.js"></script>
-	<script src="scripts/supportcheck.js"></script>
-	<script src="scripts/main-edit3.js" type="module"></script>
+	<script crossorigin="anonymous" src="scripts/modernjscheck.js"></script>
+	<script crossorigin="anonymous" src="scripts/supportcheck.js"></script>
+	<script crossorigin="anonymous" src="scripts/main-edit3.js" type="module"></script>
 
 
 </body> 
