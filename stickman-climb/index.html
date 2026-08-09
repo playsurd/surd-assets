@@ -109,10 +109,20 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"stickman-climb","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-climb/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
-<script src="/js/all.js"></script>
+<script>window.SURD_GAME={"id":"stickman-climb","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-climb/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
+<script crossorigin="anonymous" src="/js/all.js"></script>
     
     
     <title>Stickman Climb</title>
@@ -132,10 +142,10 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
   display: block;
 }
 </style>
-</head><body dir="ltr"><script src="bundle.js"></script><script src="sdk1-6.js"></script><script src="playcanvas-stable.min.js"></script><script src="__settings__.js"></script>
-    <script src="__modules__.js"></script>
-    <script src="__start__.js"></script>
-    <script src="__loading__.js"></script>
+</head><body dir="ltr"><script crossorigin="anonymous" src="bundle.js"></script><script crossorigin="anonymous" src="sdk1-6.js"></script><script crossorigin="anonymous" src="playcanvas-stable.min.js"></script><script crossorigin="anonymous" src="__settings__.js"></script>
+    <script crossorigin="anonymous" src="__modules__.js"></script>
+    <script crossorigin="anonymous" src="__start__.js"></script>
+    <script crossorigin="anonymous" src="__loading__.js"></script>
     <script type="text/javascript">
         window.addEventListener('keydown', ev => {
             if (['ArrowDown', 'ArrowUp', ' '].includes(ev.key)) {
