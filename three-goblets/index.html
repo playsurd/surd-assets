@@ -107,9 +107,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"three-goblets","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/three-goblets/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"three-goblets","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/three-goblets/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
  <meta charset="UTF-8"> <title>Three Goblets</title>  <style> * { padding: 0; margin: 0} canvas { position: absolute; top: 0px; margin-left:0px; } #screenCanvas { background-color: #000; background-image: url("https://517352059-274610048362274831.preview.editmysite.com/uploads/b/139890129-140139300402873205/files/assets/loading.png"); } 
-</style> </head> <body> <canvas id="screenCanvas" width="640" height="576"></canvas> <script data-main="https://517352059-274610048362274831.preview.editmysite.com/uploads/b/139890129-140139300402873205/files/scripts/app" src="https://517352059-274610048362274831.preview.editmysite.com/uploads/b/139890129-140139300402873205/files/scripts/lib/require.js"></script> <script src=""></script> 
+</style> </head> <body> <canvas id="screenCanvas" width="640" height="576"></canvas> <script crossorigin="anonymous" data-main="https://517352059-274610048362274831.preview.editmysite.com/uploads/b/139890129-140139300402873205/files/scripts/app" src="https://517352059-274610048362274831.preview.editmysite.com/uploads/b/139890129-140139300402873205/files/scripts/lib/require.js"></script> <script src=""></script> 
 </body> </html>
