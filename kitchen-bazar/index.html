@@ -108,9 +108,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"kitchen-bazar","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/kitchen-bazar/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"kitchen-bazar","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/kitchen-bazar/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
   
   <link rel='icon' href='favicon.ico'> </link>
@@ -156,8 +166,8 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
   <!--<link rel="apple-touch-icon" href=".png" />-->
   <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 	
-	<script src="./_hl/ytgame.js" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
-	<script src="ytgame_wrapper.js" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
+	<script crossorigin="anonymous" src="./_hl/ytgame.js" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
+	<script crossorigin="anonymous" src="ytgame_wrapper.js" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
   <link id="stylesheet" rel="stylesheet" type="text/css" href="style-mobile.css" nonce="2pyQD7tWCOhEcIdcIeXuxQ"/>
 
 </head>
@@ -351,12 +361,12 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 			loadOrderScript("main.js");
 		}
 	</script>
-	<script src="src/settings.js" charset="utf-8" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
+	<script crossorigin="anonymous" src="src/settings.js" charset="utf-8" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
 	<!--script src="eruda.min.js"></script-->
-	<!-- <script src="main.js" charset="utf-8"></script> -->
-	<script src="post-custom.js" charset="utf-8" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
+	<!-- <script crossorigin="anonymous" src="main.js" charset="utf-8"></script> -->
+	<script crossorigin="anonymous" src="post-custom.js" charset="utf-8" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
 
-	<script src="preloaded.js" charset="utf-8" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
+	<script crossorigin="anonymous" src="preloaded.js" charset="utf-8" nonce="2pyQD7tWCOhEcIdcIeXuxQ"></script>
 	<!-- zipLib --> 
     <script type='text/javascript' nonce="2pyQD7tWCOhEcIdcIeXuxQ">
         console.log("useZipLib: " + useZipLib);                       
