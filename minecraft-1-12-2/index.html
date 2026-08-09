@@ -105,6 +105,16 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 
 
@@ -134,6 +144,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 				}
 			});
 		</script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"minecraft-1-12-2","engine":"eaglercraft","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/minecraft-1-12-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"classes":{"path":"classes.js","bytes":14306656,"mime":"text/javascript"}},"config":{"opts":{"demoMode":false,"container":"game_frame","assetsURI":"assets.epk","localesURI":"lang/","worldsDB":"worlds","servers":[{"addr":"wss://complex.lat/","name":"complex.lat"},{"addr":"wss://eaglercraft.cc","name":"complex.lat alt 2"},{"addr":"wss://prysm.lol","name":"prysm MC"},{"addr":"wss://server.mexi.lol","name":"prysm MC 2"}],"logInvalidCerts":true,"crashOnUncaughtExceptions":true},"entry":"main","optsFromPage":true}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"minecraft-1-12-2","engine":"eaglercraft","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/minecraft-1-12-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{"classes":{"path":"classes.js","bytes":14306656,"mime":"text/javascript"}},"config":{"opts":{"demoMode":false,"container":"game_frame","assetsURI":"assets.epk","localesURI":"lang/","worldsDB":"worlds","servers":[{"addr":"wss://complex.lat/","name":"complex.lat"},{"addr":"wss://eaglercraft.cc","name":"complex.lat alt 2"},{"addr":"wss://prysm.lol","name":"prysm MC"},{"addr":"wss://server.mexi.lol","name":"prysm MC 2"}],"logInvalidCerts":true,"crashOnUncaughtExceptions":true},"entry":"main","optsFromPage":true}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 </body></html>
