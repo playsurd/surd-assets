@@ -110,9 +110,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"myteardrop","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/myteardrop/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"myteardrop","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/myteardrop/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <meta name="theme-color" content="#000000">
@@ -243,9 +253,9 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     let loadbackground = document.getElementById("loadbackground");
     loadbackground.style.transform = `translate(-50%, -50%) scale(${scale}, ${scale})`;
 </script>-->
-<script src="pixi.js"></script>
-<script src="matter.js"></script>
-<script src="pizzicato.js"></script>
-<script type="module" src="ease.js"></script>
-<script type="module" src="bfdi/bfdi.js"></script>
+<script crossorigin="anonymous" src="pixi.js"></script>
+<script crossorigin="anonymous" src="matter.js"></script>
+<script crossorigin="anonymous" src="pizzicato.js"></script>
+<script crossorigin="anonymous" type="module" src="ease.js"></script>
+<script crossorigin="anonymous" type="module" src="bfdi/bfdi.js"></script>
 
