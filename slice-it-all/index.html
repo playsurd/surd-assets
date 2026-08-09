@@ -109,34 +109,44 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"slice-it-all","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/slice-it-all/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"slice-it-all","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/slice-it-all/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
    <meta charset="utf-8">
    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 
 
 
-   <!-- <script src="/jquery-3.4.1.min.js"></script>
+   <!-- <script crossorigin="anonymous" src="/jquery-3.4.1.min.js"></script>
 
-        <script src="/gpid.js"></script>
-        <script src="/ads.js"></script>
+        <script crossorigin="anonymous" src="/gpid.js"></script>
+        <script crossorigin="anonymous" src="/ads.js"></script>
       
-        <script src="/loadingPage.js"></script>
+        <script crossorigin="anonymous" src="/loadingPage.js"></script>
         <link rel="stylesheet" href="/loadingPage.css">
       
-        <script src="/stickyBanner.js"></script>
+        <script crossorigin="anonymous" src="/stickyBanner.js"></script>
         <link rel="stylesheet" href="/stickyBanner.css">
       
-        <script src="/leaderboard.js"></script>
+        <script crossorigin="anonymous" src="/leaderboard.js"></script>
         <link rel="stylesheet" href="/leaderboard.css">
       
-        <script src="https://g.glance-cdn.com/public/content/games/xiaomi/gamesAd.js"></script>
-        <script src="/VOODOO-H5SDK.glance.js"></script> -->
+        <script crossorigin="anonymous" src="https://g.glance-cdn.com/public/content/games/xiaomi/gamesAd.js"></script>
+        <script crossorigin="anonymous" src="/VOODOO-H5SDK.glance.js"></script> -->
 
-   <script src="https://www.youtube.com/game_api/v1?key=NZIBOoHpSqde00vdlOjBM0RN2OTbAQHtlkEQuLFW" nonce="qACc2RpVQ7Dqt26Ksjm7yA"></script>
-   <script src="./VOODOO-H5SDK.youtube.js" nonce="qACc2RpVQ7Dqt26Ksjm7yA"></script>
+   <script crossorigin="anonymous" src="https://www.youtube.com/game_api/v1?key=NZIBOoHpSqde00vdlOjBM0RN2OTbAQHtlkEQuLFW" nonce="qACc2RpVQ7Dqt26Ksjm7yA"></script>
+   <script crossorigin="anonymous" src="./VOODOO-H5SDK.youtube.js" nonce="qACc2RpVQ7Dqt26Ksjm7yA"></script>
    <style>
      * {
        padding: 0;
@@ -352,7 +362,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
  </head>
 
  <body oncontextmenu="return false;">
-   <script type="text/javascript" src="main.js" nonce="qACc2RpVQ7Dqt26Ksjm7yA"></script>
+   <script crossorigin="anonymous" type="text/javascript" src="main.js" nonce="qACc2RpVQ7Dqt26Ksjm7yA"></script>
  </body>
 
  </html>
