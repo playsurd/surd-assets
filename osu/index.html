@@ -110,9 +110,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"osu","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/osu/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"osu","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/osu/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
   
   
@@ -131,12 +141,12 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <script src="scripts/launchgame.js"></script>
-  <script src="scripts/downloader.js"></script>
-  <script src="scripts/addbeatmaplist.js"></script>
-  <script src="scripts/settings.js"></script>
-  <script src="scripts/jsloader.js"></script>
-  <script src="scripts/lib/localforage.min.js"></script>
+  <script crossorigin="anonymous" src="scripts/launchgame.js"></script>
+  <script crossorigin="anonymous" src="scripts/downloader.js"></script>
+  <script crossorigin="anonymous" src="scripts/addbeatmaplist.js"></script>
+  <script crossorigin="anonymous" src="scripts/settings.js"></script>
+  <script crossorigin="anonymous" src="scripts/jsloader.js"></script>
+  <script crossorigin="anonymous" src="scripts/lib/localforage.min.js"></script>
 <style>
 
 </style>
