@@ -109,9 +109,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"jelly-mario","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/jelly-mario/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"jelly-mario","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/jelly-mario/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
     
@@ -264,10 +274,10 @@ Loading&nbsp;<span id="loadedPercent">0</span>%
     </tr>
 </table>
 
-<script src="lib/three.min.js"></script>
-<script src="lib/stats.min.js"></script>
-<script src="lib/dat.gui.min.js"></script>
-<script src="build/main.js?2"></script>
+<script crossorigin="anonymous" src="lib/three.min.js"></script>
+<script crossorigin="anonymous" src="lib/stats.min.js"></script>
+<script crossorigin="anonymous" src="lib/dat.gui.min.js"></script>
+<script crossorigin="anonymous" src="build/main.js?2"></script>
 <script>
     window.onload = function () {
         document.getElementById('playButton').click();
