@@ -110,9 +110,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"state-io","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/state-io/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"state-io","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/state-io/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
     
@@ -125,7 +135,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width,height=device-height" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="format-detection" content="telephone=no" />
-    <script src="./_vendor/ytgame.js" nonce="ahujkgjYWpFG19oTpLNlow"></script>
+    <script crossorigin="anonymous" src="./_vendor/ytgame.js" nonce="ahujkgjYWpFG19oTpLNlow"></script>
     <style>
         body,
         html {
@@ -184,7 +194,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
             params: undefined
         }));
     </script>
-    <script defer="defer" src="main.js" nonce="ahujkgjYWpFG19oTpLNlow"></script>
+    <script crossorigin="anonymous" defer="defer" src="main.js" nonce="ahujkgjYWpFG19oTpLNlow"></script>
     <link href="main.css" rel="stylesheet" nonce="ahujkgjYWpFG19oTpLNlow">
 </head>
 
