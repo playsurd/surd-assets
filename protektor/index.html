@@ -108,9 +108,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"protektor","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/protektor/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"protektor","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/protektor/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -154,7 +164,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         }
       })();
     </script>
-    <script src="/js/main.js"></script>
+    <script crossorigin="anonymous" src="/js/main.js"></script>
     <div id="c2canvasdiv">
       <canvas id="c2canvas" width="800" height="450">
         <h1>
@@ -169,12 +179,12 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     </div>
 
     <!-- Pages load faster with scripts at the bottom -->
-    <script src="jquery-3.4.1.min.js"></script>
-    <script src="pathfind.js"></script>
+    <script crossorigin="anonymous" src="jquery-3.4.1.min.js"></script>
+    <script crossorigin="anonymous" src="pathfind.js"></script>
 
     <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
     This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
-    <script src="c2runtime.js"></script>
+    <script crossorigin="anonymous" src="c2runtime.js"></script>
 
     <script>
       // Start the Construct 2 project running on window load.
