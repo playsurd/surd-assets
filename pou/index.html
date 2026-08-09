@@ -109,9 +109,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"pou","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/pou/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"pou","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/pou/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
 	
     
@@ -128,10 +138,10 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     <link rel="apple-touch-icon" type="image/png" href="assets/icon.png" />
     <link rel="stylesheet" href="assets/css/app.css" type="text/css" nonce="nEsvHewDKSKQZPWExNde-A" />
 	<!-- YT PLAYABLES -->
-	<script src="./_vendor/ytgame.js" nonce="nEsvHewDKSKQZPWExNde-A"></script>
+	<script crossorigin="anonymous" src="./_vendor/ytgame.js" nonce="nEsvHewDKSKQZPWExNde-A"></script>
 	
 	<!-- #FASTLIB# -->
-	<script defer src="fastLib/_importer.js" data-fast="fastLib/fastHeader.js" data-fast-options="{'checkbrowser':false}" type="text/javascript" nonce="nEsvHewDKSKQZPWExNde-A"></script>
+	<script crossorigin="anonymous" defer src="fastLib/_importer.js" data-fast="fastLib/fastHeader.js" data-fast-options="{'checkbrowser':false}" type="text/javascript" nonce="nEsvHewDKSKQZPWExNde-A"></script>
 <style>
 
 
