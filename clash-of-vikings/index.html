@@ -109,9 +109,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"clash-of-vikings","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/clash-of-vikings/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"clash-of-vikings","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/clash-of-vikings/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
   <title>Clash Of Vikings</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
@@ -127,12 +137,12 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 
   <link rel="stylesheet" type="text/css" href="game.css">
   <link rel="shortcut icon" href="media/graphics/favicon.ico" />
-  <script type="text/javascript" src="game.js"></script>
+  <script crossorigin="anonymous" type="text/javascript" src="game.js"></script>
 
   <!-- AnalyticsCode -->
 
   <!-- APICode -->
-  <script type="text/javascript" src="https://s3.amazonaws.com/marketjs-us/en/patch/webaudio-context-patch.js"></script>
+  <script crossorigin="anonymous" type="text/javascript" src="https://s3.amazonaws.com/marketjs-us/en/patch/webaudio-context-patch.js"></script>
 <style>
 
 </style>
