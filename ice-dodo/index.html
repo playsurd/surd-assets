@@ -107,9 +107,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"ice-dodo","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/ice-dodo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"ice-dodo","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/ice-dodo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
    
     <title>Ice Dodo - Play Online at Onionfist.com</title>
@@ -119,7 +129,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     <meta name="keywords" content="Ice Dodo, icedodo, Onionfist, 3d game, slope">
     <meta name="author" content="Seojoon Yeon">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <script type="text/javascript" src="./_vendor/jquery-3.3.1.js"></script><style type="text/css" id="operaUserStyle">
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/jquery-3.3.1.js"></script><style type="text/css" id="operaUserStyle">
 
 
 
@@ -134,7 +144,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     <link rel="stylesheet" type="text/css" href="./_vendor/screen.css">
     <link rel="stylesheet" type="text/css" href="./_vendor/popup.css">
     <link rel="stylesheet" type="text/css" href="./_vendor/tabs.css">
- <script type="text/javascript" src="./_vendor/tut1.js"></script></head>
+ <script crossorigin="anonymous" type="text/javascript" src="./_vendor/tut1.js"></script></head>
  <body style="width: 100%; height: 100%;">
     
     <canvas id="renderCanvas" width="723" height="600" tabindex="1"></canvas>
@@ -480,37 +490,37 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
        <h1 class="subt">Locked</h1>
        <div id="locked_skins"><div class="skinItem" id="skinName_moon"><img class="skin_img" src="assets/skins/moon.png"><div class="skin_txt">First win</div></div><div class="skinItem" id="skinName_melon"><img class="skin_img" src="assets/skins/melon.png"><div class="skin_txt">Overall 50 pt</div></div><div class="skinItem" id="skinName_whirlpool"><img class="skin_img" src="assets/skins/whirlpool.png"><div class="skin_txt">Overall 100 pt</div></div><div class="skinItem" id="skinName_tweet"><img class="skin_img" src="assets/skins/tweet.png"><div class="skin_txt">Overall 500 pt</div></div><div class="skinItem" id="skinName_hyperfrost"><img class="skin_img" src="assets/skins/hyperfrost.png"><div class="skin_txt">Overall 1000 pt</div></div><div class="skinItem" id="skinName_rainbow"><img class="skin_img" src="assets/skins/rainbow.png"><div class="skin_txt">Overall 2000 pt</div></div><div class="skinItem" id="skinName_beginner_cup"><img class="skin_img" src="assets/skins/beginner_cup.png"><div class="skin_txt">100% Ice Dodo</div></div><div class="skinItem" id="skinName_carrot_cup"><img class="skin_img" src="assets/skins/carrot_cup.png"><div class="skin_txt">100 % carrot</div></div><div class="skinItem" id="skinName_collab_cup"><img class="skin_img" src="assets/skins/collab_cup.png"><div class="skin_txt">100 % collab</div></div><div class="skinItem" id="skinName_crazy_cup"><img class="skin_img" src="assets/skins/crazy_cup.png"><div class="skin_txt">100 % crazy</div></div><div class="skinItem" id="skinName_dodo_cup"><img class="skin_img" src="assets/skins/dodo_cup.png"><div class="skin_txt">100 % dodo</div></div><div class="skinItem" id="skinName_doom_cup"><img class="skin_img" src="assets/skins/doom_cup.png"><div class="skin_txt">100 % doom</div></div><div class="skinItem" id="skinName_june_cup"><img class="skin_img" src="assets/skins/june_cup.png"><div class="skin_txt">100 % june</div></div><div class="skinItem" id="skinName_kazil_cup"><img class="skin_img" src="assets/skins/kazil_cup.png"><div class="skin_txt">100 % kazil</div></div><div class="skinItem" id="skinName_mango_cup"><img class="skin_img" src="assets/skins/mango_cup.png"><div class="skin_txt">100 % mango</div></div><div class="skinItem" id="skinName_furby_cup"><img class="skin_img" src="assets/skins/furby_cup.png"><div class="skin_txt">100 % furby</div></div><div class="skinItem" id="skinName_rocky_cup"><img class="skin_img" src="assets/skins/rocky_cup.png"><div class="skin_txt">100 % rocky</div></div><div class="skinItem" id="skinName_skilled_cup"><img class="skin_img" src="assets/skins/skilled_cup.png"><div class="skin_txt">100 % skilled</div></div><div class="skinItem" id="skinName_sleepy_cup"><img class="skin_img" src="assets/skins/sleepy_cup.png"><div class="skin_txt">100 % sleepy</div></div><div class="skinItem" id="skinName_squirrel_cup"><img class="skin_img" src="assets/skins/squirrel_cup.png"><div class="skin_txt">100 % squirrel</div></div><div class="skinItem" id="skinName_tim_cup"><img class="skin_img" src="assets/skins/tim_cup.png"><div class="skin_txt">100 % tim</div></div><div class="skinItem" id="skinName_ye_cup"><img class="skin_img" src="assets/skins/ye_cup.png"><div class="skin_txt">100 % ye</div></div><div class="skinItem" id="skinName_ghoul_cup"><img class="skin_img" src="assets/skins/ghoul_cup.png"><div class="skin_txt">100 % ghoul</div></div><div class="skinItem" id="skinName_rytai_cup"><img class="skin_img" src="assets/skins/rytai_cup.png"><div class="skin_txt">100 % rytai</div></div><div class="skinItem" id="skinName_jay_cup"><img class="skin_img" src="assets/skins/jay_cup.png"><div class="skin_txt">100 % jay</div></div><div class="skinItem" id="skinName_og_cup"><img class="skin_img" src="assets/skins/og_cup.png"><div class="skin_txt">100% O.G.</div></div><div class="skinItem" id="skinName_flame"><img class="skin_img" src="assets/skins/flame.png"><div class="skin_txt">Overall 50 %</div></div><div class="skinItem" id="skinName_galaxy"><img class="skin_img" src="assets/skins/galaxy.png"><div class="skin_txt">Overall 80 %</div></div><div class="skinItem" id="skinName_swag1"><img class="skin_img" src="assets/skins/swag1.png"><div class="skin_txt">Overall 100 %</div></div></div>
     </div>
-    <script type="text/javascript" src="./_vendor/babylon.js"></script>
-    <script type="text/javascript" src="./_vendor/cup_info.js"></script>
-    <script type="text/javascript" src="./_vendor/map_info.js"></script>
-    <script type="text/javascript" src="./_vendor/skin_info.js"></script>
-    <script type="text/javascript" src="./_vendor/deployment.js"></script>
-    <script type="text/javascript" src="./_vendor/sync.js"></script>
-    <script type="text/javascript" src="./_vendor/popup.js"></script>
-    <script type="text/javascript" src="./_vendor/audio.js"></script>
-    <script type="text/javascript" src="./_vendor/fov.js"></script>
-    <script type="text/javascript" src="./_vendor/size.js"></script>
-    <script type="text/javascript" src="./_vendor/news.js"></script>
-    <script type="text/javascript" src="./_vendor/change_state.js"></script>
-    <script type="text/javascript" src="./_vendor/leaderboard.js"></script>
-    <script type="text/javascript" src="./_vendor/controls.js"></script>
-    <script type="text/javascript" src="./_vendor/decorations.js"></script>
-    <script type="text/javascript" src="./_vendor/guardian.js"></script>
-    <script type="text/javascript" src="./_vendor/loader.js"></script>
-    <script type="text/javascript" src="./_vendor/maker.js"></script>
-    <script type="text/javascript" src="./_vendor/alias.js"></script>
-    <script type="text/javascript" src="./_vendor/const_controller.js"></script>
-    <script type="text/javascript" src="./_vendor/settings.js"></script>
-    <script type="text/javascript" src="./_vendor/scorekeeper.js"></script>
-    <script type="text/javascript" src="./_vendor/cleanup.js"></script>
-    <script type="text/javascript" src="./_vendor/start.js"></script>
-    <script type="text/javascript" src="./_vendor/update.js"></script>
-    <script type="text/javascript" src="./_vendor/flyjump.js"></script>
-    <script type="text/javascript" src="./_vendor/stats.js"></script>
-    <script type="text/javascript" src="./_vendor/screen.js"></script>
-    <script type="text/javascript" src="./_vendor/tabs.js"></script>
-    <script type="text/javascript" src="./_vendor/ads.js"></script>
-    <script type="text/javascript" src="./_vendor/boot.js"></script>
-    <script defer="" type="text/javascript" src="./_vendor/testing_mode.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/babylon.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/cup_info.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/map_info.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/skin_info.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/deployment.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/sync.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/popup.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/audio.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/fov.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/size.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/news.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/change_state.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/leaderboard.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/controls.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/decorations.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/guardian.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/loader.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/maker.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/alias.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/const_controller.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/settings.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/scorekeeper.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/cleanup.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/start.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/update.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/flyjump.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/stats.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/screen.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/tabs.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/ads.js"></script>
+    <script crossorigin="anonymous" type="text/javascript" src="./_vendor/boot.js"></script>
+    <script crossorigin="anonymous" defer="" type="text/javascript" src="./_vendor/testing_mode.js"></script>
  
 </body></html>
