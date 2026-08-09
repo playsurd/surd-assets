@@ -108,9 +108,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"volley-random","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/volley-random/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"volley-random","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/volley-random/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
 <meta charset="UTF-8">
 <title>Volley Random</title>
@@ -134,17 +144,17 @@ if (location.protocol.substr(0, 4) ==="file")
 	alert("Web exports won't work until you upload them. (When running on the file: protocol, browsers block many features from working for security reasons.)");
 }
 </script>
-	<script src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/box2d.wasm.js"></script>
+	<script crossorigin="anonymous" src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/box2d.wasm.js"></script>
 	<noscript>
 		<div id="notSupportedWrap">
 			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
 			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
 		</div>
 	</noscript>
-	<script src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/scripts/supportcheck.js"></script>
-	<script src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/scripts/offlineclient.js" type="module"></script>
-	<script src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/scripts/main.js" type="module"></script>
-	<script src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/scripts/register-sw.js" type="module"></script>
+	<script crossorigin="anonymous" src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/scripts/supportcheck.js"></script>
+	<script crossorigin="anonymous" src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/scripts/offlineclient.js" type="module"></script>
+	<script crossorigin="anonymous" src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/scripts/main.js" type="module"></script>
+	<script crossorigin="anonymous" src="https://274105583-163826330694719375.preview.editmysite.com/uploads/b/139890129-613310438668365288/files/scripts/register-sw.js" type="module"></script>
 	<script src=""></script>
 	
 </body>
