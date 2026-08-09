@@ -108,9 +108,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"99-balls","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/99-balls/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"99-balls","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/99-balls/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 </head>
 <body dir="ltr" style="overflow: hidden; background-color: black;">
 	<div class="gm4html5_div_class" id="gm4html5_div_id"
@@ -124,7 +134,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 	</div>
 
 	<!-- Run the game code -->
-	<script src="./_vendor/99balls.js"
+	<script crossorigin="anonymous" src="./_vendor/99balls.js"
 		type="text/javascript"></script>
 
 
@@ -135,15 +145,15 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 	<script>
 		window.google.csi.tickDl();
 	</script>
-	<script src="./_vendor/diamondengine.js"
+	<script crossorigin="anonymous" src="./_vendor/diamondengine.js"
 		type="text/javascript"></script>
-	<script src="./_vendor/fullapi.js"
+	<script crossorigin="anonymous" src="./_vendor/fullapi.js"
 		type="text/javascript"></script>
-	<script src="./_vendor/djs.js"
+	<script crossorigin="anonymous" src="./_vendor/djs.js"
 		type="text/javascript"></script>
-	<script src="./_vendor/cookieman.js"
+	<script crossorigin="anonymous" src="./_vendor/cookieman.js"
 		type="text/javascript"></script>
-	<script src="./_vendor/gameapi.js"
+	<script crossorigin="anonymous" src="./_vendor/gameapi.js"
 		type="text/javascript"></script>
 
 </body>
