@@ -108,9 +108,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"draw-the-hill","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/draw-the-hill/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"draw-the-hill","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/draw-the-hill/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
         <meta charset="UTF-8" />
         <title>Draw the Hill</title>
@@ -122,7 +132,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         <link rel="apple-touch-icon" sizes="512x512" href="icons/icon-512.png" />
         <link rel="icon" type="image/png" href="icons/icon-512.png" />
         <link rel="stylesheet" href="style.css" />
-        <script src="/js/main.js"></script>
+        <script crossorigin="anonymous" src="/js/main.js"></script>
     </head>
     <body>
         <noscript>
@@ -148,10 +158,10 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
             	}
             }, false);
         </script>
-        <script src="scripts/supportcheck.js" type="3a3ae4e0c6bcb190169ba9ff-text/javascript"></script>
-        <script src="scripts/offlineclient.js" type="3a3ae4e0c6bcb190169ba9ff-module"></script>
-        <script src="scripts/main.js" type="3a3ae4e0c6bcb190169ba9ff-module"></script>
-        <script src="scripts/register-sw.js" type="3a3ae4e0c6bcb190169ba9ff-module"></script>
+        <script crossorigin="anonymous" src="scripts/supportcheck.js" type="3a3ae4e0c6bcb190169ba9ff-text/javascript"></script>
+        <script crossorigin="anonymous" src="scripts/offlineclient.js" type="3a3ae4e0c6bcb190169ba9ff-module"></script>
+        <script crossorigin="anonymous" src="scripts/main.js" type="3a3ae4e0c6bcb190169ba9ff-module"></script>
+        <script crossorigin="anonymous" src="scripts/register-sw.js" type="3a3ae4e0c6bcb190169ba9ff-module"></script>
         
     </body>
 </html>
