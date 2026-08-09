@@ -110,8 +110,18 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"five-nights-at-candys-2","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/five-nights-at-candys-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{},"split":[{"p":"resources.zip.part1","u":["resources.zip.part1.sp0","resources.zip.part1.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part10","u":["resources.zip.part10.sp0","resources.zip.part10.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part11","u":["resources.zip.part11.sp0","resources.zip.part11.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part2","u":["resources.zip.part2.sp0","resources.zip.part2.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part3","u":["resources.zip.part3.sp0","resources.zip.part3.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part4","u":["resources.zip.part4.sp0","resources.zip.part4.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part5","u":["resources.zip.part5.sp0","resources.zip.part5.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part6","u":["resources.zip.part6.sp0","resources.zip.part6.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part7","u":["resources.zip.part7.sp0","resources.zip.part7.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part8","u":["resources.zip.part8.sp0","resources.zip.part8.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part9","u":["resources.zip.part9.sp0","resources.zip.part9.sp1"],"b":20971520,"m":"application/octet-stream","v":1}]};</script>
+<script>window.SURD_GAME={"id":"five-nights-at-candys-2","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/five-nights-at-candys-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{},"split":[{"p":"resources.zip.part1","u":["resources.zip.part1.sp0","resources.zip.part1.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part10","u":["resources.zip.part10.sp0","resources.zip.part10.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part11","u":["resources.zip.part11.sp0","resources.zip.part11.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part2","u":["resources.zip.part2.sp0","resources.zip.part2.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part3","u":["resources.zip.part3.sp0","resources.zip.part3.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part4","u":["resources.zip.part4.sp0","resources.zip.part4.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part5","u":["resources.zip.part5.sp0","resources.zip.part5.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part6","u":["resources.zip.part6.sp0","resources.zip.part6.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part7","u":["resources.zip.part7.sp0","resources.zip.part7.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part8","u":["resources.zip.part8.sp0","resources.zip.part8.sp1"],"b":20971520,"m":"application/octet-stream","v":1},{"p":"resources.zip.part9","u":["resources.zip.part9.sp0","resources.zip.part9.sp1"],"b":20971520,"m":"application/octet-stream","v":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -248,7 +258,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
   }
   window.SURD_SPLIT = { blobs: blobs, match: match, assemble: assemble, script: script };
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
     <link rel="stylesheet" type="text/css" href="style.css"/>
@@ -288,7 +298,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
         </div>
     </div>
     
-    <script src="main.js"></script>
+    <script crossorigin="anonymous" src="main.js"></script>
 </body>
 
 </html>
