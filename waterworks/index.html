@@ -109,33 +109,43 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"waterworks","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/waterworks/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"waterworks","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/waterworks/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
-    <!--<script src="https://cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser.min.js"></script>-->
-	<script src="waterworks/js/phaser.min.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser-arcade-physics.min.js"></script>   -->
-    <script src="waterworks/js/newgroundsio.min.js"></script>
-    <script src="waterworks/js/main.min.js"></script>
-    <script src="waterworks/js/GameController.min.js"></script>
-    <script src="waterworks/js/Hand.min.js"></script>
-    <script src="waterworks/js/Card.min.js"></script>
-    <script src="waterworks/js/Walker.min.js"></script>
-    <script src="waterworks/js/TownBlock.min.js"></script>
-    <script src="waterworks/js/TownNode.min.js"></script>
-    <script src="waterworks/js/TownPipe.min.js"></script>
-    <script src="waterworks/js/Town.min.js"></script>
-    <script src="waterworks/js/Construction.min.js"></script>
-    <script src="waterworks/js/CardSlot.min.js"></script>
-    <script src="waterworks/js/Button.min.js"></script>
-    <script src="waterworks/js/Drawer.min.js"></script>
-    <script src="waterworks/js/Deck.min.js"></script>
-    <script src="waterworks/js/Popup.min.js"></script>
-    <script src="waterworks/js/Options.min.js"></script>
-    <script src="waterworks/js/MainMenu.min.js"></script>
-    <script src="waterworks/js/AchNotify.min.js"></script>
+    <!--<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser.min.js"></script>-->
+	<script crossorigin="anonymous" src="waterworks/js/phaser.min.js"></script>
+    <!--<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/phaser@3.22.0/dist/phaser-arcade-physics.min.js"></script>   -->
+    <script crossorigin="anonymous" src="waterworks/js/newgroundsio.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/main.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/GameController.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Hand.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Card.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Walker.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/TownBlock.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/TownNode.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/TownPipe.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Town.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Construction.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/CardSlot.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Button.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Drawer.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Deck.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Popup.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/Options.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/MainMenu.min.js"></script>
+    <script crossorigin="anonymous" src="waterworks/js/AchNotify.min.js"></script>
     <style type="text/css">
         body {
             overflow: hidden;
