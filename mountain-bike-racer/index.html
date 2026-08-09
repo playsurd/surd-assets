@@ -108,9 +108,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"mountain-bike-racer","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/mountain-bike-racer/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"mountain-bike-racer","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/mountain-bike-racer/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
          <meta charset="UTF-8"> 
          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
@@ -122,5 +132,5 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
             <p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p> 
             </div> 
             </noscript> 
-            <script src="https://63345095-642850127579431232.preview.editmysite.com/uploads/b/150548818-566885687184884645/files/scripts/supportcheck.js" type="module"></script> 
-            <script src="https://63345095-642850127579431232.preview.editmysite.com/uploads/b/150548818-566885687184884645/files/scripts/offlineclient.js" type="module"></script> <script src="https://63345095-642850127579431232.preview.editmysite.com/uploads/b/150548818-566885687184884645/files/scripts/main.js" type="module"></script> <script src="https://63345095-642850127579431232.preview.editmysite.com/uploads/b/150548818-566885687184884645/files/scripts/register-sw.js" type="module"></script>  </body> </html>
+            <script crossorigin="anonymous" src="https://63345095-642850127579431232.preview.editmysite.com/uploads/b/150548818-566885687184884645/files/scripts/supportcheck.js" type="module"></script> 
+            <script crossorigin="anonymous" src="https://63345095-642850127579431232.preview.editmysite.com/uploads/b/150548818-566885687184884645/files/scripts/offlineclient.js" type="module"></script> <script crossorigin="anonymous" src="https://63345095-642850127579431232.preview.editmysite.com/uploads/b/150548818-566885687184884645/files/scripts/main.js" type="module"></script> <script crossorigin="anonymous" src="https://63345095-642850127579431232.preview.editmysite.com/uploads/b/150548818-566885687184884645/files/scripts/register-sw.js" type="module"></script>  </body> </html>
