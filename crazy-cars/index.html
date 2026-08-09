@@ -111,9 +111,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"crazy-cars","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/crazy-cars/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"crazy-cars","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/crazy-cars/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
   <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover' />
   <meta charset='utf-8'>
@@ -132,14 +142,14 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 </style>
   <title>Crazy Cars! Unblocked</title>
   
-  <script src="playcanvas-stable.min.js"></script>
-  <script src="settings__.js"></script>
+  <script crossorigin="anonymous" src="playcanvas-stable.min.js"></script>
+  <script crossorigin="anonymous" src="settings__.js"></script>
 </head>
 
 <body style="overflow:hidden;">
-  <script src="modules__.js"></script>
-  <script src="start__.js"></script>
-  <script src="loading__.js"></script>
+  <script crossorigin="anonymous" src="modules__.js"></script>
+  <script crossorigin="anonymous" src="start__.js"></script>
+  <script crossorigin="anonymous" src="loading__.js"></script>
 </body>
 
 </html>
