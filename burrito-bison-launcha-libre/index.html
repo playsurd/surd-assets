@@ -105,6 +105,16 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script></head><body>
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/burrito-bison-launcha-libre/unity-mod.js"></script>
@@ -133,6 +143,6 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
     }
   }
   </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"burrito-bison-launcha-libre","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/burrito-bison-launcha-libre/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{"memory":{"path":"Web.asm.memory.unityweb","bytes":2388930,"mime":"application/octet-stream"},"data":{"path":"Web.data.unityweb","parts":[".sp0",".sp1"],"bytes":32177926,"mime":"application/octet-stream"},"code":{"path":"Web.asm.code.unityweb","parts":[".sp0",".sp1",".sp2"],"bytes":38299391,"mime":"text/javascript"},"framework":{"path":"Web.asm.framework.js","bytes":471373,"mime":"text/javascript"}},"config":{"era":"legacy","variant":"asm","loaderJs":"UnityLoader.js","instantiate":"url","unityConfig":{"companyName":"Juicy Beast Studio","productName":"Burrito Bison","asmCodeUrl":"Web.asm.code.unityweb","asmMemoryUrl":"Web.asm.memory.unityweb","asmFrameworkUrl":"Web.asm.framework.unityweb.js","TOTAL_MEMORY":536870912,"graphicsAPI":["WebGL 2.0","WebGL 1.0"],"webglContextAttributes":{"preserveDrawingBuffer":false},"splashScreenStyle":"Dark","backgroundColor":"#000000"},"companyName":"surd","productName":"burrito-bison-launcha-libre","totalMemory":268435456}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"burrito-bison-launcha-libre","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/burrito-bison-launcha-libre/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{"memory":{"path":"Web.asm.memory.unityweb","bytes":2388930,"mime":"application/octet-stream"},"data":{"path":"Web.data.unityweb","parts":[".sp0",".sp1"],"bytes":32177926,"mime":"application/octet-stream"},"code":{"path":"Web.asm.code.unityweb","parts":[".sp0",".sp1",".sp2"],"bytes":38299391,"mime":"text/javascript"},"framework":{"path":"Web.asm.framework.js","bytes":471517,"mime":"text/javascript"}},"config":{"era":"legacy","variant":"asm","loaderJs":"UnityLoader.js","instantiate":"url","unityConfig":{"companyName":"Juicy Beast Studio","productName":"Burrito Bison","asmCodeUrl":"Web.asm.code.unityweb","asmMemoryUrl":"Web.asm.memory.unityweb","asmFrameworkUrl":"Web.asm.framework.unityweb.js","TOTAL_MEMORY":536870912,"graphicsAPI":["WebGL 2.0","WebGL 1.0"],"webglContextAttributes":{"preserveDrawingBuffer":false},"splashScreenStyle":"Dark","backgroundColor":"#000000"},"companyName":"surd","productName":"burrito-bison-launcha-libre","totalMemory":268435456}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 </body></html>
