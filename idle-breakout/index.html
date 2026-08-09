@@ -110,9 +110,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"idle-breakout","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/idle-breakout/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"idle-breakout","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/idle-breakout/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
 
@@ -182,7 +192,7 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
 </canvas>
 </div>
 <!-- Run the game code -->
-<script src="html5game/Coding_BreakOut1.js" type="text/javascript"></script>
+<script crossorigin="anonymous" src="html5game/Coding_BreakOut1.js" type="text/javascript"></script>
 <script>window.onload = GameMaker_Init;</script>
 </body>
 </html>
