@@ -109,9 +109,19 @@
     } };
   }
 })();
+if (typeof window !== 'undefined') {
+  if (typeof window.environmentData === 'undefined') window.environmentData = 'NO_DATA';
+  if (typeof window.nowFullAdOpen === 'undefined') window.nowFullAdOpen = false;
+}
+try {
+  var parentWin = window.parent;
+  if (parentWin && parentWin !== window) {
+    if (typeof parentWin.maeExportApis_ !== 'function') parentWin.maeExportApis_ = function () {};
+  }
+} catch (e) {  }
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};</script>
-<script>window.SURD_GAME={"id":"trivia-crack","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/trivia-crack/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v4b8615f6da/runtime.js"></script>
+<script>window.SURD_GAME={"id":"trivia-crack","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/trivia-crack/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/","files":{},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vd90635141c/runtime.js"></script>
 
     
     
@@ -125,9 +135,9 @@ if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this
       name="description"
       content="Web site created using create-react-app"
     />
-    <script src="./_vendor/ytgame.js" nonce="gGr9dQMkzx_yxZLIlQ0IJw"></script>
+    <script crossorigin="anonymous" src="./_vendor/ytgame.js" nonce="gGr9dQMkzx_yxZLIlQ0IJw"></script>
     <title>Youtube Playable</title>
-    <script defer="defer" src="./static/js/main.d7ebbba0.js" nonce="gGr9dQMkzx_yxZLIlQ0IJw"></script>
+    <script crossorigin="anonymous" defer="defer" src="./static/js/main.d7ebbba0.js" nonce="gGr9dQMkzx_yxZLIlQ0IJw"></script>
     <link href="./static/css/main.8b69b9df.css" rel="stylesheet" nonce="gGr9dQMkzx_yxZLIlQ0IJw" />
   <style>
 
