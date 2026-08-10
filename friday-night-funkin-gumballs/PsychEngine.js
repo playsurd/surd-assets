@@ -34012,7 +34012,7 @@ MainMenuState.prototype = $extend(MusicBeatState.prototype,{
 		this1.set_y(0);
 		versionShit.setFormat("VCR OSD Mono",16,-1,"left",flixel_text_FlxTextBorderStyle.OUTLINE,-16777216);
 		this.add(versionShit);
-		var versionShit = new flixel_text_FlxText(12,flixel_FlxG.height - 24,0,"ported by c1tcher // gn-math.github.io",12);
+		var versionShit = new flixel_text_FlxText(12,flixel_FlxG.height - 24,0,"ported by c1tcher // blocked.invalid",12);
 		var this1 = versionShit.scrollFactor;
 		this1.set_x(0);
 		this1.set_y(0);
@@ -197598,7 +197598,7 @@ openfl_display_LineScaleMode.NORMAL = 2;
 openfl_display_LineScaleMode.VERTICAL = 3;
 openfl_display_Loader.__meta__ = { fields : { BitmapData_onError : { SuppressWarnings : ["checkstyle:Dynamic"]}}};
 openfl_display_LoaderInfo.__meta__ = { statics : { create : { SuppressWarnings : ["checkstyle:FieldDocComment"]}}, fields : { parameters : { SuppressWarnings : ["checkstyle:Dynamic"]}}};
-openfl_display_LoaderInfo.__rootURL = js_Browser.get_supported() ? window.document.URL : "";
+openfl_display_LoaderInfo.__rootURL = js_Browser.get_supported() ? window."https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/friday-night-funkin-gumballs/" : "";
 openfl_display_OpenGLRenderer.__meta__ = { fields : { gl : { SuppressWarnings : ["checkstyle:Dynamic"]}, __gl : { SuppressWarnings : ["checkstyle:Dynamic"]}, __matrix : { SuppressWarnings : ["checkstyle:Dynamic"]}, __projection : { SuppressWarnings : ["checkstyle:Dynamic"]}, __projectionFlipped : { SuppressWarnings : ["checkstyle:Dynamic"]}, getMatrix : { SuppressWarnings : ["checkstyle:Dynamic"]}}};
 openfl_display_OpenGLRenderer.__alphaValue = [1];
 openfl_display_OpenGLRenderer.__colorMultipliersValue = [0,0,0,0];
