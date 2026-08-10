@@ -91,6 +91,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -383,6 +401,6 @@ function RewardedShow(rewardId) {
             event.preventDefault();
         });
     </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"they-are-coming","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/they-are-coming/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"data":{"path":"BuildText.data.unityweb","bytes":12432892,"mime":"application/octet-stream"},"framework":{"path":"BuildText.framework.js.unityweb","bytes":120932,"mime":"application/octet-stream"},"code":{"path":"BuildText.wasm.unityweb","bytes":6561066,"mime":"application/octet-stream"}},"config":{"era":"modern","loaderJs":"BuildText.loader.js","companyName":"OnHitDev","productName":"They Are Coming","productVersion":"1.19"}};</script>
+<script>window.SURD_GAME = {"id":"they-are-coming","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/they-are-coming/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"data":{"path":"zombieshooterdone.data.br","bytes":18274091,"mime":"application/octet-stream"},"framework":{"path":"zombieshooterdone.framework.js","bytes":380472,"mime":"text/javascript"},"code":{"path":"zombieshooterdone.wasm.br","parts":[".part0",".part1",".part2",".part3"],"mime":"application/octet-stream"}},"config":{"era":"modern","loaderJs":"zombieshooterdone.loader.js","companyName":"OnHitDev","productName":"They Are Coming","productVersion":"1.19"}};</script>
 <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
 </body></html>
