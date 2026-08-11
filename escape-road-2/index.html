@@ -91,6 +91,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -220,6 +238,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       };
 	  document.body.appendChild(script);
     </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"escape-road-2","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/escape-road-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"data":{"path":"_vendor/csrd.js","parts":[".sp0",".sp1"],"bytes":23380986,"mime":"text/javascript"},"framework":{"path":"_helpers/random1.js","bytes":705568,"mime":"text/javascript"},"code":{"path":"_vendor/csrw.js","parts":[".sp0",".sp1",".sp2"],"bytes":42415480,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"_helpers/random3.js","companyName":"1games.io","productName":"Escape Road","productVersion":"2.0"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"escape-road-2","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/escape-road-2/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{"data":{"path":"_vendor/csrd.js","parts":[".sp0",".sp1"],"bytes":23380986,"mime":"text/javascript"},"framework":{"path":"_helpers/random1.js","bytes":705568,"mime":"text/javascript"},"code":{"path":"_vendor/csrw.js","parts":[".sp0",".sp1",".sp2"],"bytes":42415480,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"_helpers/random3.js","companyName":"1games.io","productName":"Escape Road","productVersion":"2.0"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 </body></html>
