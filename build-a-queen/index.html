@@ -91,6 +91,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -162,6 +180,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
 
-<script>window.SURD_GAME = {"id":"build-a-queen","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/build-a-queen/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"data":{"path":"Build/baq.data.unityweb","bytes":17033480,"mime":"application/octet-stream"},"framework":{"path":"Build/baq.framework.js.unityweb","bytes":407024,"mime":"text/javascript"},"code":{"path":"Build/baq.wasm.unityweb","parts":[".sp0",".sp1"],"bytes":25885468,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/baq.loader.js","companyName":"Polystation","productName":"Build A Queen","productVersion":"5.6"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"build-a-queen","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/build-a-queen/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{"data":{"path":"Build/baq.data.unityweb","bytes":17033480,"mime":"application/octet-stream"},"framework":{"path":"Build/baq.framework.js.unityweb","bytes":407024,"mime":"text/javascript"},"code":{"path":"Build/baq.wasm.unityweb","parts":[".sp0",".sp1"],"bytes":25885468,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"Build/baq.loader.js","companyName":"Polystation","productName":"Build A Queen","productVersion":"5.6"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 </body></html>
