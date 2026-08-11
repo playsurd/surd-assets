@@ -4342,7 +4342,7 @@ var UnityLoader = UnityLoader || {
               (t.responseType = "text"),
               (t.onerror = function () {
                 o.print("Could not download " + n.url),
-                  0 == document.URL.indexOf("file:") &&
+                  0 == "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/karlson/".indexOf("file:") &&
                     alert(
                       "It seems your browser does not support running Unity WebGL content from file:// urls. Please upload it to an http server, or try a different browser."
                     );
