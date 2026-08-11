@@ -12047,7 +12047,7 @@ var Oi = (Te, Pe, J, Ct) => ({
   const nv = wf(Zb, [
       ["render", tv]
     ]),
-    rv = "" + new URL("assets/plate_widget_challenge.DgnpBEAn.png", document.currentScript && document.currentScript.tagName.toUpperCase() === "SCRIPT" && document.currentScript.src || document.baseURI).href,
+    rv = "" + new URL("assets/plate_widget_challenge.DgnpBEAn.png", document.currentScript && document.currentScript.tagName.toUpperCase() === "SCRIPT" && document.currentScript.src || "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/aviamasters/").href,
     sv = ["src"],
     iv = ie({
       __name: "JoinPopup",
@@ -12071,7 +12071,7 @@ var Oi = (Te, Pe, J, Ct) => ({
         }, 8, ["onClick", "onPointerup"]))
       }
     }),
-    ov = "" + new URL("assets/logo.CqIa-gSp.png", document.currentScript && document.currentScript.tagName.toUpperCase() === "SCRIPT" && document.currentScript.src || document.baseURI).href,
+    ov = "" + new URL("assets/logo.CqIa-gSp.png", document.currentScript && document.currentScript.tagName.toUpperCase() === "SCRIPT" && document.currentScript.src || "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/aviamasters/").href,
     av = {
       class: "absolute -top-1.5 left-1/2 z-[1] w-max -translate-x-1/2"
     },
@@ -12086,8 +12086,8 @@ var Oi = (Te, Pe, J, Ct) => ({
         }, null, 8, lv)]))
       }
     }),
-    uv = "" + new URL("assets/logo_mobile.DwsT6cBW.png", document.currentScript && document.currentScript.tagName.toUpperCase() === "SCRIPT" && document.currentScript.src || document.baseURI).href,
-    fv = "" + new URL("assets/logo_dot.CUtgNwOJ.png", document.currentScript && document.currentScript.tagName.toUpperCase() === "SCRIPT" && document.currentScript.src || document.baseURI).href;
+    uv = "" + new URL("assets/logo_mobile.DwsT6cBW.png", document.currentScript && document.currentScript.tagName.toUpperCase() === "SCRIPT" && document.currentScript.src || "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/aviamasters/").href,
+    fv = "" + new URL("assets/logo_dot.CUtgNwOJ.png", document.currentScript && document.currentScript.tagName.toUpperCase() === "SCRIPT" && document.currentScript.src || "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/aviamasters/").href;
   let da = "default";
   const dv = () => {
       const e = document.getElementById("plate-widget");
