@@ -91,6 +91,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -162,6 +180,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
 
-<script>window.SURD_GAME = {"id":"death-run-3d","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/death-run-3d/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"data":{"path":"Build/death_run_wasm_v1.data.unityweb","bytes":2086282,"mime":"application/octet-stream"},"code":{"path":"Build/death_run_wasm_v1.wasm.code.unityweb","bytes":12975792,"mime":"application/wasm"},"framework":{"path":"Build/death_run_wasm_v1.wasm.framework.unityweb","bytes":140825,"mime":"application/octet-stream"}},"config":{"era":"legacy","variant":"wasm","loaderJs":"Build/UnityLoader.js","instantiate":"url","unityConfig":{"TOTAL_MEMORY":268435456,"asmCodeUrl":"death_run_wasm_v1.asm.code.unityweb","asmMemoryUrl":"death_run_wasm_v1.asm.memory.unityweb","asmFrameworkUrl":"death_run_wasm_v1.asm.framework.unityweb","splashScreenStyle":"Dark","backgroundColor":"#231F20"},"progressJs":"TemplateData56/UnityProgress.js","companyName":"surd","productName":"death-run-3d","totalMemory":268435456}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"death-run-3d","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/death-run-3d/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{"data":{"path":"Build/death_run_wasm_v1.data.unityweb","bytes":2086282,"mime":"application/octet-stream"},"code":{"path":"Build/death_run_wasm_v1.wasm.code.unityweb","bytes":12975792,"mime":"application/wasm"},"framework":{"path":"Build/death_run_wasm_v1.wasm.framework.unityweb","bytes":140825,"mime":"application/octet-stream"}},"config":{"era":"legacy","variant":"wasm","loaderJs":"Build/UnityLoader.js","instantiate":"url","unityConfig":{"TOTAL_MEMORY":268435456,"asmCodeUrl":"death_run_wasm_v1.asm.code.unityweb","asmMemoryUrl":"death_run_wasm_v1.asm.memory.unityweb","asmFrameworkUrl":"death_run_wasm_v1.asm.framework.unityweb","splashScreenStyle":"Dark","backgroundColor":"#231F20"},"progressJs":"TemplateData56/UnityProgress.js","companyName":"surd","productName":"death-run-3d","totalMemory":268435456}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 </body></html>
