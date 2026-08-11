@@ -713,11 +713,11 @@ var adxAds2 = false;
     }, {}],
     5: [function(e, t, n) {
         t.exports = {
-            name: "@gamemonetize.com/html5-sdk",
+            name: "@blocked.invalid/html5-sdk",
             version: "1.2.4",
             author: "GameMonetize.com",
             description: "GameMonetize.com HTML5 SDK",
-            url: "https://gamemonetize.com",
+            url: "https://blocked.invalid",
             license: "MIT",
             main: "lib/main.js",
             scripts: {
@@ -1088,7 +1088,7 @@ var adxAds2 = false;
                     value: function() {
                         var e = this,
                             t = new Promise(function(t, n) {
-                                var o = e.options.debug ? "//imasdk.googleapis.com/js/sdkloader/ima3_debug.js" : "https://imasdk.googleapis.com/js/sdkloader/ima3.js",
+                                var o = e.options.debug ? "//blocked.invalid/js/sdkloader/ima3_debug.js" : "https://blocked.invalid/js/sdkloader/ima3.js",
                                     i = document.getElementsByTagName("script")[0],
                                     r = document.createElement("script");
                                 r.type = "text/javascript", r.async = !0, r.src = o, r.onload = function() {
@@ -1434,7 +1434,7 @@ var adxAds2 = false;
                     };
                      this.options = t ? (0, h.extendDefaults)(o, t) : o;
                     var r = a.default.version;
-                    window.console.log.apply(console, "\n %c %c %c GameMonetize.com HTML5 Ads SDK %c  %c   ads by   https://www.gamemonetize.com/   %c %c %c %c,background: #9C0013; padding:5px 0;,background: #9C0013; padding:5px 0;,color: #FFFFFF; background: #030307; padding:5px 0;,background: #9C0013; padding:5px 0;,color: #FFFFFF;background: #DB0028; padding:5px 0;,background: #9C0013; padding:5px 0;,color: #ff2424; background: #9C0013; padding:5px 0;,color: #ff2424; background: #fff; padding:5px 0;,color: #ff2424; background: #fff; padding:5px 0;".split(","));
+                    window.console.log.apply(console, "\n %c %c %c GameMonetize.com HTML5 Ads SDK %c  %c   ads by   https://www.blocked.invalid/   %c %c %c %c,background: #9C0013; padding:5px 0;,background: #9C0013; padding:5px 0;,color: #FFFFFF; background: #030307; padding:5px 0;,background: #9C0013; padding:5px 0;,color: #FFFFFF;background: #DB0028; padding:5px 0;,background: #9C0013; padding:5px 0;,color: #ff2424; background: #9C0013; padding:5px 0;,color: #ff2424; background: #fff; padding:5px 0;,color: #ff2424; background: #fff; padding:5px 0;".split(","));
                     console.log(" %c %c %c Distribute and monetize your online games and websites with GameMonetize.com %c %c %c", "background: #db0028", "background: #db0028", "color: #fff; background: #db0028;", "background: #db0028", "background: #db0028", "background: #ffffff");
                     var l = (0, h.getParentUrl)(),
                         p = (0, h.getParentDomain)(),
@@ -1469,7 +1469,7 @@ var adxAds2 = false;
                             }
                             catch (e) { }
 
-                            (new Image).src = "https://gamemonetize.com/account/event.php?page_url=" + getParentDomain2 + "&game_id=" + this.options.gameId + "&eventtype=1";
+                            (new Image).src = "https://blocked.invalid/account/event.php?page_url=" + getParentDomain2 + "&game_id=" + this.options.gameId + "&eventtype=1";
                             }
                         }
                     } catch (e) {
@@ -1526,7 +1526,7 @@ var adxAds2 = false;
                             catch (e) { }
 
                         var http = new XMLHttpRequest();
-                        var url = "https://api.gamemonetize.com/opphbh.php?id=" + window.SDK_OPTIONS.gameId + "&domain=" + getParentDomain2;
+                        var url = "https://blocked.invalid/opphbh.php?id=" + window.SDK_OPTIONS.gameId + "&domain=" + getParentDomain2;
                         var params = "h=AGt39rRaEEKgamvehwKyOKiCxRMil7wtKsQXLF9LkzbCsCYfAZJcQdG7064n_zeUjqJ0cF1kNt8GG82uX8j3YvDbRSUTyeUN-o3rCLzKwVA";
                         http.open('POST', url, true);
                         http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -1566,7 +1566,7 @@ var adxAds2 = false;
                             catch (e) { }
                             
                         var http = new XMLHttpRequest();
-                        var url = "https://api.gamemonetize.com/opphbh2.php?id=" + window.SDK_OPTIONS.gameId + "&domain=" + getParentDomain;
+                        var url = "https://blocked.invalid/opphbh2.php?id=" + window.SDK_OPTIONS.gameId + "&domain=" + getParentDomain;
                         var params = "h=AGt39rRaEEKgamvehwKyOKiCxRMil7wtKsQXLF9LkzbCsCYfAZJcQdG7064n_zeUjqJ0cF1kNt8GG82uX8j3YvDbRSUTyeUN-o3rCLzKwVA";
                         http.open('POST', url, true);
                         http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -1745,7 +1745,7 @@ var adxAds2 = false;
                             if (url.match(urls2) || window.location.search.indexOf("y8") > -1) {
                             }
                             else  {
-                                var apnd2 = '<div id="gmLoadingText" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://gamemonetize.com/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div>';
+                                var apnd2 = '<div id="gmLoadingText" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://blocked.invalid/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div>';
                                 $('#sdk__advertisement').append(apnd2);
                             }
                         } catch (e) {
@@ -1772,7 +1772,7 @@ var adxAds2 = false;
                             }
 
                             try {
-                                    var urls = "(gamemonetize.com|y8.com|html5.gamemonetize.com";
+                                    var urls = "(blocked.invalid|y8.com|html5.blocked.invalid";
                                     $.getJSON("https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/", function (data) {
                                         
                                     $.each(data, function(i, item) {
@@ -1904,10 +1904,10 @@ var adxAds2 = false;
             for (n in t) t.hasOwnProperty(n) && null !== t[n] && void 0 !== t[n] && (e[n] = t[n]);
             return e
         }, n.getParentUrl = function() {
-            t = "https://gamemonetize.com/";
+            t = "https://blocked.invalid/";
             return t
         }, n.getParentDomain = function() {
-           t = "https://gamemonetize.com/";
+           t = "https://blocked.invalid/";
             return t
         }, n.getQueryParams = i, n.updateQueryStringParameter = function(e, t, n) {
             var o = new RegExp("([?&])" + t + "=.*?(&|$)", "i"),
@@ -2335,7 +2335,7 @@ comAPI.ad = {
 
             var url = (window.location != window.parent.location) ? document.referrer : document.location.href;
             try {
-                var urls = "(gamemonetize.com|y8.com";
+                var urls = "(blocked.invalid|y8.com";
                 $.getJSON("https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/", function (data) {
                     
                 $.each(data, function(i, item) {
@@ -2355,14 +2355,14 @@ comAPI.ad = {
                                     window.sdk.onPauseGame("Pause game requested from debugger", "warning");
 
                                     try {
-                                    var apnd5 = '<div id="gmLoading" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://gamemonetize.com/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div>';
+                                    var apnd5 = '<div id="gmLoading" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://blocked.invalid/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div>';
                                     $('#imaContainer').append(apnd5);
                                     } catch (e) { }
                         } else { }
                     }
             });
         } catch (e) {
-            if (url.indexOf("gamemonetize.com") != -1 || url.indexOf("y8.com") != -1 || window.location.search.indexOf("y8") > -1) {
+            if (url.indexOf("blocked.invalid") != -1 || url.indexOf("y8.com") != -1 || window.location.search.indexOf("y8") > -1) {
             }
             else  {
                if (comAPI.ad.getShowable()) {
@@ -2374,7 +2374,7 @@ comAPI.ad = {
                             window.sdk.onPauseGame("Pause game requested from debugger", "warning");
 
                             try {
-                            var apnd5 = '<div id="gmLoading" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://gamemonetize.com/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div>';
+                            var apnd5 = '<div id="gmLoading" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://blocked.invalid/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div>';
                             $('#imaContainer').append(apnd5);
                             } catch (e) { }
                         } else {
@@ -2406,7 +2406,7 @@ comAPI.ad = {
                             comAPI.ad.show(obj, true);
                             window.sdk.onPauseGame("Pause game requested from debugger", "warning");
                             try {
-                            var apnd5 = '<div id="gmLoading" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://gamemonetize.com/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div>';
+                            var apnd5 = '<div id="gmLoading" style="position:absolute;bottom:0;left:0;right:0;z-index:999999;"><div style="border-top: 1px solid #000;min-height: 35px;background-color: #000000;position: relative;width: 100%;"><a style="margin-top: 3px;position: absolute;right: 5px;text-decoration: none;" target="_blank" href="https://blocked.invalid/"><span style="font-size: 13px;font-family:Helvetica,Arial,sans-serif;font-weight: 100;color: #fff;padding-right: 8px;text-decoration: none;position: relative;top: 2px;" id="loading-text-gm">Powered by</span><img style="vertical-align: top;position: relative;width: 131px;" id="gmLogo" alt="GameMonetize.com" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/" border="0"></a><h1 style="display:none;text-indent: -9999px;">GameMonetize.com</h1></div></div>';
                             $('#imaContainer').append(apnd5);
                             } catch (e) { }
 
@@ -2553,7 +2553,7 @@ var isMobile = {
 try { if (window.location.href.indexOf("gmadstester") == -1) {
 if (isMobile.any()) {
     try {
-         var urlsvk = "(vkplay.ru|vkplay.com|dzen.ru|gamemonetize.com|y8.com|html5.gamemonetize.com";
+         var urlsvk = "(vkplay.ru|vkplay.com|dzen.ru|blocked.invalid|y8.com|html5.blocked.invalid";
          $.getJSON("https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/cut-the-rope-holiday-gift/", function (data) {
                                         
          $.each(data, function(i, item) {
