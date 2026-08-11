@@ -1,0 +1,72 @@
+{
+	"common": {
+		"game_does_not_participate": "This game does not participate",
+		"view_details": "View details"
+	},
+	"widget": {
+		"days": "{n} day | {n} days",
+		"hours": "{n} hour | {n} hours",
+		"minutes": "{n} minute | {n} minutes",
+		"join": "Join",
+		"join_paid": "Pay fee and join",
+		"joining": "Joining",
+		"joined": "Joined",
+		"join_error": "Joining failed. Try again",
+		"join_balance_error": "Insufficient funds",
+		"tooltip": "You have {n} promo available to join | You have {n} promos available to join",
+		"no_active_promo": "No active promo at the moment"
+	},
+	"win": {
+		"win_label": "You won",
+		"continue_btn": "Continue",
+		"minded_tip": "in your currency",
+		"payment_time_tip": "the prize will be paid\nwithin 72 hours",
+		"no_win_label": "Better luck\nnext time",
+		"no_win_sector": "No win"
+	},
+	"drop": {
+		"title": "Play & win up to {value}",
+		"left": "Prizes left",
+		"won": "Prizes you won",
+		"your_bet": "Your bet",
+		"max_prize": "Max prize",
+		"max_tier_bet": "Max bet"
+	},
+	"challenge": {
+		"title": "Compete & win up to {value}",
+		"place": "Place",
+		"result": "Multiplier",
+		"result_bets": "Bets sum",
+		"result_mult": "Multiplier sum",
+		"error": {
+			"100": "You are taking part in another challenge",
+			"206": "Payment Error",
+			"107": "This challenge reached participants limit"
+		}
+	},
+	"autojoin": {
+		"title": "You're in the race!",
+		"slogan": "Play {brandName} games in the {challengeName} to earn points and win prizes",
+		"lets_play": "Let's play!",
+		"view_games": "View participating games"
+	},
+	"quest": {
+		"title": "Complete quest & earn up to {value}",
+		"task": "Task",
+		"daily_tasks": {
+			"task": {
+				"spins": "Make {n} spin in | Make {n} spins in",
+				"spins_min_bet": "Make {n} spin with min bet {min_bet} in | Make {n} spins with min bet {min_bet} in",
+				"multiplier_hit": "Hit a multiplier of x{multiplier} or higher in",
+				"multiplier_hit_min_bet": "Hit a multiplier of x{multiplier} or higher with min bet {min_bet} in",
+				"bets_total": "Make bets for a total of {make_bets} in",
+				"bonus_buy": "Buy {n} bonus game in | Buy {n} bonus games in",
+				"bonus_buy_min_bet": "Buy {n} bonus game worth {min_bet} or more in | Buy {n} bonus games each worth {min_bet} or more in",
+				"multiplier_accumulate": "Accumulate multipliers to x{multipliers} in",
+				"multiplier_accumulate_min_bet": "Accumulate multipliers to x{multipliers} with min bet {min_bet} in",
+				"participating_games": "participating games",
+				"or": "or"
+			}
+		}
+	}
+}
