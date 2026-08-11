@@ -91,6 +91,24 @@
   if (typeof document !== 'undefined' && document.xURL === undefined) {
     try { document.xURL = 'https://poki.com/'; } catch (e) {  }
   }
+  if (!W.YYGGames) {
+    var yyAds = function (o) {
+      o = o || {};
+      var step = function (fn) { if (typeof fn === 'function') setTimeout(fn, 0); };
+      step(o.beforeShowAd);
+      setTimeout(function () { step(o.afterShowAd); step(o.rewardDismissed); }, 1);
+    };
+    W.YYGGames = {
+      startup: function (o) { if (o && typeof o.complete === 'function') setTimeout(o.complete, 0); },
+      startupByYad: function () {}, showSplash: function () {},
+      showInterstitial: yyAds, showReward: yyAds,
+      canShowReward: function () { return false; },
+      getAdPlatformType: function () { return 'none'; },
+      getForgames: function () { return Promise.resolve([]); },
+      navigate: function () {},
+      onVisibilitychange: function () {},
+    };
+  }
   if (!W.GamePix) {
     W.GamePix = { init: function () {}, ping: function () {}, gameLoadingStart: function () {}, gameLoadingFinished: function () {},
                   interstitialAd: resolved, rewardAd: function () { return Promise.resolve(false); }, happyMoment: function () {} };
@@ -281,6 +299,6 @@ function PaintRBT(rbt){try{document.getElementById(rbt).style.background='#ff000
 
     window.addEventListener("click", onClick);
 </script>
-<script>window.SURD_GAME = {"id":"suika-game","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/suika-game/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/","files":{"data":{"path":"4858d9a4114c0990198ad297b332e984.data.unityweb","bytes":7562662,"mime":"application/octet-stream"},"framework":{"path":"b0ba270e6a29211019a99342b797af52.js","bytes":110997,"mime":"text/javascript"},"code":{"path":"7e2da19953030ead73bcedf2fd8c2f70.wasm.unityweb","parts":[".sp0",".sp1"],"bytes":22083304,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"_vendor/b0ba270e6a29211019a99342b797af52.js","companyName":"surd","productName":"suika-game","productVersion":"1.0"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/vae8e0b73b4/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"suika-game","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/suika-game/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/","files":{"data":{"path":"4858d9a4114c0990198ad297b332e984.data.unityweb","bytes":7562662,"mime":"application/octet-stream"},"framework":{"path":"b0ba270e6a29211019a99342b797af52.js","bytes":110997,"mime":"text/javascript"},"code":{"path":"7e2da19953030ead73bcedf2fd8c2f70.wasm.unityweb","parts":[".sp0",".sp1"],"bytes":22083304,"mime":"application/wasm"}},"config":{"era":"modern","loaderJs":"_vendor/b0ba270e6a29211019a99342b797af52.js","companyName":"surd","productName":"suika-game","productVersion":"1.0"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/va41e0dbc95/runtime.js"></script>
 </body></html>
