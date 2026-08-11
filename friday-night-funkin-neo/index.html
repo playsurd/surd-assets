@@ -158,9 +158,24 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
      * (that order is load-bearing — moving SURD_GAME ahead of the prelude once stopped this
      * very game from rendering at all), so at install time there is no base to capture. */
     function gbase(){ try { return (window.SURD_GAME && window.SURD_GAME.base) || ''; } catch(e){ return ''; } }
+    /* A file we downloaded from a third-party host and now ship ourselves. Checked before
+     * anything else: this is what stops a game depending on someone else's server staying up,
+     * and it works even when the game builds the URL at runtime. */
+    function vendored(u){
+      try {
+        var M = window.SURD_GAME, map = M && M.ext;
+        if (!map || typeof u !== 'string') return null;
+        var q = u.split('#')[0];
+        if (map[q]) return String(M.base).replace(/\/?$/, '/') + map[q];
+        var noq = q.split('?')[0];
+        if (map[noq]) return String(M.base).replace(/\/?$/, '/') + map[noq];
+        return null;
+      } catch(e){ return null; }
+    }
     function rebase(u){
       try {
         if (typeof u !== 'string' || !u) return u;
+        var v = vendored(u); if (v) return v;
         var B = gbase(); if (!B) return u;
         B = B.replace(/\/?$/, '/');
         if (u.indexOf(B) === 0) return u;                        // already where it belongs
@@ -171,7 +186,13 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         try { RT = (window.SURD_GAME && window.SURD_GAME.runtime) || ''; } catch(e){}
         if (RT && u.indexOf(RT) === 0) return u;
         if (u.indexOf('/_rt/') >= 0 || u.indexOf('surd-runtime') >= 0) return u;
-        if (u.charAt(0) === '/' && u.charAt(1) !== '/') return B + u.slice(1);
+        /* A bare "/" (or "/?x") has NO path to rebase, and rewriting it produced a request for
+         * the base DIRECTORY, which 404s and shows up in the log as
+         * "failed to load .../suika-game/". Leave those alone. */
+        if (u.charAt(0) === '/' && u.charAt(1) !== '/') {
+          var rest = u.slice(1);
+          return rest && rest.charAt(0) !== '?' && rest.charAt(0) !== '#' ? B + rest : u;
+        }
         /* An engine that builds its own absolute URLs from location, rather than letting the
          * browser resolve a relative path, lands on the SITE origin — which holds no game
          * assets either. 2048-merge-run (LayaAir) asks for "<origin>/version.json" outright,
@@ -185,7 +206,11 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var of = window.fetch;
     if (of) window.fetch = function(i, o){
       var u = (i && i.url) ? i.url : i;
-      if (bad(u)) return Promise.resolve(new Response('', {status:204}));
+      /* 204 forbids a body, and passing one throws in Firefox ("Response body is given with a
+       * null body status") — INSIDE the game's own fetch call, which is exactly what this branch
+       * exists to protect (papa-burgeria). Status 200 with an empty body is accepted everywhere
+       * and reads to the caller as "nothing here", which is what we want to say. */
+      if (bad(u)) return Promise.resolve(new Response('', {status:200}));
       if (typeof i === 'string') { var r = rebase(i); if (r !== i) return of.call(this, r, o); }
       return of.apply(this, arguments);
     };
@@ -223,12 +248,39 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         var d = Object.getOwnPropertyDescriptor(P, 'src'); if (!d || !d.set) return;
         Object.defineProperty(P, 'src', {
           configurable: true, enumerable: d.enumerable, get: d.get,
-          set: function(v){ if (bad(v)) return; return d.set.call(this, typeof v === 'string' ? rebase(v) : v); }
+          set: function(v){
+            if (bad(v)) return;
+            var t = typeof v === 'string' ? rebase(v) : v;
+            /* CORS ON OUR OWN ASSETS — not politeness, a hard requirement.
+             *
+             * WebGL refuses to upload a texture from an image fetched cross-origin without
+             * CORS: the canvas would be tainted, so it throws "SecurityError: The operation is
+             * insecure" inside uploadTexture and the game shows a grey screen with everything
+             * apparently loaded (stair-race-3d, PlayCanvas). Our assets live on another origin
+             * by definition — the page is a blob, the files are on the CDN — so every engine
+             * that loads textures through <img> hits this.
+             *
+             * Scoped to OUR hosts and to relative URLs (which resolve against our base through
+             * <base>): jsDelivr and raw both send Access-Control-Allow-Origin: *, so requesting
+             * CORS always succeeds there. Setting it on a third-party host that does NOT send
+             * the header would turn a working image into a failed one, so those are left alone.
+             *
+             * Scripts get the same treatment for a different reason: without crossorigin an
+             * error inside an engine-injected script arrives as the bare, useless
+             * "Script error." with no file or line (2048-merge-run's laya.core.min.js). */
+            try {
+              var ours = typeof t === 'string' && (!/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(t)
+                || t.indexOf(gbase()) === 0
+                || /^https:\/\/(cdn\.jsdelivr\.net|raw\.githubusercontent\.com)\//.test(t));
+              if (ours && !this.crossOrigin) this.crossOrigin = 'anonymous';
+            } catch(e){}
+            return d.set.call(this, t);
+          }
         });
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"friday-night-funkin-neo","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/friday-night-funkin-neo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/","files":{},"config":{},"split":[{"p":"assets/week2/images/halloween_bg.png","u":["assets/week2/images/halloween_bg.png"],"b":2757842,"m":"image/png","pf":1},{"p":"assets/week5/images/christmas/mom_dad_christmas_assets.png","u":["assets/week5/images/christmas/mom_dad_christmas_assets.png"],"b":2146503,"m":"image/png","pf":1},{"p":"assets/shared/images/GF_assets.png","u":["assets/shared/images/GF_assets.png"],"b":1925232,"m":"image/png","pf":1},{"p":"assets/week5/images/christmas/gfChristmas.png","u":["assets/week5/images/christmas/gfChristmas.png"],"b":1778053,"m":"image/png","pf":1},{"p":"assets/songs/monster/Inst.mp3","u":["assets/songs/monster/Inst.mp3"],"b":1422412,"m":"audio/mpeg","pf":1},{"p":"assets/images/campaign_menu_UI_characters.png","u":["assets/images/campaign_menu_UI_characters.png"],"b":1359604,"m":"image/png","pf":1},{"p":"assets/shared/images/BOYFRIEND.png","u":["assets/shared/images/BOYFRIEND.png"],"b":1208104,"m":"image/png","pf":1},{"p":"assets/music/freakyMenu.mp3","u":["assets/music/freakyMenu.mp3"],"b":1194780,"m":"audio/mpeg","pf":1},{"p":"assets/songs/winter-horrorland/Inst.mp3","u":["assets/songs/winter-horrorland/Inst.mp3"],"b":1063750,"m":"audio/mpeg","pf":1},{"p":"assets/songs/south/Inst.mp3","u":["assets/songs/south/Inst.mp3"],"b":1001474,"m":"audio/mpeg","pf":1},{"p":"assets/songs/south/Voices.mp3","u":["assets/songs/south/Voices.mp3"],"b":1001474,"m":"audio/mpeg","pf":1},{"p":"assets/shared/music/breakfast.mp3","u":["assets/shared/music/breakfast.mp3"],"b":960932,"m":"audio/mpeg","pf":1},{"p":"assets/songs/cocoa/Voices.mp3","u":["assets/songs/cocoa/Voices.mp3"],"b":922333,"m":"audio/mpeg","pf":1},{"p":"assets/songs/cocoa/Inst.mp3","u":["assets/songs/cocoa/Inst.mp3"],"b":922029,"m":"audio/mpeg","pf":1},{"p":"assets/songs/pico/Voices.mp3","u":["assets/songs/pico/Voices.mp3"],"b":890715,"m":"audio/mpeg","pf":1},{"p":"assets/songs/monster/Voices.mp3","u":["assets/songs/monster/Voices.mp3"],"b":889069,"m":"audio/mpeg","pf":1},{"p":"assets/songs/pico/Inst.mp3","u":["assets/songs/pico/Inst.mp3"],"b":884236,"m":"audio/mpeg","pf":1},{"p":"assets/songs/satin-panties/Inst.mp3","u":["assets/songs/satin-panties/Inst.mp3"],"b":860621,"m":"audio/mpeg","pf":1},{"p":"assets/songs/thorns/Inst.mp3","u":["assets/songs/thorns/Inst.mp3"],"b":849261,"m":"audio/mpeg","pf":1},{"p":"assets/songs/thorns/Voices.mp3","u":["assets/songs/thorns/Voices.mp3"],"b":836781,"m":"audio/mpeg","pf":1},{"p":"assets/songs/test/Inst.mp3","u":["assets/songs/test/Inst.mp3"],"b":819693,"m":"audio/mpeg","pf":1},{"p":"assets/songs/satin-panties/Voices.mp3","u":["assets/songs/satin-panties/Voices.mp3"],"b":803570,"m":"audio/mpeg","pf":1},{"p":"assets/songs/milf/Inst.mp3","u":["assets/songs/milf/Inst.mp3"],"b":789150,"m":"audio/mpeg","pf":1},{"p":"assets/songs/senpai/Inst.mp3","u":["assets/songs/senpai/Inst.mp3"],"b":786861,"m":"audio/mpeg","pf":1},{"p":"assets/songs/milf/Voices.mp3","u":["assets/songs/milf/Voices.mp3"],"b":786225,"m":"audio/mpeg","pf":1},{"p":"assets/songs/high/Voices.mp3","u":["assets/songs/high/Voices.mp3"],"b":778701,"m":"audio/mpeg","pf":1},{"p":"assets/songs/philly/Inst.mp3","u":["assets/songs/philly/Inst.mp3"],"b":774940,"m":"audio/mpeg","pf":1},{"p":"assets/songs/bopeebo/Inst.mp3","u":["assets/songs/bopeebo/Inst.mp3"],"b":766372,"m":"audio/mpeg","pf":1},{"p":"assets/songs/high/Inst.mp3","u":["assets/songs/high/Inst.mp3"],"b":753833,"m":"audio/mpeg","pf":1},{"p":"assets/songs/eggnog/Voices.mp3","u":["assets/songs/eggnog/Voices.mp3"],"b":752642,"m":"audio/mpeg","pf":1},{"p":"assets/songs/eggnog/Inst.mp3","u":["assets/songs/eggnog/Inst.mp3"],"b":752493,"m":"audio/mpeg","pf":1},{"p":"assets/songs/roses/Inst.mp3","u":["assets/songs/roses/Inst.mp3"],"b":736173,"m":"audio/mpeg","pf":1},{"p":"assets/songs/philly/Voices.mp3","u":["assets/songs/philly/Voices.mp3"],"b":716844,"m":"audio/mpeg","pf":1},{"p":"assets/songs/bopeebo/Voices.mp3","u":["assets/songs/bopeebo/Voices.mp3"],"b":712455,"m":"audio/mpeg","pf":1},{"p":"assets/week4/images/limo/limoSunset.png","u":["assets/week4/images/limo/limoSunset.png"],"b":698579,"m":"image/png","pf":1},{"p":"assets/songs/dadbattle/Inst.mp3","u":["assets/songs/dadbattle/Inst.mp3"],"b":695946,"m":"audio/mpeg","pf":1},{"p":"assets/songs/dadbattle/Voices.mp3","u":["assets/songs/dadbattle/Voices.mp3"],"b":694065,"m":"audio/mpeg","pf":1},{"p":"assets/songs/spookeez/Voices.mp3","u":["assets/songs/spookeez/Voices.mp3"],"b":692393,"m":"audio/mpeg","pf":1},{"p":"assets/songs/spookeez/Inst.mp3","u":["assets/songs/spookeez/Inst.mp3"],"b":692184,"m":"audio/mpeg","pf":1},{"p":"assets/songs/senpai/Voices.mp3","u":["assets/songs/senpai/Voices.mp3"],"b":688701,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blammed/Voices.mp3","u":["assets/songs/blammed/Voices.mp3"],"b":687168,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blammed/Inst.mp3","u":["assets/songs/blammed/Inst.mp3"],"b":675675,"m":"audio/mpeg","pf":1},{"p":"assets/songs/winter-horrorland/Voices.mp3","u":["assets/songs/winter-horrorland/Voices.mp3"],"b":664939,"m":"audio/mpeg","pf":1},{"p":"assets/week4/images/momCar.png","u":["assets/week4/images/momCar.png"],"b":660809,"m":"image/png","pf":1},{"p":"assets/week4/images/bfCar.png","u":["assets/week4/images/bfCar.png"],"b":656281,"m":"image/png","pf":1},{"p":"assets/songs/fresh/Inst.mp3","u":["assets/songs/fresh/Inst.mp3"],"b":651642,"m":"audio/mpeg","pf":1},{"p":"assets/week3/images/Pico_FNF_assetss.png","u":["assets/week3/images/Pico_FNF_assetss.png"],"b":605484,"m":"image/png","pf":1},{"p":"assets/songs/fresh/Voices.mp3","u":["assets/songs/fresh/Voices.mp3"],"b":597516,"m":"audio/mpeg","pf":1},{"p":"assets/week4/images/gfCar.png","u":["assets/week4/images/gfCar.png"],"b":594863,"m":"image/png","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"friday-night-funkin-neo","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/friday-night-funkin-neo/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"assets/week2/images/halloween_bg.png","u":["assets/week2/images/halloween_bg.png"],"b":2757842,"m":"image/png","pf":1},{"p":"assets/week5/images/christmas/mom_dad_christmas_assets.png","u":["assets/week5/images/christmas/mom_dad_christmas_assets.png"],"b":2146503,"m":"image/png","pf":1},{"p":"assets/shared/images/GF_assets.png","u":["assets/shared/images/GF_assets.png"],"b":1925232,"m":"image/png","pf":1},{"p":"assets/week5/images/christmas/gfChristmas.png","u":["assets/week5/images/christmas/gfChristmas.png"],"b":1778053,"m":"image/png","pf":1},{"p":"assets/songs/monster/Inst.mp3","u":["assets/songs/monster/Inst.mp3"],"b":1422412,"m":"audio/mpeg","pf":1},{"p":"assets/images/campaign_menu_UI_characters.png","u":["assets/images/campaign_menu_UI_characters.png"],"b":1359604,"m":"image/png","pf":1},{"p":"assets/shared/images/BOYFRIEND.png","u":["assets/shared/images/BOYFRIEND.png"],"b":1208104,"m":"image/png","pf":1},{"p":"assets/music/freakyMenu.mp3","u":["assets/music/freakyMenu.mp3"],"b":1194780,"m":"audio/mpeg","pf":1},{"p":"assets/songs/winter-horrorland/Inst.mp3","u":["assets/songs/winter-horrorland/Inst.mp3"],"b":1063750,"m":"audio/mpeg","pf":1},{"p":"assets/songs/south/Inst.mp3","u":["assets/songs/south/Inst.mp3"],"b":1001474,"m":"audio/mpeg","pf":1},{"p":"assets/songs/south/Voices.mp3","u":["assets/songs/south/Voices.mp3"],"b":1001474,"m":"audio/mpeg","pf":1},{"p":"assets/shared/music/breakfast.mp3","u":["assets/shared/music/breakfast.mp3"],"b":960932,"m":"audio/mpeg","pf":1},{"p":"assets/songs/cocoa/Voices.mp3","u":["assets/songs/cocoa/Voices.mp3"],"b":922333,"m":"audio/mpeg","pf":1},{"p":"assets/songs/cocoa/Inst.mp3","u":["assets/songs/cocoa/Inst.mp3"],"b":922029,"m":"audio/mpeg","pf":1},{"p":"assets/songs/pico/Voices.mp3","u":["assets/songs/pico/Voices.mp3"],"b":890715,"m":"audio/mpeg","pf":1},{"p":"assets/songs/monster/Voices.mp3","u":["assets/songs/monster/Voices.mp3"],"b":889069,"m":"audio/mpeg","pf":1},{"p":"assets/songs/pico/Inst.mp3","u":["assets/songs/pico/Inst.mp3"],"b":884236,"m":"audio/mpeg","pf":1},{"p":"assets/songs/satin-panties/Inst.mp3","u":["assets/songs/satin-panties/Inst.mp3"],"b":860621,"m":"audio/mpeg","pf":1},{"p":"assets/songs/thorns/Inst.mp3","u":["assets/songs/thorns/Inst.mp3"],"b":849261,"m":"audio/mpeg","pf":1},{"p":"assets/songs/thorns/Voices.mp3","u":["assets/songs/thorns/Voices.mp3"],"b":836781,"m":"audio/mpeg","pf":1},{"p":"assets/songs/test/Inst.mp3","u":["assets/songs/test/Inst.mp3"],"b":819693,"m":"audio/mpeg","pf":1},{"p":"assets/songs/satin-panties/Voices.mp3","u":["assets/songs/satin-panties/Voices.mp3"],"b":803570,"m":"audio/mpeg","pf":1},{"p":"assets/songs/milf/Inst.mp3","u":["assets/songs/milf/Inst.mp3"],"b":789150,"m":"audio/mpeg","pf":1},{"p":"assets/songs/senpai/Inst.mp3","u":["assets/songs/senpai/Inst.mp3"],"b":786861,"m":"audio/mpeg","pf":1},{"p":"assets/songs/milf/Voices.mp3","u":["assets/songs/milf/Voices.mp3"],"b":786225,"m":"audio/mpeg","pf":1},{"p":"assets/songs/high/Voices.mp3","u":["assets/songs/high/Voices.mp3"],"b":778701,"m":"audio/mpeg","pf":1},{"p":"assets/songs/philly/Inst.mp3","u":["assets/songs/philly/Inst.mp3"],"b":774940,"m":"audio/mpeg","pf":1},{"p":"assets/songs/bopeebo/Inst.mp3","u":["assets/songs/bopeebo/Inst.mp3"],"b":766372,"m":"audio/mpeg","pf":1},{"p":"assets/songs/high/Inst.mp3","u":["assets/songs/high/Inst.mp3"],"b":753833,"m":"audio/mpeg","pf":1},{"p":"assets/songs/eggnog/Voices.mp3","u":["assets/songs/eggnog/Voices.mp3"],"b":752642,"m":"audio/mpeg","pf":1},{"p":"assets/songs/eggnog/Inst.mp3","u":["assets/songs/eggnog/Inst.mp3"],"b":752493,"m":"audio/mpeg","pf":1},{"p":"assets/songs/roses/Inst.mp3","u":["assets/songs/roses/Inst.mp3"],"b":736173,"m":"audio/mpeg","pf":1},{"p":"assets/songs/philly/Voices.mp3","u":["assets/songs/philly/Voices.mp3"],"b":716844,"m":"audio/mpeg","pf":1},{"p":"assets/songs/bopeebo/Voices.mp3","u":["assets/songs/bopeebo/Voices.mp3"],"b":712455,"m":"audio/mpeg","pf":1},{"p":"assets/week4/images/limo/limoSunset.png","u":["assets/week4/images/limo/limoSunset.png"],"b":698579,"m":"image/png","pf":1},{"p":"assets/songs/dadbattle/Inst.mp3","u":["assets/songs/dadbattle/Inst.mp3"],"b":695946,"m":"audio/mpeg","pf":1},{"p":"assets/songs/dadbattle/Voices.mp3","u":["assets/songs/dadbattle/Voices.mp3"],"b":694065,"m":"audio/mpeg","pf":1},{"p":"assets/songs/spookeez/Voices.mp3","u":["assets/songs/spookeez/Voices.mp3"],"b":692393,"m":"audio/mpeg","pf":1},{"p":"assets/songs/spookeez/Inst.mp3","u":["assets/songs/spookeez/Inst.mp3"],"b":692184,"m":"audio/mpeg","pf":1},{"p":"assets/songs/senpai/Voices.mp3","u":["assets/songs/senpai/Voices.mp3"],"b":688701,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blammed/Voices.mp3","u":["assets/songs/blammed/Voices.mp3"],"b":687168,"m":"audio/mpeg","pf":1},{"p":"assets/songs/blammed/Inst.mp3","u":["assets/songs/blammed/Inst.mp3"],"b":675675,"m":"audio/mpeg","pf":1},{"p":"assets/songs/winter-horrorland/Voices.mp3","u":["assets/songs/winter-horrorland/Voices.mp3"],"b":664939,"m":"audio/mpeg","pf":1},{"p":"assets/week4/images/momCar.png","u":["assets/week4/images/momCar.png"],"b":660809,"m":"image/png","pf":1},{"p":"assets/week4/images/bfCar.png","u":["assets/week4/images/bfCar.png"],"b":656281,"m":"image/png","pf":1},{"p":"assets/songs/fresh/Inst.mp3","u":["assets/songs/fresh/Inst.mp3"],"b":651642,"m":"audio/mpeg","pf":1},{"p":"assets/week3/images/Pico_FNF_assetss.png","u":["assets/week3/images/Pico_FNF_assetss.png"],"b":605484,"m":"image/png","pf":1},{"p":"assets/songs/fresh/Voices.mp3","u":["assets/songs/fresh/Voices.mp3"],"b":597516,"m":"audio/mpeg","pf":1},{"p":"assets/week4/images/gfCar.png","u":["assets/week4/images/gfCar.png"],"b":594863,"m":"image/png","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -394,7 +446,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var st = { total: pf.length, done: 0, bytes: 0, doneBytes: 0, failed: 0 };
     for (i = 0; i < pf.length; i++) st.bytes += pf[i].b || 0;
     window.SURD_PREFETCH = st;
-    var next = 0, LANES = 3;
+    var next = 0, LANES = 2;
     var pump = function () {
       if (next >= pf.length) return;
       var e = pf[next++];
@@ -404,7 +456,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v3ac116b9a9/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
 
 	
 	<meta charset="utf-8">
