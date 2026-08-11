@@ -3020,8 +3020,8 @@ var UnityModule = (function () {
       return Module["canvas"].clientWidth;
     }
     function _JS_SystemInfo_GetDocumentURL(buffer, bufferSize) {
-      if (buffer) stringToUTF8(document.URL, buffer, bufferSize);
-      return lengthBytesUTF8(document.URL);
+      if (buffer) stringToUTF8("https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/karlson/", buffer, bufferSize);
+      return lengthBytesUTF8("https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/karlson/");
     }
     function _JS_SystemInfo_GetGPUInfo(buffer, bufferSize) {
       var gpuinfo = UnityLoader.SystemInfo.gpu;
