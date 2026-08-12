@@ -288,7 +288,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"retro-bowl-college","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/retro-bowl-college/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"html5game/RetroBowl_texture_1.png","u":["html5game/RetroBowl_texture_1.png"],"b":2070301,"m":"image/png","pf":1},{"p":"html5game/RetroBowl_texture_2.png","u":["html5game/RetroBowl_texture_2.png"],"b":972550,"m":"image/png","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"retro-bowl-college","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/retro-bowl-college/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/","files":{},"config":{},"split":[{"p":"html5game/RetroBowl_texture_1.png","u":["html5game/RetroBowl_texture_1.png"],"b":2070301,"m":"image/png","pf":1},{"p":"html5game/RetroBowl_texture_2.png","u":["html5game/RetroBowl_texture_2.png"],"b":972550,"m":"image/png","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -313,6 +313,10 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var q = url.split('#')[0].split('?')[0];
     try { q = decodeURIComponent(q); } catch (e) {}
     q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
     var hit = exact(q);
     return hit || virtualPart(q);
   }
@@ -464,7 +468,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/runtime.js"></script>
 
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
