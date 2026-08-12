@@ -279,7 +279,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
       });
     } catch(e){}
   })();</script>
-<script>window.SURD_GAME={"id":"spongebob-squarepants-the-kah-ray-tay-squid","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/spongebob-squarepants-the-kah-ray-tay-squid/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/","files":{},"config":{},"split":[{"p":"assets/gameplay_universal/elements/table/sb_squid_karate_table.png","u":["assets/gameplay_universal/elements/table/sb_squid_karate_table.png"],"b":670163,"m":"image/png","pf":1},{"p":"assets/initial_load/audio/karate_squid_music.mp3","u":["assets/initial_load/audio/karate_squid_music.mp3"],"b":549804,"m":"audio/mpeg","pf":1},{"p":"assets/gameplay_universal/transition_animation/atlas1.png","u":["assets/gameplay_universal/transition_animation/atlas1.png"],"b":527073,"m":"image/png","pf":1}]};</script>
+<script>window.SURD_GAME={"id":"spongebob-squarepants-the-kah-ray-tay-squid","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/spongebob-squarepants-the-kah-ray-tay-squid/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/","files":{},"config":{},"split":[{"p":"assets/gameplay_universal/elements/table/sb_squid_karate_table.png","u":["assets/gameplay_universal/elements/table/sb_squid_karate_table.png"],"b":670163,"m":"image/png","pf":1},{"p":"assets/initial_load/audio/karate_squid_music.mp3","u":["assets/initial_load/audio/karate_squid_music.mp3"],"b":549804,"m":"audio/mpeg","pf":1},{"p":"assets/gameplay_universal/transition_animation/atlas1.png","u":["assets/gameplay_universal/transition_animation/atlas1.png"],"b":527073,"m":"image/png","pf":1}]};</script>
 <script>(function () {
   var M = window.SURD_GAME;
   var table = M && M.split;
@@ -304,6 +304,10 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     var q = url.split('#')[0].split('?')[0];
     try { q = decodeURIComponent(q); } catch (e) {}
     q = q.replace(/^\.\//, '');
+    try {
+      var ext = M && M.ext;
+      if (ext && ext[q]) q = ext[q];
+    } catch (e) {}
     var hit = exact(q);
     return hit || virtualPart(q);
   }
@@ -455,7 +459,7 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
     for (i = 0; i < LANES && i < pf.length; i++) pump();
   }
 })();</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v339e1c6514/runtime.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v8caca1eedf/runtime.js"></script>
 
   <title>Games</title>
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
