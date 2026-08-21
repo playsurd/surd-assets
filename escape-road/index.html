@@ -136,8 +136,18 @@ try {
 if(typeof window.UnityProgress!=="function")window.UnityProgress=function(){this.SetMessage=function(){};this.SetProgress=function(){};this.Clear=function(){};};
 window.alert=function(){};window.confirm=function(){return false;};window.prompt=function(){return null;};
 (function(){
+    /* DEAD HOSTS, blocked for a different reason than the ad networks below.
+     *
+     * Sixteen files across the catalogue live on hosts that no longer answer. Vendoring could not
+     * save them (nothing to download, and none are in the Wayback Machine), but every one turned
+     * out to be inessential once looked at: an ad SWF (bbplayer), a portal logo (kizi), portal
+     * SDKs (gamemix, gmsdk), a sitelock check (pegasgames' "wheely7sec.swf" — wheely-7 ships its
+     * real game in _vendor), cosmetic images, and duplicates of files the game already has
+     * locally (both spongebob ports ship their own flambe.js). Left alone, each one is a request
+     * that hangs until it times out; blocked, it fails instantly and the game gets on with it. */
+    var DEAD = /(bbplayer\.net|cdn0\.kizi\.com|gmapi\.gamemix\.com|r3tq6l1\/gmsdk|candystand\.com|eags\.us|iep-esy\.ir|pegasgames\.com|ngames365\.github\.io|yurivish\.com|chicken\.royalredeemerlutheranschool\.org|marketjs-us\/en\/patch|cdn\.jsdelivr\.net\/discount\.json)/i;
     var BAD = /(doubleclick|googlesyndication|googleadservices|googleads|adtrafficquality|2mdn\.net|imasdk\.googleapis|adsbygoogle|gamemonetize|fliplineads|cpmstar|ngads|adinplay|mochibot|mochiads|gamedistribution|azerioncircle|gamemonkey|scorecardresearch|moatads|amazon-adsystem|criteo|pubmatic|rubiconproject|adnxs|casalemedia|smartadserver|taboola|outbrain|google-analytics|googletagmanager|gameanalytics|cloud\.unity3d\.com|hotjar|mixpanel|clarity\.ms|enjoy4fun|gamebridge\.games|gamearter|poki\.io|famobi|softgames|yandex\.ru\/metrika|mc\.yandex)/i;
-    function bad(u){ try { return BAD.test(String(u)); } catch(e){ return false; } }
+    function bad(u){ try { var t = String(u); return BAD.test(t) || DEAD.test(t); } catch(e){ return false; } }
     /* HOST-ABSOLUTE PATHS: "/version.json", "/audio/x.flac".
      *
      * A leading slash ignores <base> completely and resolves against the ORIGIN, which for us
@@ -279,206 +289,6 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
 <div id="unity-container" class="unity-desktop" style="position:absolute;inset:0"><canvas id="unity-canvas" style="width:100vw;height:100vh;display:block"></canvas><div id="loading-cover" style="display:none"></div><div id="unity-loading-bar" style="display:none"><div id="unity-logo"></div><div id="unity-progress-bar-empty"><div id="unity-progress-bar-full"></div></div></div><div id="unity-footer"><div id="unity-webgl-logo"></div><div id="unity-fullscreen-button"></div><div id="unity-build-title"></div></div></div>
 
 <script>eruda.init()</script>
-<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine,rp:window.RufflePlayer};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.RufflePlayer={newest:function(){return{createPlayer:function(){var d=document.createElement("div");d.load=function(){};return d;}};}};window.godotRunStart=function(){};window.main=function(){};</script><script>
-    const container = document.querySelector("#unity-container");
-    const canvas = document.querySelector("#unity-canvas");
-    const loadingCover = document.querySelector("#loading-cover");
-    const fullscreenButton = document.querySelector("#unity-fullscreen-button");
-
-
-
-    const buildUrl = "TemplateData";
-    const loaderUrl = buildUrl + "/loader.js";
-    const config = {
-      dataUrl: buildUrl + "/data.unityweb",
-      frameworkUrl: buildUrl + "/framework.js.unityweb",
-      codeUrl: buildUrl + "/wasm.unityweb",
-      streamingAssetsUrl: "StreamingAssets",
-      companyName: "1games.io",
-      productName: "Escape Road",
-      productVersion: "2.0",
-    };
-
-    
-    
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-      container.className = "unity-mobile";
-      config.devicePixelRatio = 1;
-    }
-    
-    function delay(ms) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, ms);
-      });
-    }
-    async function load() {
-
-      var az_logo = document.getElementById('azlogo');
-      az_logo.style.opacity = 0;
-      logo_loaded = true;
-     /* var t = new Date().getTime();
-      while (az_logo.style.opacity < 1) {
-        var delta = new Date().getTime() - t;
-        az_logo.style.opacity = delta / 1000;
-        await delay(20);
-      }
-      await delay(1000);*/
-      az_logo.style.display = 'none';
-      logo_loaded = false;
-      
-      createUnityInstance(canvas, config, (progress) => {
-        logo_loading_percent = progress;
-        drawCanvas(progress);
-      }).then((unityInstance) => {
-        window.unityInstance = unityInstance;
-        setTimeout(() => {
-          loadingCover.style.display = "none";
-          logo_loaded = true;
-          window.focus();
-        }, 2000);
-      }).catch((message) => {
-        alert(message);
-      });
-    }
-
-    loadingCover.style.display = "";
-
-    var script = document.createElement("script");
-    script.src = loaderUrl;
-    script.onload = () => {
-      load();
-    };
-
-    // setTimeout(() => {
-    //     var progress = 0.5;
-    //     logo_loading_percent = progress;
-    //     drawCanvas(progress);
-    //   }, 1000);
-
-    // var progress = 0;
-    // setInterval(() => {
-    //   logo_loading_percent = progress;
-    //   drawCanvas(progress);
-    //   progress += 0.01;
-    // }, 30);
-
-
-    var logo_loaded = false;
-    var logo_loading_percent = 0;
-
-    window.onresize = () => {
-      // console.log('onresize');
-      drawCanvas(logo_loading_percent);
-    }
-    window.onload = () => {
-      // console.log('onload');
-      drawCanvas(logo_loading_percent);
-    }
-
-    var logo_canvas = document.getElementById("logo-canvas");
-    function drawCanvas(_percent = 0) {
-      if (logo_loaded) {
-        return;
-      }
-      resizeLogoCanvas();
-      var ctx = logo_canvas.getContext("2d");
-      var ld_bg = document.getElementById("ld_bg");
-      var ld_car = document.getElementById("ld_car");
-
-      var _sw = logo_canvas.width / 1920;
-      var _sh = logo_canvas.height / 1080;
-
-      if (_percent > 1) {
-        _percent = 1;
-      }
-
-      //bgbar
-      var bgbar_H = 86;
-      var bgbar_W = 1383;
-      //fillbar
-      var fillbar_H = 55;
-      var fillbar_W = 1345;
-      //Mask
-      var maskbar_H = 55;
-      var maskbar_W = 1350;
-      //bg_bar_mask
-      var bgbar_mask_H = 86;
-      var bgbar_mask_W = 1383;
-
-      var posshowbar_Y = 200;   //position loadingbar 
-
-      var posbgbar_X = (1920 - bgbar_W) / 2; // center
-      var posbgbar_Y = posshowbar_Y;
-
-      var posfillbar_X = (1920 - fillbar_W) / 2;
-      var posfillbar_Y = posshowbar_Y - 15;
-
-      var posmaskbar_X = (1920 - maskbar_W) / 2;
-      var posmaskbar_Y = posshowbar_Y - 15;
-
-      var _fl = 0;
-      var _fl1 = posmaskbar_X + _percent * maskbar_W;
-
-      var _fw = maskbar_W - _percent * maskbar_W;
-
-      // console.log(`${logo_canvas.width} ${logo_canvas.height}`);
-      //background
-      ctx.drawImage(ld_bg, 0, 0, logo_canvas.width, logo_canvas.height);
-
-      //loading background
-      ctx.fillStyle = "#977e21";
-      var _lw = 700;
-      var _lh = 50;
-      ctx.fillRect((1920 - _lw) * 0.5 * _sw, (1080 - 150) * _sh, _lw * _sw, _lh * _sh);
-
-      //loading progress
-      ctx.fillStyle = "#fad234";
-      var _pad = 5;
-      var _pw = (_lw - _pad * 2);
-      var _ph = _lh - _pad * 2;
-      var _px = (1920 - _pw) * 0.5;
-      ctx.fillRect(_px * _sw, (1080 - 150 + _pad) * _sh, _pw * _percent * _sw, _ph * _sh);
-
-      //car
-      var _car_x = _px + _pw * _percent - 100;
-      if (_car_x < _px) {
-        _car_x = _px;
-      }
-     // ctx.drawImage(ld_car,  _car_x * _sw, (1080 - 190) * _sh, 100 * _sw, 42 * _sh);
-
-
-      ctx.font = "18px myFirstFont";
-      const match = /(?<value>\d+\.?\d*)/;
-      const setFontSize = (size) => ctx.font = ctx.font.replace(match, size);
-      setFontSize(35 * _sh);
-      ctx.textAlign = "center";
-      ctx.fillStyle = "#fff";
-      ctx.shadowColor = "black";
-      ctx.shadowOffsetY = 2;
-      var new_per = parseInt(_percent * 100);
-      ctx.fillText("" + new_per + "%", logo_canvas.width / 2, logo_canvas.height / 2 + _sh * 425);
-    }
-    function resizeLogoCanvas() {
-      var _w = window.innerWidth;
-      var _h = window.innerHeight;
-      var _nw = _h * 16 / 9;
-      // console.log(`${_w} ${_h} ${_nw}`);
-      if (_nw <= _w) {
-        logo_canvas.width = _nw;
-        logo_canvas.height = _h;
-      }
-      else {
-        logo_canvas.width = _w;
-        logo_canvas.height = _w * 9 / 16;
-      }
-
-    }
-
-
-    document.body.appendChild(script);
-  </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
-<script>window.SURD_GAME = {"id":"escape-road","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/escape-road/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2e88679fd0/","files":{"data":{"path":"TemplateData/data.unityweb","bytes":17829362,"mime":"application/octet-stream"},"framework":{"path":"TemplateData/framework.js.unityweb","bytes":88620,"mime":"application/octet-stream"},"code":{"path":"TemplateData/wasm.unityweb","bytes":8833315,"mime":"application/octet-stream"}},"config":{"era":"modern","loaderJs":"TemplateData/loader.js","companyName":"1games.io","productName":"Escape Road","productVersion":"2.0"}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v2e88679fd0/runtime.js"></script>
+<script>window.SURD_GAME = {"id":"escape-road","engine":"unity","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/escape-road/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{"data":{"path":"TemplateData/data.unityweb","bytes":17829362,"mime":"application/octet-stream"},"framework":{"path":"TemplateData/framework.js.unityweb","bytes":88620,"mime":"application/octet-stream"},"code":{"path":"TemplateData/wasm.unityweb","bytes":8833315,"mime":"application/octet-stream"}},"config":{"era":"modern","loaderJs":"TemplateData/loader.js","companyName":"1games.io","productName":"Escape Road","productVersion":"2.0"}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/runtime.js"></script>
 </body></html>
