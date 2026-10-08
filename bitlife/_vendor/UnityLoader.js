@@ -4783,7 +4783,7 @@ var UnityLoader = UnityLoader || {
                             (t.responseType = "text"),
                             (t.onerror = function () {
                                 o.print("Could not download " + n.url),
-                                    0 == document.URL.indexOf("file:") && alert("It seems your browser does not support running Unity WebGL content from file:// urls. Please upload it to an http server, or try a different browser.");
+                                    0 == "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/bitlife/".indexOf("file:") && alert("It seems your browser does not support running Unity WebGL content from file:// urls. Please upload it to an http server, or try a different browser.");
                             }),
                             (t.onload = function () {
                                 var a = JSON.parse(t.responseText);
