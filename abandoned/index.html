@@ -1,8 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/abandoned/">
+<!doctype html><html><head><meta charset="utf-8"><title>abandoned</title><base href="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/abandoned/">
 <script data-surd="1">(function () {
   var W = window;
   var unityTarget = null;
@@ -289,46 +285,10 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         });
       });
     } catch(e){}
-  })();</script>
-<script data-surd="1">window.SURD_GAME={"id":"abandoned","engine":"generic","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/abandoned/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/","files":{},"config":{}};</script>
-<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v41e88dd3b6/runtime.js"></script>
-
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Abandoned</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      overflow: hidden;
-      height: 100%;
-      width: 100%;
-    }
-
-    #flash-container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: black;
-    }
-
-    ruffle-player {
-      width: 100%;
-      height: 100%;
-      background: black;
-      display: block;
-    }
-  
-</style>
-  
-</head>
-<body>
-  <div id="flash-container"></div>
-
-  <script>
+  })();</script></head><body>
+<div id="ruffle" style="display:none"></div>
+<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine,rp:window.RufflePlayer};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.RufflePlayer={newest:function(){return{createPlayer:function(){var d=document.createElement("div");d.load=function(){};return d;}};}};window.godotRunStart=function(){};window.main=function(){};</script><script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/abandoned/_helpers/ruffle.js"></script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
+<script>window.__surdBoot={cui:window.createUnityInstance,ul:window.UnityLoader,en:window.Engine,rp:window.RufflePlayer};window.createUnityInstance=function(){return new Promise(function(){})};window.UnityLoader={instantiate:function(){}};window.Engine=function(){};window.Engine.getMissingFeatures=function(){return[]};window.Engine.isWebGLAvailable=function(){return true};window.Engine.load=function(){return Promise.resolve()};window.RufflePlayer={newest:function(){return{createPlayer:function(){var d=document.createElement("div");d.load=function(){};return d;}};}};window.godotRunStart=function(){};window.main=function(){};</script><script>
     const container = document.getElementById("flash-container");
 
     function resizeGame() {
@@ -359,12 +319,12 @@ window.alert=function(){};window.confirm=function(){return false;};window.prompt
         player.style.height = "100%";
         player.style.background = "black";
         container.appendChild(player);
-        player.load("https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/abandoned/).swf");
+        player.load("abandoned.swf");
       } else {
         container.textContent = "Ruffle failed to load.";
       }
     });
-  </script>
-
-</body>
-</html>
+  </script><script>window.createUnityInstance=window.__surdBoot.cui;window.UnityLoader=window.__surdBoot.ul;window.Engine=window.__surdBoot.en;window.RufflePlayer=window.__surdBoot.rp;delete window.godotRunStart;</script>
+<script data-surd="1">window.SURD_GAME = {"id":"abandoned","engine":"ruffle","base":"https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/abandoned/","runtime":"https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v154064bddd/","files":{"swf":{"path":"abandoned.swf","bytes":8452173,"mime":"application/octet-stream"}},"config":{}};</script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/gh/playsurd/surd-runtime@main/v154064bddd/runtime.js"></script>
+</body></html>
