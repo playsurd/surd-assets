@@ -519,8 +519,7 @@
       if (opts.runtimeBaseUrl) this._runtimeBaseUrl = opts.runtimeBaseUrl;
       else {
         const origin = location.origin;
-        this._runtimeBaseUrl =
-          (origin === "null" ? "file:///" : origin) + location.pathname;
+        this._runtimeBaseUrl="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/stickman-fight-ragdoll/";
         const i = this._runtimeBaseUrl.lastIndexOf("/");
         if (i !== -1)
           this._runtimeBaseUrl = this._runtimeBaseUrl.substr(0, i + 1);
