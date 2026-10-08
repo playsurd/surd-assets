@@ -4924,7 +4924,7 @@
                     function Dd(e) {
                         Kn(this, Dd),
                         this._config = e || {},
-                        this._url = e.url || "patch/json/ping.json?https://removed.invalid/collect",
+                        this._url = e.url || "patch/json/ping.json?https://blocked.invalid/collect",
                         this._topic_counter = {},
                         this._ua = (new $u).getResult()
                     }
@@ -5633,7 +5633,7 @@
                                             .bind(this))
                                         }
                                         .bind(this)),
-                                        t = ["https://imasdk.googleapis.com/js/sdkloader/ima3_debug.js", "https://imasdk.googleapis.com/js/sdkloader/ima3.js", "http://imasdk.googleapis.com/js/sdkloader/ima3_debug.js", "http://imasdk.googleapis.com/js/sdkloader/ima3.js"],
+                                        t = ["https://blocked.invalid/js/sdkloader/ima3_debug.js", "https://blocked.invalid/js/sdkloader/ima3.js", "http://blocked.invalid/js/sdkloader/ima3_debug.js", "http://blocked.invalid/js/sdkloader/ima3.js"],
                                         n = this.options.debug ? t[0] : t[1],
                                         e.next = 13,
                                         td(n, "gdsdk_ima", {
@@ -7041,7 +7041,7 @@
                                       , r = new wd(this.gameData).checkCustomParams();
                                     r && (e.cp = r);
                                     var i = encodeURIComponent(il(JSON.stringify(e)));
-                                    fetch("https://tag.atom.gamedistribution.com/v1/atm?ar=".concat(i)).then(function(e) {
+                                    fetch("https://blocked.invalid/v1/atm?ar=".concat(i)).then(function(e) {
                                         return p(this, n),
                                         e.json()
                                     }
@@ -7059,8 +7059,8 @@
                                             params: {
                                                 fp: e.p / 100
                                             },
-                                            error_url: "https://tag.atom.gamedistribution.com/v1/err?ar=".concat(i),
-                                            impression_url: "https://tag.atom.gamedistribution.com/v1/imp?ar=".concat(i)
+                                            error_url: "https://blocked.invalid/v1/err?ar=".concat(i),
+                                            impression_url: "https://blocked.invalid/v1/imp?ar=".concat(i)
                                         })
                                     }
                                     .bind(this)).catch(function(e) {
@@ -7110,7 +7110,7 @@
                                             (r = new wd(c.gameData).checkCustomParams()) && (n.cp = r),
                                             i = encodeURIComponent(il(JSON.stringify(n))),
                                             o = null === (n = c.gameData.promo) || void 0 === n ? void 0 : n.rainbow,
-                                            fetch("https://tag.atom.gamedistribution.com/v1/atm?ar=".concat(i)).then(function(e) {
+                                            fetch("https://blocked.invalid/v1/atm?ar=".concat(i)).then(function(e) {
                                                 return p(this, a),
                                                 e.json()
                                             }
@@ -7125,12 +7125,12 @@
                                                 t({
                                                     id: Date.now(),
                                                     floor_price: e,
-                                                    error_url: "https://tag.atom.gamedistribution.com/v1/err?ar=".concat(i, "&ec=[ERRORCODE]"),
-                                                    impression_url: "https://tag.atom.gamedistribution.com/v1/imp?ar=".concat(i),
-                                                    skip_url: "https://tag.atom.gamedistribution.com/v1/skp?ar=".concat(i),
-                                                    promo_url: null != o && o.enabled ? "https://tag.atom.gamedistribution.com/v1/rainbow?ar=".concat(i) : void 0,
-                                                    promo_imp_blue_url: null != o && o.enabled ? "https://tag.atom.gamedistribution.com/v1/rainbow/blue" : void 0,
-                                                    promo_imp_green_url: null != o && o.enabled ? "https://tag.atom.gamedistribution.com/v1/rainbow/green" : void 0
+                                                    error_url: "https://blocked.invalid/v1/err?ar=".concat(i, "&ec=[ERRORCODE]"),
+                                                    impression_url: "https://blocked.invalid/v1/imp?ar=".concat(i),
+                                                    skip_url: "https://blocked.invalid/v1/skp?ar=".concat(i),
+                                                    promo_url: null != o && o.enabled ? "https://blocked.invalid/v1/rainbow?ar=".concat(i) : void 0,
+                                                    promo_imp_blue_url: null != o && o.enabled ? "https://blocked.invalid/v1/rainbow/blue" : void 0,
+                                                    promo_imp_green_url: null != o && o.enabled ? "https://blocked.invalid/v1/rainbow/green" : void 0
                                                 })
                                             }
                                             .bind(this)).catch(function(e) {
@@ -7885,7 +7885,7 @@
                                         return i = encodeURIComponent(this.productName),
                                         o = encodeURIComponent(r),
                                         e.prev = 5,
-                                        a = "patch/json/null.json?https://removed.invalid/v1/events-tracker/track/product/".concat(i, "/user_id/").concat(o),
+                                        a = "patch/json/null.json?https://tracker-v4.gamedock.io/v1/events-tracker/track/product/".concat(i, "/user_id/").concat(o),
                                         e.next = 9,
                                         fetch(a, {
                                             method: "POST"
@@ -7898,7 +7898,7 @@
                                         e.t0 = e.catch(5),
                                         console.log("GAME_DOCK. fail v4", e.t0),
                                         e.prev = 15,
-                                        a = "patch/json/null.json?https://removed.invalid/v1/events-tracker/track/product/".concat(i, "/user_id/").concat(o),
+                                        a = "patch/json/null.json?https://tracker.gamedock.io/v1/events-tracker/track/product/".concat(i, "/user_id/").concat(o),
                                         e.next = 19,
                                         fetch(a, {
                                             method: "POST"
@@ -8184,7 +8184,7 @@
                         value: function() {
                             var t = this;
                             try {
-                                var e = ["patch/js/null.js?https://removed.invalid/gamedock-web-tracker/4.3.0/script/gamedock-sdk.min.js"];
+                                var e = ["patch/js/null.js?https://cdn.gamedock.io/gamedock-web-tracker/4.3.0/script/gamedock-sdk.min.js"];
                                 td(e[0], "GamedockSDK", {
                                     alternates: e
                                 }).then(function() {
@@ -8291,7 +8291,7 @@
                             this.eventBus.subscribe("COMPLETE", function() {
                                 if (p(this, n),
                                 "developer.gamedistribution.com" === this._parentDomain || !0 === new RegExp("^localhost").test(this._parentDomain)) {
-                                    fetch("https://game.api.gamedistribution.com/game/v2/hasapi/".concat(this.options.gameId, "?timestamp=").concat((new Date).valueOf()));
+                                    fetch("https://blocked.invalid/game/v2/hasapi/".concat(this.options.gameId, "?timestamp=").concat((new Date).valueOf()));
                                     try {
                                         var e = JSON.stringify({
                                             type: "GD_SDK_IMPLEMENTED",
@@ -8489,7 +8489,7 @@
                         key: "_getGameDataUrl",
                         value: function() {
                             var e = void 0 !== this._topDomain && "undefined" !== this._topDomain ? this._topDomain : this._parentDomain;
-                            return "patch/json/config.json?https://game.api.gamedistribution.com/game/v4/get/".concat(this.options.gameId.replace(/-/g, ""), "/?domain=").concat(e, "&v=").concat(Jc, "&localTime=").concat((new Date).getHours())
+                            return "patch/json/config.json?https://blocked.invalid/game/v4/get/".concat(this.options.gameId.replace(/-/g, ""), "/?domain=").concat(e, "&v=").concat(Jc, "&localTime=").concat((new Date).getHours())
                         }
                     }, {
                         key: "_checkBlocking",
@@ -8505,7 +8505,7 @@
                                         (n.bloc_gard && !0 === n.bloc_gard.enabled || !t) && (this.msgrt.send("blocked"),
                                         setTimeout(function() {
                                             p(this, r),
-                                            window.location.href == "https://html5.api.gamedistribution.com/blocked.html?".concat(vu.stringify({
+                                            window.location.href == "https://blocked.invalid/blocked.html?".concat(vu.stringify({
                                                 domain: this._parentDomain,
                                                 id: n.gameId,
                                                 img: this._get_game_thumbnail_url(),
@@ -8530,7 +8530,7 @@
                             6 === this._gameData.status && (console.log("%c %c %c This game was deleted, please remove it in your website... ", "background: #F2181A", "background: #F23818", "color: #fff; background: #F23818;", "background: #F55E60", "background: #F55E60", "background: #c4161e; color: #fff;"),
                             setTimeout(function() {
                                 p(this, e),
-                                document.location = "https://html5.api.gamedistribution.com/deleted.html"
+                                document.location = "https://blocked.invalid/deleted.html"
                             }
                             .bind(this), 100))
                         }
