@@ -561,7 +561,7 @@ self["${t}"]();`,
                 this._runtimeBaseUrl = e.runtimeBaseUrl;
             else {
                 const o = location.origin
-                  , a = (this._runtimeBaseUrl = ("null" === o ? "file:///" : o) + location.pathname,
+                  , a = (this._runtimeBaseUrl="https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/parking-rush/",
                 this._runtimeBaseUrl.lastIndexOf("/"));
                 -1 !== a && (this._runtimeBaseUrl = this._runtimeBaseUrl.substr(0, a + 1))
             }
