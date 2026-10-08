@@ -11028,7 +11028,7 @@
   }
 
   function Th(e, t) {
-    const n = function(e, t = cl."https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/aviamasters/") {
+    const n = function(e, t = cl.document.baseURI) {
       if (e.startsWith("http://") || e.startsWith("https://") || e.startsWith(cl.location.origin)) return e;
       const n = new URL(e, t);
       if (n.origin !== new URL(t).origin) return e;
