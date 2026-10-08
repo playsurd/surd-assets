@@ -170,7 +170,7 @@ function createUnityInstance(e, t, n) {
         disabledCanvasEvents: ["contextmenu", "dragstart"]
     };
     for (var l in t) c[l] = t[l];
-    c.streamingAssetsUrl = new URL(c.streamingAssetsUrl, document.URL).href;
+    c.streamingAssetsUrl = new URL(c.streamingAssetsUrl, "https://cdn.jsdelivr.net/gh/playsurd/surd-assets@main/time-shooter-2/").href;
     var p = c.disabledCanvasEvents.slice();
     p.forEach(function(t) {
         e.addEventListener(t, o)
