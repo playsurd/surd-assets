@@ -2385,7 +2385,7 @@
                     function Yn(e) {
                         le(this, Yn),
                         this._config = e || {},
-                        this._url = e.url || "https://removed.invalid/collect",
+                        this._url = e.url || "https://blocked.invalid/collect",
                         this._topic_counter = {},
                         this._ua = (new Nr).getResult(),
                         this._init_layout()
@@ -12498,7 +12498,7 @@
                         getGameData: function(e) {
                             var t = this;
                             try {
-                                var r = e.replace("game.api.gamedistribution.com", "game-api.gamedistribution.com");
+                                var r = e.replace("blocked.invalid", "game-api.gamedistribution.com");
                                 fetch(r).then(function(e) {
                                     D(this, t)
                                 }
@@ -12909,10 +12909,10 @@
                                         }
                                         .bind(this);
                                         try {
-                                            f && 0 < o.indexOf("tag.atom") && s("tag.atom.gamedistribution.com", "atom-tag-prod-aws.gamedistribution.com"),
-                                            a && 0 < o.indexOf("removed.invalid") && (null != (u = hE) && u.aws_tst,
+                                            f && 0 < o.indexOf("tag.atom") && s("blocked.invalid", "atom-tag-prod-aws.gamedistribution.com"),
+                                            a && 0 < o.indexOf("blocked.invalid") && (null != (u = hE) && u.aws_tst,
                                             null != (c = hE) && null != (l = c.aws_tst) && null != (d = l.ep) && d.msgrt,
-                                            s("removed.invalid", "msgrt-prod-aws.gamedistribution.com"))
+                                            s("blocked.invalid", "msgrt-prod-aws.gamedistribution.com"))
                                         } catch (e) {}
                                         return e.next = 9,
                                         m(o, i);
@@ -12966,7 +12966,7 @@
                             D(this, s);
                             var e = n()
                               , e = e ? "&mode=".concat(e) : "";
-                            return "https://game.api.gamedistribution.com/game/v4/get/".concat(t.gameId.replace(/-/g, ""), "/?domain=").concat(r).concat(e, "&v=").concat($u.version, "&localTime=").concat((new Date).getHours())
+                            return "https://blocked.invalid/game/v4/get/".concat(t.gameId.replace(/-/g, ""), "/?domain=").concat(r).concat(e, "&v=").concat($u.version, "&localTime=").concat((new Date).getHours())
                         }
                         .bind(this))
                           , n = (dE("6"),
@@ -16609,7 +16609,7 @@
                             try {
                                 null != (t = this.gameData) && null != (r = t.aws_tst) && r.enabled && null != (n = this.gameData) && null != (o = n.aws_tst) && null != (i = o.ep) && i.atm && (a = e.type,
                                 s = e.url,
-                                "none" !== a) && s && (s = s.replace("tag.atom.gamedistribution.com", "atom-tag-prod-aws.gamedistribution.com"),
+                                "none" !== a) && s && (s = s.replace("blocked.invalid", "atom-tag-prod-aws.gamedistribution.com"),
                                 fetch(s).then(function() {
                                     D(this, u)
                                 }
@@ -16975,7 +16975,7 @@
                                       , n = new R9(this.gameData).checkCustomParams()
                                       , o = (n && (e.cp = n),
                                     encodeURIComponent(cn(JSON.stringify(e))));
-                                    fetch("patch/json/null.json?https://tag.atom.gamedistribution.com/v1/atm?ar=".concat(o)).then(function(e) {
+                                    fetch("patch/json/null.json?https://blocked.invalid/v1/atm?ar=".concat(o)).then(function(e) {
                                         return D(this, r),
                                         e.json()
                                     }
@@ -16994,8 +16994,8 @@
                                             params: {
                                                 fp: e
                                             },
-                                            error_url: "https://tag.atom.gamedistribution.com/v1/err?ar=".concat(o),
-                                            impression_url: "https://tag.atom.gamedistribution.com/v1/imp?ar=".concat(o)
+                                            error_url: "https://blocked.invalid/v1/err?ar=".concat(o),
+                                            impression_url: "https://blocked.invalid/v1/imp?ar=".concat(o)
                                         })
                                     }
                                     .bind(this)).catch(function(e) {
@@ -17034,7 +17034,7 @@
                               , n = (encodeURIComponent(cn(JSON.stringify(r))),
                             null == (n = this.gameData.promo) ? void 0 : n.rainbow)
                               , n = null == n ? void 0 : n.enabled
-                              , e = "https://tag.atom.gamedistribution.com/v1/rainbow/?".concat(e)
+                              , e = "https://blocked.invalid/v1/rainbow/?".concat(e)
                               , o = n ? e : void 0;
                             return function() {
                                 D(this, t),
@@ -17044,8 +17044,8 @@
                             .bind(this),
                             {
                                 promo_url: o,
-                                promo_imp_blue_url: n ? "https://tag.atom.gamedistribution.com/v1/rainbow/blue" : void 0,
-                                promo_imp_green_url: n ? "https://tag.atom.gamedistribution.com/v1/rainbow/green" : void 0
+                                promo_imp_blue_url: n ? "https://blocked.invalid/v1/rainbow/blue" : void 0,
+                                promo_imp_green_url: n ? "https://blocked.invalid/v1/rainbow/green" : void 0
                             }
                         }
                     }, {
@@ -17083,7 +17083,7 @@
                                             i = (null == o ? void 0 : o.enabled) && (null == u ? void 0 : u.isLastAdapter) && "rewarded" === s,
                                             null != o && o.enabled,
                                             null != u && u.isLastAdapter,
-                                            fetch("https://tag.atom.gamedistribution.com/v1/atm?ar=".concat(n)).then(function(e) {
+                                            fetch("https://blocked.invalid/v1/atm?ar=".concat(n)).then(function(e) {
                                                 return D(this, a),
                                                 e.json()
                                             }
@@ -17101,12 +17101,12 @@
                                                 t({
                                                     id: Date.now(),
                                                     floor_price: e,
-                                                    error_url: "https://tag.atom.gamedistribution.com/v1/err?ar=".concat(n, "&ec=[ERRORCODE]"),
-                                                    impression_url: "https://tag.atom.gamedistribution.com/v1/imp?ar=".concat(n),
-                                                    skip_url: "https://tag.atom.gamedistribution.com/v1/skp?ar=".concat(n),
-                                                    promo_url: i ? "https://tag.atom.gamedistribution.com/v1/rainbow?ar=".concat(n) : void 0,
-                                                    promo_imp_blue_url: i ? "https://tag.atom.gamedistribution.com/v1/rainbow/blue" : void 0,
-                                                    promo_imp_green_url: i ? "https://tag.atom.gamedistribution.com/v1/rainbow/green" : void 0
+                                                    error_url: "https://blocked.invalid/v1/err?ar=".concat(n, "&ec=[ERRORCODE]"),
+                                                    impression_url: "https://blocked.invalid/v1/imp?ar=".concat(n),
+                                                    skip_url: "https://blocked.invalid/v1/skp?ar=".concat(n),
+                                                    promo_url: i ? "https://blocked.invalid/v1/rainbow?ar=".concat(n) : void 0,
+                                                    promo_imp_blue_url: i ? "https://blocked.invalid/v1/rainbow/blue" : void 0,
+                                                    promo_imp_green_url: i ? "https://blocked.invalid/v1/rainbow/green" : void 0
                                                 })
                                             }
                                             .bind(this)).catch(function(e) {
@@ -17146,7 +17146,7 @@
                                     null != (r = o.query) && r.cust_params && (n = Z.parse(o.query.cust_params)).tnl_asset_id && (n.adsense = 1,
                                     o.query.cust_params = Z.stringify(n, !1),
                                     e.fallback_url = o.toString(),
-                                    e.fallback_imp_url = "https://tag.atom.gamedistribution.com/v1/rainbow/green")
+                                    e.fallback_imp_url = "https://blocked.invalid/v1/rainbow/green")
                                 } catch (e) {}
                         }
                     }, {
@@ -17264,7 +17264,7 @@
                                 for (; ; )
                                     switch (e.prev = e.next) {
                                     case 0:
-                                        return r = ["https://imasdk.googleapis.com/js/sdkloader/ima3_debug.js", "https://imasdk.googleapis.com/js/sdkloader/ima3.js", "http://imasdk.googleapis.com/js/sdkloader/ima3_debug.js", "http://imasdk.googleapis.com/js/sdkloader/ima3.js"],
+                                        return r = ["https://blocked.invalid/js/sdkloader/ima3_debug.js", "https://blocked.invalid/js/sdkloader/ima3.js", "http://blocked.invalid/js/sdkloader/ima3_debug.js", "http://blocked.invalid/js/sdkloader/ima3.js"],
                                         n = this.options.debug ? r[0] : r[1],
                                         e.next = 4,
                                         bn(n, "gdsdk_ima", {
@@ -17308,7 +17308,7 @@
                                         0 < (null == t || null == (n = t.adsense_host) ? void 0 : n.length) && (o["data-ad-host"] = t.adsense_host),
                                         !0 === (null == t ? void 0 : t.adsense_adbreak_test) && (o["data-adbreak-test"] = "on"),
                                         e.next = 14,
-                                        bn("patch/js/null.js?https://removed.invalid/pagead/js/adsbygoogle.js", "afg", {
+                                        bn("patch/js/null.js?https://blocked.invalid/pagead/js/adsbygoogle.js", "afg", {
                                             error_prefix: "Blocked:",
                                             exists: function() {
                                                 return D(this, i),
@@ -17810,7 +17810,7 @@
                                         h: n.h
                                     }
                                 };
-                                fetch("patch/json/null.json?https://tag.atom.gamedistribution.com/v1/dmp?ar=".concat(encodeURIComponent(cn(JSON.stringify(i)))))
+                                fetch("patch/json/null.json?https://blocked.invalid/v1/dmp?ar=".concat(encodeURIComponent(cn(JSON.stringify(i)))))
                             } catch (e) {}
                         }
                     }, {
@@ -18166,7 +18166,7 @@
                                         return o = encodeURIComponent(this.productName),
                                         i = encodeURIComponent(n),
                                         e.prev = 8,
-                                        a = "https://removed.invalid/v1/events-tracker/track/product/".concat(o, "/user_id/").concat(i),
+                                        a = "https://tracker-v4.gamedock.io/v1/events-tracker/track/product/".concat(o, "/user_id/").concat(i),
                                         e.next = 12,
                                         fetch(a, {
                                             method: "POST"
@@ -18180,7 +18180,7 @@
                                         e.t0 = e.catch(8),
                                         console.log("GAME_DOCK. fail v4", e.t0),
                                         e.prev = 18,
-                                        a = "https://removed.invalid/v1/events-tracker/track/product/".concat(o, "/user_id/").concat(i),
+                                        a = "https://tracker.gamedock.io/v1/events-tracker/track/product/".concat(o, "/user_id/").concat(i),
                                         e.next = 22,
                                         fetch(a, {
                                             method: "POST"
@@ -19348,7 +19348,7 @@
                         value: function() {
                             var t = this;
                             try {
-                                var e = ["patch/js/null.js?https://removed.invalid/gamemonkey-web-tracker/5.0.0/script/gamemonkey-sdk.js"];
+                                var e = ["patch/js/null.js?https://cdn.gamedock.io/gamemonkey-web-tracker/5.0.0/script/gamemonkey-sdk.js"];
                                 bn(e[0], "GamedockSDK", {
                                     alternates: e
                                 }).then(function() {
@@ -19420,7 +19420,7 @@
                                         return console.log("locus-disabled"),
                                         e.abrupt("return");
                                     case 6:
-                                        t = ["patch/js/null.js?https://tag.atom.gamedistribution.com/v1/locus"],
+                                        t = ["patch/js/null.js?https://blocked.invalid/v1/locus"],
                                         console.log("locus loading"),
                                         bn(t[0], "locus", {
                                             alternates: t
@@ -19498,7 +19498,7 @@
                             this.eventBus.subscribe("COMPLETE", function() {
                                 if (D(this, r),
                                 "developer.gamedistribution.com" === this._parentDomain || !0 === new RegExp("^localhost").test(this._parentDomain)) {
-                                    fetch("https://game.api.gamedistribution.com/game/v2/hasapi/".concat(this.options.gameId, "?timestamp=").concat((new Date).valueOf()));
+                                    fetch("https://blocked.invalid/game/v2/hasapi/".concat(this.options.gameId, "?timestamp=").concat((new Date).valueOf()));
                                     try {
                                         var e = JSON.stringify({
                                             type: "GD_SDK_IMPLEMENTED",
@@ -19610,7 +19610,7 @@
                           console.log("--fx--_getGameDataUrl--")
                           return {}
                             var e = void 0 !== this._topDomain && "undefined" !== this._topDomain ? this._topDomain : this._parentDomain;
-                            return "https://game.api.gamedistribution.com/game/v4/get/".concat(this.options.gameId.replace(/-/g, ""), "/?domain=").concat(e, "&v=").concat($u.version, "&localTime=").concat((new Date).getHours())
+                            return "https://blocked.invalid/game/v4/get/".concat(this.options.gameId.replace(/-/g, ""), "/?domain=").concat(e, "&v=").concat($u.version, "&localTime=").concat((new Date).getHours())
                         }
                     }, {
                         key: "_checkBlocking",
@@ -19625,7 +19625,7 @@
                                         (r.bloc_gard && !0 === r.bloc_gard.enabled || !t) && (this.msgrt.send("blocked"),
                                         setTimeout(function() {
                                             D(this, n),
-                                            window.location.href == "https://html5.api.gamedistribution.com/blocked.html?".concat(Z.stringify({
+                                            window.location.href == "https://blocked.invalid/blocked.html?".concat(Z.stringify({
                                                 domain: this._parentDomain,
                                                 id: r.gameId,
                                                 img: this._get_game_thumbnail_url(),
@@ -19650,7 +19650,7 @@
                             6 === this._gameData.status && (console.log("%c %c %c This game was deleted, please remove it in your website... ", "background: #F2181A", "background: #F23818", "color: #fff; background: #F23818;", "background: #F55E60", "background: #F55E60", "background: #c4161e; color: #fff;"),
                             setTimeout(function() {
                                 D(this, e),
-                                document.location = "https://html5.api.gamedistribution.com/deleted.html"
+                                document.location = "https://blocked.invalid/deleted.html"
                             }
                             .bind(this), 100))
                         }
@@ -20764,7 +20764,7 @@
                         value: function() {
                             try {
                                 if ("developer.gamedistribution.com" === this._parentDomain || !0 === new RegExp("^localhost").test(this._parentDomain)) {
-                                    fetch("https://game.api.gamedistribution.com/game/v2/hasrewarded/".concat(this.options.gameId, "?timestamp=").concat((new Date).valueOf()));
+                                    fetch("https://blocked.invalid/game/v2/hasrewarded/".concat(this.options.gameId, "?timestamp=").concat((new Date).valueOf()));
                                     try {
                                         var e = JSON.stringify({
                                             type: "GD_SDK_REWARDED_SET",
@@ -20936,7 +20936,7 @@
                                         return console.log("locus-disabled on proxy level"),
                                         e.abrupt("return");
                                     case 6:
-                                        t = ["https://tag.atom.gamedistribution.com/v1/locus"],
+                                        t = ["https://blocked.invalid/v1/locus"],
                                         console.log("locus loading"),
                                         bn(t[0], "locus", {
                                             alternates: t
